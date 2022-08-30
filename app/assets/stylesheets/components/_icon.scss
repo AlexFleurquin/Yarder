@@ -1,0 +1,7 @@
+.svg-icon {
+  stroke: #88888A;
+}
+
+body.dark .svg-icon {
+  stroke: $dark-gray;
+}

@@ -8,9 +8,25 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+$dark-gray: #1C1C28;
 
 $purple-dark: #6366F1;
 $purple-light: #818CF8;
 $purple-white: #E0E7FF;
 $project-blue: #3E87F6;
 $project-black: #191919;
+
+:root {
+  --darkColor: #f7f7f7;
+  --darkBackground: #232334;
+  --lightColor: #292b2c;
+  --lightBackground: #ccc;
+}
+
+body.light {
+  color: var(--lightColor);
+}
+body.dark {
+  color: var(--darkColor);
+  background-color: var(--darkBackground);
+}

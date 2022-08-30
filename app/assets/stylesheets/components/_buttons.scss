@@ -1,0 +1,12 @@
+.btn-form {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $purple-light;
+  transition: background 0.3s ease;
+}
+
+.btn-form:hover {
+  background: $purple-dark;
+  color: white;
+}

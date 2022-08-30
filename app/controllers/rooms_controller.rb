@@ -7,46 +7,34 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
-    def new
-      @room = Room.new
-    end
+  def new
+    @project = Project.find(params[:project_id])
+    @room = Room.new
+  end
 
-    def create
-      @room = Room.new(room_params)
-      @room.project_id = params(:project_id)
+  def create
+    @project = Project.find(params[:project_id])
+    list = params["room"]["room_type"]
+    clean_list = list[1..list.length - 1]
+    clean_list.each do |room|
+      @room = Room.new(room_type: room)
+      @room.project = @project
+      @room.photos = params["room"]["photos"]
       if @room.save
-        flash[:notice] = "Votre pièce a été créée !"
-        redirect_to bike_path(@bike)
+        redirect_to project_path(@project)
       else
-        flash[:alert] = "Erreur ! Votre pièce n'a pas été créée"
         render :new, status: :unprocessable_entity
       end
     end
+  end
 
   def edit
-    @room = Room.find(params[:id])
   end
 
   def update
-    @room = Room.find(params[:id])
-    if @room.update(room_params)
-      flash[:notice] = "Votre pièce a été modifiée !"
-    else
-      flash[:alert] = "Erreur ! Votre pièce n'a pas été modifiée"
-    end
-    redirect_to #Ou est ce que je redirect?
   end
+
 
   def destroy
-    @room = Room.find(params[:id])
-    @room.destroy
-    flash[:notice] = "Votre pièce a été détruite"
-    redirect_to project_path(@room), status: :see_other #Est ce la bonne redicretion?
-  end
-
-  private
-
-  def room_params
-    params.require(:room).permit(:room_type, :photos)
   end
 end

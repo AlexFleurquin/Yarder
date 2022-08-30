@@ -1,2 +1,13 @@
 <h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+
+<ul>
+<li><%= @project.name %></li>
+<li><%= @project.address %></li>
+<li><%= @project.building_type %></li>
+<li><%= @project.construction_year %></li>
+<li><%= @project.urgency %></li>
+<li><%= @project.budget %> €</li>
+<li><%= @project.description %></li>
+</ul>
+
+<%= render "shared/rooms" %>

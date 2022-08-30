@@ -1,0 +1,34 @@
+.btn-black {
+  color: white;
+  font-size: larger;
+  text-decoration: none;
+  background: $project-black;
+  border-radius: 4px;
+  padding: 12px 40px;
+
+  &:hover {
+    background-color: $purple-white;
+  }
+}
+
+.img-signup {
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 110vh;
+  margin: 8px;
+  width: auto;
+}
+
+.img-login {
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 100%;
+  margin: 8px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.form-inputs input {
+    border-color: $purple-light;
+    border-radius: 4px;
+  }

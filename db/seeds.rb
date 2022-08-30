@@ -14,7 +14,7 @@ user2.photo.attach(io: URI.open("https://media-exp1.licdn.com/dms/image/C4E03AQE
 user1.save!
 user2.save!
 
-project1 = Project.new(user_id: user2.id, name: 'Mon premier Projet')
+project1 = Project.new(user_id: user2.id, name: 'Mon premier Projet', address: "16 villa Gaudelet, 75011 Paris", building_type: "Immeuble", construction_year: "1969", urgency: "Moins de 6 mois", budget: 6900, description: "Charmant immeuble avec grande capacité")
 project1.photo.attach(io: URI.open("https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") , filename: "Project1.png", content_type: "image/png")
 project1.save!
 
@@ -26,7 +26,8 @@ room1.photos.attach(io: URI.open("https://images.unsplash.com/photo-1550223026-0
 room2.photos.attach(io: URI.open("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") , filename: "room2.png", content_type: "image/png")
 room2.photos.attach(io: URI.open("https://images.unsplash.com/photo-1604709177225-055f99402ea3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") , filename: "room2.png", content_type: "image/png")
 room2.photos.attach(io: URI.open("https://images.unsplash.com/photo-1564540583246-934409427776?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80") , filename: "room2.png", content_type: "image/png")
-
+room1.save!
+room2.save!
 
 participation1 = Participation.create!(user_id: user1.id, project_id: project1.id)
 

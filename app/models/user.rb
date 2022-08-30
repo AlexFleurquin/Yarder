@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :professionals_participations, through: :projects, source: :participations
   has_many :professionals, through: :professionals_participations, source: :user
+
+  has_one_attached :photo
 end

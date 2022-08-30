@@ -5,29 +5,45 @@
     <% end %>
   </ul>
   <ul class="navbar-nav">
-    <li class="nav-item mx-4">Artisans</li>
-    <li class="nav-item">Particulier</li>
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to dashboard_path, class: "nav-link mx-2"  do %>
+          <span><%= render :partial => 'svg/home' %>Dashboard</span>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to projects_path, class: "nav-link mx-2"  do %>
+          <span><%= render :partial => 'svg/box' %>Projets</span>
+        <% end %>
+      </li>
+      <%= link_to dashboard_path do %>
+      <li class="nav-item">
+        <%= link_to dashboard_path, class: "nav-link mx-2"  do %>
+          <span><%= render :partial => 'svg/message' %>Messages</span>
+        <% end %>
+      </li>
+      <% end %>
+    <% else %>
+      <li class="nav-item mx-4">Artisans</li>
+      <li class="nav-item">Particulier</li>
+    <% end %>
   </ul>
   <ul class="navbar-nav">
     <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "Find a bike", bikes_path, class: "nav-link mx-2" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Add my bike", new_bike_path, class: "nav-link mx-2" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "My dashboard", dashboard_path, class: "nav-link mx-2" %>
-      </li>
-      <li class="nav-item dropdown">
+
       <% if current_user.photo.attached? %>
-        <%= image_tag (cl_image_path current_user.photo.key), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <% end %>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <%= link_to "Profile", "https://memegenerator.net/img/instances/68155132/move-along-nothing-to-see-here.jpg", class: "dropdown-item" %>
-          <%= link_to "Messages", "https://memegenerator.net/img/instances/68155132/move-along-nothing-to-see-here.jpg", class: "dropdown-item" %>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        <div class="nav-menu dropdown">
+          <span><i class="fa-solid fa-bars"></i></span>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Profile", "https://memegenerator.net/img/instances/68155132/move-along-nothing-to-see-here.jpg", class: "dropdown-item" %>
+            <%= link_to "Messages", "https://memegenerator.net/img/instances/68155132/move-along-nothing-to-see-here.jpg", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
         </div>
+      <% end %>
+
       </li>
     <% else %>
       <li class="nav-item mx-2">

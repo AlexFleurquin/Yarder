@@ -3,6 +3,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
+    @rooms = @project.rooms
   end
 
   def new
@@ -33,4 +35,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name, :address, :building_type, :construction_year, :urgency, :budget, :photo, :description)
   end
+
 end

@@ -1,0 +1,11 @@
+.hero h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 50px;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(84.08% 84.08% at 50% 50%, #2F91BB 0%, #000000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

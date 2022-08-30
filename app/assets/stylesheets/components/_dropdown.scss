@@ -4,5 +4,22 @@
 }
 
 .dropdown-item:hover {
-  font-weight: 800px;
+  font-weight: 500px;
+}
+
+body.dark .dropdown {
+  background-color: #393953;
+  border-color: $dark-gray;
+}
+
+body.dark .dropdown-menu {
+  background-color: #393953;
+}
+
+body.dark .dropdown-item {
+  color: white;
+}
+
+body.dark .dropdown-item:hover {
+  background-color: $dark-gray;
 }

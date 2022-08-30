@@ -1,0 +1,27 @@
+.nav_pills {
+  border-radius: 0px;
+}
+
+.nav-pills .nav-link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #14141C;
+}
+
+body.dark .nav-pills .nav-link {
+  color: var(--darkColor);
+}
+
+
+.nav-pills .nav-link.active {
+  background-color: white;
+  border-bottom: 1px solid #3E87F6;
+  color: #3E87F6;
+}
+
+body.dark .nav-pills .nav-link.active {
+  background-color: $dark-gray
+}

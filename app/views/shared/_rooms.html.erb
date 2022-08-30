@@ -1,8 +1,18 @@
-<h1>Voici les pièces de ce projet :</h1>
-<% @rooms.each do |room| %>
-  <%= room.room_type %>
-  <%#= link_to "Détruire cette pièce", destroy_room_path(room), class: "btn btn-danger" %>
-  <% room.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<div class="d-flex justify-content-between mt-5">
+  <h3>Pièces en rénovation</h3>
+  <%= link_to dashboard_path  do %>
+    <button type="button" class="btn btn-primary btn-sm">Ajouter une pièce</button>
   <% end %>
-<% end %>
+</div>
+<div class="cards-rooms">
+  <% @rooms.each do |room| %>
+    <div class="card-room">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfDF8MHx8&auto=format&fit=crop&w=800&q=60" alt="">
+      <%= room.room_type %>
+      <%#= link_to "Détruire cette pièce", destroy_room_path(room), class: "btn btn-danger" %>
+      <% room.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,2 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="hero py-5">
+    <h1>Suivez simplement et sereinement<br>vos projets de rénovation</h1>
+    <div class="py-3 d-flex justify-content-center">
+      <button type="button" class="btn btn-user btn-blue mx-3">Je suis un particulier</button>
+      <button type="button" class="btn btn-user btn-gray">Je suis un professionnel</button>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+    <div class="col">
+      <div class="card card-carousel">
+        <img src="https://images.unsplash.com/photo-1575517111478-7f6afd0973db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="...">
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-carousel">
+        <img src="https://images.unsplash.com/photo-1575517111478-7f6afd0973db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="...">
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-carousel">
+        <img src="https://images.unsplash.com/photo-1575517111478-7f6afd0973db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="...">
+      </div>
+    </div>
+  </div>
+
+  <%= render "testimonials" %>
+
+
+</div>

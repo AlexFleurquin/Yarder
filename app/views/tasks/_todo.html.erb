@@ -1,0 +1,29 @@
+<div class="bg-todo">
+  <div class="d-flex justify-content-between">
+    <h4>Tâches</h4>
+    <button type="button" class="btn btn-primary">Ajouter une tache</button>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <p>A faire</p>
+      <%# @tasks.each |task|  %>
+        <div class="task-card d-flex flex-column justify-content-between">
+          <div class="d-flex justify-content-between">
+            <h6>Pose de parquet</h6>
+            <span class="badge text-bg-dark">Peinture</span>
+          </div>
+          <div class="d-flex justify-content-between flex-direction-row">
+            <p><i class="fa-solid fa-calendar"></i> 02/09</p>
+            <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+          </div>
+        </div>
+      <%# end %>
+    </div>
+    <div class="col-4">
+    En cours
+    </div>
+    <div class="col-4">
+    Complété
+    </div>
+  </div>
+</div>

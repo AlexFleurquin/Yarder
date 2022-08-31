@@ -10,3 +10,18 @@ body.dark .header {
 .container-header {
   padding-top: 130px;
 }
+
+.container-header-dashboard {
+  padding-top: 100px;
+  padding-bottom: 8px;
+}
+
+.header-project {
+  height: 70px;
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    margin-right: 16px;
+  }
+}

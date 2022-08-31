@@ -1,8 +1,13 @@
 
 <div class="header">
   <div class="container-header container">
-    <h1 class="fw-bold">Hello <%= current_user.first_name %> 🎉</h1>
-    <h6 class="welcome">Welcome back home !</h6>
+      <div class="d-flex flex-direction-row header-project">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="">
+        <div class="">
+          <h5><%= @project.name %></h5>
+          <p><%= @project.address %></p>
+        </div>
+    </div>
     <nav class="mt-5">
       <div class="nav nav-pills" id="nav-tab" role="tablist">
         <button class="nav-link nav-link-dashboard active" id="nav-bookings-tab" data-bs-toggle="tab" data-bs-target="#nav-overview" type="button" role="tab" aria-controls="nav-overview" aria-selected="true">Synthèse</button>

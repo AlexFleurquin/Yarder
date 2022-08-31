@@ -14,7 +14,7 @@
   <body class="<%= cookies[:theme] %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <div class="wrapper">
+    <div class="content-wrapper">
       <%= yield %>
     </div>
     <% if user_signed_in? %>

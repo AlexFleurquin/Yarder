@@ -78,9 +78,30 @@ body.dark .card-room {
   border-radius: 12px;
 }
 
+.card-project:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card-project {
+  background: $dark-gray;
+  border: 1px solid $dark-gray;
+
+}
+
+
 .card-project img {
   border-radius: 8px;
   width: 305px;
   height: 157px;
   object-fit: cover;
+}
+
+.link-card {
+  text-decoration: none;
+  color: $gray;
+}
+
+.link-card:hover {
+  text-decoration: none;
+  color: $gray;
 }

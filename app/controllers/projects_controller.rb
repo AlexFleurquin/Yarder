@@ -11,6 +11,14 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @rooms = @project.rooms
+    @markers = @project.geocode do
+      {
+        lat: project.latitude,
+        lng: project.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { project: project }),
+        image_url: helpers.asset_url("house-solid")
+      }
+    end
   end
 
   def new

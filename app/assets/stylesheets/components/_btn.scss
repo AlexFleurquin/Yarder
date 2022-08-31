@@ -17,3 +17,29 @@
 .btn-blue {
   background: $blue;
 }
+
+.btn-black {
+  color: white;
+  font-size: larger;
+  text-decoration: none;
+  background: $project-black;
+  border-radius: 4px;
+  padding: 12px 40px;
+
+  &:hover {
+    background-color: $purple-white;
+  }
+}
+
+.btn-show-room {
+  background: $purple-dark;
+  border-radius: 4px;
+  color: white;
+  margin: 10px;
+  padding: 3px 12px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $purple-white;
+  }
+}

@@ -28,13 +28,14 @@ class RoomsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
-
   def update
+    @room = Room.find(params[:id])
+    @room.update(name: params[:name])
   end
 
   def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_to project_path(@room.project), status: :see_other
   end
 end

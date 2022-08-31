@@ -1,34 +1,3 @@
-<%= link_to "Retour aux pièces", project_path(@room.project, active: "piece") %>
-
-<%= link_to "Modifier cette pièce", edit_room_path(@room.project, @room) %>
-
-
-<div class="container">
-  <%= @room.room_type %>
-  <% if @room.photos.count != 0 %>
-    <% @room.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% else %>
-    <i class="fas fa-image"></i>
-  <% end %>
-  Placeholder de la Description de la piece + Placeholder parametres de la pièce
-
-  <div class="row">
-    Placeholder Tasks de la room
-  </div>
-  <div class="row">
-    <div class="col-4">
-    A faire
-    </div>
-    <div class="col-4">
-    En cours
-    </div>
-    <div class="col-4">
-    Complété
-    </div>
-  </div>
-  <div class="row">Ajouter une tache</div>
-
-
+<div class="container container-new">
+  <%= render "tasks/todo" %>
 </div>

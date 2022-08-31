@@ -1,4 +1,4 @@
-<%= link_to "Retour aux pièces", project_path(@room.project) %>
+<%= link_to "Retour aux pièces", project_path(@room.project, active: "piece") %>
 
 <%= link_to "Modifier cette pièce", edit_room_path(@room.project, @room) %>
 

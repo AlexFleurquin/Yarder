@@ -20,12 +20,9 @@ class RoomsController < ApplicationController
       @room = Room.new(name: room, room_type: room)
       @room.project = @project
       @room.photos = params["room"]["photos"]
-      if @room.save
-        redirect_to project_path(@project)
-      else
-        render :new, status: :unprocessable_entity
-      end
+      @room.save!
     end
+    redirect_to project_path(@project)
   end
 
   def edit

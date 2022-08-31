@@ -104,3 +104,9 @@ body.dark .card-room {
   text-decoration: none;
   color: $gray;
 }
+
+.professional-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}

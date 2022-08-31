@@ -110,3 +110,9 @@ body.dark .card-room {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.card-user {
+  background-color: white;
+  border-radius: 6px;
+  padding: 16px;
+}

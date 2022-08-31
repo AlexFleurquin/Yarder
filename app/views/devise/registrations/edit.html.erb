@@ -1,13 +1,30 @@
-<div class="header">
-  <div class="container-header-dashboard container">
-  </div>
+<div class="container-header">
 </div>
 
 <div class="container">
-<!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-edit">
-    Modifier
-  </button>
+  <div class="card-user">
+  <!-- Button trigger modal -->
+    <div class="d-flex flex-direction-row justify-content-start">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle me-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+    </div>
+
+      <% if current_user.is_pro %>
+        <span class="badge rounded-pill text-bg-dark">Professionnel</span>
+        <p><%= current_user.company %></p>
+        <p><%= current_user.email %></p>
+        <%= current_user.phone_number %>
+        <p><%= current_user.siret %></p>
+        <p><%= current_user.bio %></p>
+      <% else %>
+        <span class="badge rounded-pill text-bg-primary">Particulier</span>
+        <p><%= current_user.email %></p>
+        <%= current_user.phone_number %>
+      <% end %>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-edit">
+      Modifier
+    </button>
+  </div>
 
 </div>
 
@@ -16,7 +33,7 @@
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Edit <%= resource_name.to_s.humanize %></h2>
+        <h2 class="modal-title" id="exampleModalLabel">Modifier mon profil</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -33,34 +50,27 @@
             <%= f.input :password,
                         hint: "leave it blank if you don't want to change it",
                         required: false,
-                        input_html: { autocomplete: "new-password" } %>
+                        input_html: { autocomplete: "Nouveau mot de passe" } %>
             <%= f.input :password_confirmation,
                         required: false,
-                        input_html: { autocomplete: "new-password" } %>
+                        input_html: { autocomplete: "Confirmer mon nouveau mot de passe" } %>
             <%= f.input :current_password,
-                        hint: "we need your current password to confirm your changes",
+                        hint: "Nous avons besoin de votre mot de passe actuel pour modifier votre compte",
                         required: true,
-                        input_html: { autocomplete: "current-password" } %>
+                        input_html: { autocomplete: "Mot de passe actuel" } %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Update" %>
+          <div class="form-actions btn btn-primary">
+            <%= f.button :submit, "Modifier" %>
           </div>
         <% end %>
 
-        <h3>Cancel my account</h3>
+        <h6>Supprimer mon compte ?</h6>
 
         <div class="d-flex align-items-center">
-          <div>Unhappy?</div>
-          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
+          <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
         </div>
 
-        <%= link_to "Back", :back %>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

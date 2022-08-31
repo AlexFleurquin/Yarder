@@ -5,6 +5,15 @@ class Task < ApplicationRecord
 
   validates :end_date, comparison: { greater_than: :start_date }
   validates :status, inclusion: { in: STATUS_TYPES }
+  validates :start_time, :end_time, presence: true
 
-  acts_as_list
+  default_scope -> { order(:start_time) }  # Our meetings will be ordered by their start_time by default
+
+  def time
+    "#{start_time.strftime('%I:%M %p')} - #{end_time.strftime('%I:%M %p')}"
+  end
+
+  def multi_days?
+    (end_time.to_date - start_time.to_date).to_i >= 1
+  end
 end

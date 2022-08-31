@@ -1,40 +1,4 @@
-<div class="header">
-  <div class="container-header-dashboard container">
-    <h1 class="fw-bold">Hello <%= current_user.first_name %> 🎉</h1>
-    <p class="welcome">Welcome back home !</p>
-
-    <div class="banner-overview row">
-      <div class="col-3 d-flex justify-content-between align-items-center">
-        <div>
-          <h6>Propriétés</h6>
-          <span>1</span>
-        </div>
-        <span><%= render :partial => 'svg/property' %></span>
-      </div>
-      <div class="col-3 d-flex justify-content-between align-items-center">
-        <div>
-          <h6>Chantiers en cours</h6>
-          <span>1</span>
-        </div>
-        <span><%= render :partial => 'svg/chantier' %></span>
-      </div>
-      <div class="col-3 d-flex justify-content-between align-items-center">
-        <div>
-          <h6>Messages non vus</h6>
-          <span>1</span>
-        </div>
-        <span><%= render :partial => 'svg/messages' %></span>
-      </div>
-      <div class="col-3 d-flex justify-content-between align-items-center">
-        <div>
-          <h6>Paiements en attente</h6>
-          <span>1</span>
-        </div>
-        <span><%= render :partial => 'svg/paiement' %></span>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "header" %>
 
 <div class="container mt-5">
 <% if @projects.empty? %>

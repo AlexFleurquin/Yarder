@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
     list = params["room"]["room_type"]
     clean_list = list[1..list.length - 1]
     clean_list.each do |room|
-      @room = Room.new(room_type: room)
+      @room = Room.new(name: room, room_type: room)
       @room.project = @project
       @room.photos = params["room"]["photos"]
       if @room.save
@@ -29,6 +29,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update

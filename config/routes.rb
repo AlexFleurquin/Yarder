@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[create update destroy]
   end
   get "dashboard", to: "dashboards#mydashboard", as: "dashboard"
-  delete "rooms/:id", to: "rooms#destroy", as: "destroy_room"
+  get "/projects/:project_id/rooms/:id/edit", to: "rooms#edit", as: "edit_room"
+  get "rooms/:room_id/delete_photo/:photo", to: "rooms#delete_photo", as: "delete_photo"
 end

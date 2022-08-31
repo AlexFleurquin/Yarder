@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Pièces en rénovation</h1>
+  <div class="row">
+    <% @rooms.each do |room| %>
+      <div class="col-3">
+        <%= room.room_type %>
+        <% if room.photos.count != 0 %>
+        <%= cl_image_tag room.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+        <i class="fas fa-image"></i>
+        <% end %>
+      </div>
+      <div class="col-9">
+        <h2>Dernières taches ajoutées</h2>
+        Placeholder task description  -  task piece
+
+        <%= link_to "En savoir plus", project_room_path(room.project, room) %>
+      </div>
+    <% end %>
+  </div>
+</div>

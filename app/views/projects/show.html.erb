@@ -12,9 +12,9 @@
       <div class="nav nav-pills" id="nav-tab" role="tablist">
         <button class="nav-link nav-link-dashboard <%= "active" unless params[:active] %>" id="nav-synthese-tab" data-bs-toggle="tab" data-bs-target="#nav-synthese" type="button" role="tab" aria-controls="nav-overview" aria-selected="true">Synthèse</button>
         <button class="nav-link nav-link-dashboard <%= "active" if params[:active] == "piece" %>" id="nav-pieces-tab" data-bs-toggle="tab" data-bs-target="#nav-pieces" type="button" role="tab" aria-controls="nav-rooms" aria-selected="true">Pièces</button>
-        <button class="nav-link nav-link-dashboard" id="nav-professionals-tab" data-bs-toggle="tab" data-bs-target="#nav-professionals" type="button" role="tab" aria-controls="nav-calendar" aria-selected="true">Planning</button>
-        <button class="nav-link nav-link-dashboard" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-craftmen" type="button" role="tab" aria-controls="nav-craftmen" aria-selected="true">Artisans</button>
-        <button class="nav-link nav-link-dashboard" id="nav-validations-tab" data-bs-toggle="tab" data-bs-target="#nav-documents" type="button" role="tab" aria-controls="nav-documents" aria-selected="true">Documents</button>
+        <button class="nav-link nav-link-dashboard" id="nav-planning-tab" data-bs-toggle="tab" data-bs-target="#nav-planning" type="button" role="tab" aria-controls="nav-planning" aria-selected="true">Planning</button>
+        <button class="nav-link nav-link-dashboard" id="nav-professionals-tab" data-bs-toggle="tab" data-bs-target="#nav-professionals" type="button" role="tab" aria-controls="nav-professionals" aria-selected="true">Artisans</button>
+        <button class="nav-link nav-link-dashboard" id="nav-documents-tab" data-bs-toggle="tab" data-bs-target="#nav-documents" type="button" role="tab" aria-controls="nav-documents" aria-selected="true">Documents</button>
       </div>
     </nav>
   </div>
@@ -69,9 +69,7 @@
 
     <div class="tab-pane fade" id="nav-professionals" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
       <section class="section">
-        <div class="d-flex justify-content-start align-items-center">
           <%= render "shared/professionals_index" %>
-
           </div>
         </div>
       </section>

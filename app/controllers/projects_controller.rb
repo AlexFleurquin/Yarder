@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @rooms = @project.rooms
+    @professionals = current_user.professionals
   end
 
   def new

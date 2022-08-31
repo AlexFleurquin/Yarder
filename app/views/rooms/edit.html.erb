@@ -1,0 +1,33 @@
+<div class="container">
+<h1>Modification de : <%= @room.room_type %></h1>
+  <% if @room.photos.count != 0 %>
+    <% @room.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= link_to "Supprimer", delete_photo_path(@room, photo) %>
+    <% end %>
+  <% else %>
+    <i class="fas fa-image"></i>
+  <% end %>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Ajouter des photos
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+              <%= simple_form_for [@room.project, @room] do |f| %>
+                <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                <%= f.submit "Ajouter des photos"%>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <br>
+  <%= link_to "Annuler", project_room_path(@room.project, @room) %>
+  <br>
+  <%= link_to "Valider", project_room_path(@room.project, @room) %>
+
+</div>

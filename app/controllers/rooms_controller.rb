@@ -29,12 +29,33 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @room = Room.find(params[:id])
+  end
+
+  def delete_photo
+    @room = Room.find(params[:room_id])
+    @room.photos.find(params[:photo]).purge
+    redirect_to edit_room_path(@room.project, @room)
   end
 
   def update
+    @room = Room.find(params[:id])
+    authorize @room
+    if @room.update(room_params)
+      flash[:notice] = "Votre pièce a été mise à jour"
+    else
+      flash[:alert] = "Erreur ! Votre pièce n'a pas pu etre mise à jour"
+    end
+    redirect_to room_path(@room)
   end
 
 
   def destroy
+  end
+
+  private
+
+  def room_params
+    params.require(:room).permit(:room_type, :name)
   end
 end

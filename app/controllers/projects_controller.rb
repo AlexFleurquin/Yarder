@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @rooms = @project.rooms
+    @professionals = current_user.professionals
     @markers = @project.geocode do
       {
         lat: project.latitude,
@@ -19,6 +20,7 @@ class ProjectsController < ApplicationController
         image_url: helpers.asset_url("house-solid")
       }
     end
+    
   end
 
   def new

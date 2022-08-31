@@ -1,0 +1,20 @@
+.banner-overview {
+  box-sizing: border-box;
+  width: 940px;
+  height: 90px;
+  left: 56px;
+  top: 209px;
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  border-radius: 8px;
+  margin-bottom: 28px;
+  margin-top: 28px;
+  padding: 16px;
+}
+
+.border-item-banner {
+  border: 1px solid #E6E6E6;
+  transform: matrix(0, 1, 1, 0, 0, 0);
+  width: 60px;
+  height: 0px;
+}

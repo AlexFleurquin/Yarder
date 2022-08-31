@@ -1,11 +1,1 @@
-<%= simple_form_for(@project) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :building_type, collection: Project::BUILDING_TYPES %>
-  <%= f.input :construction_year %>
-  <%= f.input :urgency, collection: Project::URGENCIES %>
-  <%= f.input :budget %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Suivant", class: "btn-form" %>
-<% end %>
+<%= render 'projects/form', project: @project %>

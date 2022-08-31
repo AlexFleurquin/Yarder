@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
     list = params["room"]["room_type"]
     clean_list = list[1..list.length - 1]
     clean_list.each do |room|
-      @room = Room.new(room_type: room)
+      @room = Room.new(name: room, room_type: room)
       @room.project = @project
       @room.photos = params["room"]["photos"]
       if @room.save
@@ -49,8 +49,10 @@ class RoomsController < ApplicationController
     redirect_to room_path(@room)
   end
 
-
   def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_to project_path(@room.project), status: :see_other
   end
 
   private

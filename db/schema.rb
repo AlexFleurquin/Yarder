@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_095751) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_101334) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_095751) do
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["project_id"], name: "index_rooms_on_project_id"
   end
 
@@ -78,10 +79,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_095751) do
     t.date "end_date"
     t.text "description"
     t.bigint "room_id", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.bigint "user_id"
     t.index ["room_id"], name: "index_tasks_on_room_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
@@ -113,5 +114,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_095751) do
   add_foreign_key "projects", "users"
   add_foreign_key "rooms", "projects"
   add_foreign_key "tasks", "rooms"
-  add_foreign_key "tasks", "users"
 end

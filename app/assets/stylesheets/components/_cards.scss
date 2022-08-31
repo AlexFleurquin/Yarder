@@ -1,0 +1,86 @@
+.card-params {
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #DDDDDD;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+body.dark .card-params {
+  border: 1px solid $dark-gray;
+  background-color: $dark-card;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: px;
+  border: 2 solid;
+  border-radius: 6px;
+  border-color: gray;
+}
+
+.cards-rooms {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px;
+}
+
+.card-room {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  width: 313px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(126, 126, 126, 0.25);
+  border-radius: 8px;
+}
+
+.card-room-img {
+  background: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfDF8MHx8&auto=format&fit=crop&w=800&q=60');
+  border-radius: 8px 8px 0px 0px;
+  height: 313px;
+  width: 313px;
+  object-fit: cover;
+}
+
+.card-room-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+body.dark .card-room {
+  color: --darkColor;
+  border: 1px solid $dark-gray;
+  background-color: $dark-card;
+}
+
+.card-project {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 24px;
+  width: 353px;
+  height: 418px;
+  left: 56px;
+  top: 484px;
+  background: #FFFFFF;
+  border: 1px solid #EAECEE;
+  box-shadow: 0px 4px 8px rgba(126, 126, 126, 0.25);
+  border-radius: 12px;
+}
+
+.card-project img {
+  border-radius: 8px;
+  width: 305px;
+  height: 157px;
+  object-fit: cover;
+}

@@ -1,0 +1,12 @@
+.header {
+  background-color: white;
+}
+
+body.dark .header {
+    color: var(--darkColor);
+    background-color: $dark-gray
+}
+
+.container-header {
+  padding-top: 130px;
+}

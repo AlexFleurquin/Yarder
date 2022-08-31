@@ -36,6 +36,9 @@ gem "jbuilder"
 # Use Geocoding
 gem "geocoder"
 
+# Use simple calendar
+gem "simple_calendar", "~> 2.4"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

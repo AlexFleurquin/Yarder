@@ -1,6 +1,7 @@
 puts "Deleting previous seed..."
 
 Participation.destroy_all
+Room.destroy_all
 Project.destroy_all
 User.destroy_all
 
@@ -14,12 +15,12 @@ user2.photo.attach(io: URI.open("https://media-exp1.licdn.com/dms/image/C4E03AQE
 user1.save!
 user2.save!
 
-project1 = Project.new(user_id: user2.id, name: 'Mon premier Projet', address: "16 villa Gaudelet, 75011 Paris", building_type: "Immeuble", construction_year: "1969", urgency: "Moins de 6 mois", budget: 6900, description: "Charmant immeuble avec grande capacité")
+project1 = Project.new(user_id: user2.id, name: 'Mon premier Projet', address: "16 villa Gaudelet, 75011 Paris", building_type: "Immeuble", construction_year: "1969", urgency: "Pas de date fixée", budget: 6900, description: "Charmant immeuble avec grande capacité")
 project1.photo.attach(io: URI.open("https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") , filename: "Project1.png", content_type: "image/png")
 project1.save!
 
-room1 = Room.new(room_type: "Cuisine", project_id: project1.id)
-room2 = Room.new(room_type: "Salle de Bain", project_id: project1.id)
+room1 = Room.new(name: "Ma cuisine", room_type: "Cuisine", project_id: project1.id)
+room2 = Room.new(name: "Ma salle de bain", room_type: "Salle de bains ou toilettes", project_id: project1.id)
 room1.photos.attach(io: URI.open("https://images.unsplash.com/photo-1556912173-3bb406ef7e77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") , filename: "room1.png", content_type: "image/png")
 room1.photos.attach(io: URI.open("https://images.unsplash.com/photo-1556912173-46c336c7fd55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80") , filename: "room1.png", content_type: "image/png")
 room1.photos.attach(io: URI.open("https://images.unsplash.com/photo-1550223026-0d6fd780c560?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") , filename: "room1.png", content_type: "image/png")

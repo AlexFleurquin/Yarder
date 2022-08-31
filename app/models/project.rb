@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  BUILDING_TYPES = ['Appartement', 'Maison']
+  BUILDING_TYPES = ['Appartement', 'Maison', 'Immeuble']
   URGENCIES = ['Urgent', 'Dans moins d\'un mois', 'Dans plus d\'un mois', 'Pas de date fixée']
   belongs_to :user
   has_many :rooms

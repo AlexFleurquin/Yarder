@@ -19,11 +19,14 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-bookings" role="tabpanel" aria-labelledby="nav-bookings-tab" tabindex="0">
       <section class="section row">
-        <div class="col-7">
-          <h2>Bienvenue à <%= @project.name %></h2>
+        <div class="col-5">
+          <h2>Bienvenue à à la maison</h2>
+          <h3 class="mt-5">Description</h3>
           <p><%= @project.description %></p>
         </div>
-        <div class="col-5 card-params">
+        <div class="col-3 card-params">
+        </div>
+        <div class="col-4 card-params">
           <h6>Paramètre du projet</h6>
           <p><i class="fa-solid fa-location-dot px-3"></i><%= @project.address %></p>
           <div class="card-grid">

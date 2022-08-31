@@ -37,7 +37,6 @@
 </div>
 
 <div class="container mt-5">
-<h3>Mes projets en cours</h3>
 <% if @projects.empty? %>
     <div>
       <div>
@@ -46,13 +45,14 @@
             <div>
               <h3>Pas encore de projet ?</h3>
               <p>Créer votre projet en quelques clics</p>
-              <%= link_to "Créer mon projet", new_project_path, class: "btn btn-outline-dark" %>
+              <%= link_to "Créer mon projet", new_project_path, class: "btn btn-form" %>
             </div>
           </div>
         </section>
       </div>
     </div>
 <% else %>
+<h3>Mes projets en cours</h3>
   <% @projects.each do |project| %>
     <div class="card-project mt-5">
       <%= link_to project_path(project), class: 'link-card' do %>

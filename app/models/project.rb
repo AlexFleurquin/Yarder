@@ -10,4 +10,6 @@ class Project < ApplicationRecord
   validates :construction_year, :budget, numericality: true
   validates :building_type, inclusion: { in: BUILDING_TYPES }
   validates :urgency, inclusion: { in: URGENCIES }
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

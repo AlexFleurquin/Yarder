@@ -1,5 +1,4 @@
 <%= simple_form_for [@project, @room] do |f| %>
   <%= f.input :room_type, as: :check_boxes, collection: Room::ROOM_TYPES %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Terminer"%>
 <% end %>

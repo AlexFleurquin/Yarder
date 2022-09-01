@@ -8,8 +8,14 @@ Rails.application.routes.draw do
 
   end
   resources :rooms, only: [] do
-    resources :tasks, only: %i[create update destroy]
+    resources :tasks, only: %i[create update destroy] do
+      member do
+        patch :move
+      end
+    end
   end
+
+  patch "tasks/:id/move", to: "tasks#move", as: "move"
   get "dashboard", to: "dashboards#mydashboard", as: "dashboard"
   get "/projects/:project_id/rooms/:id/edit", to: "rooms#edit", as: "edit_room"
   get "rooms/:room_id/delete_photo/:photo", to: "rooms#delete_photo", as: "delete_photo"

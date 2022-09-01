@@ -11,6 +11,7 @@
     <div class="col-8 header-show">
     <%= link_to "Retour aux pièces", project_path(@room.project, active: "pieces"), class: "btn btn-show-room" %>
     <%= link_to "Modifier cette pièce", edit_room_path(@room.project, @room), class: "btn btn-show-room" %>
+    <%= link_to "Supprimer cette pièce", project_room_path(@room.project, @room), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer cette pièce ?"}, class: "btn btn-show-room" %>
     </div>
   </div>
 

@@ -1,29 +1,72 @@
 <div class="bg-todo">
   <div class="d-flex justify-content-between">
     <h4>Tâches</h4>
-    <button type="button" class="btn btn-primary">Ajouter une tache</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newtask">
+      Ajouter une tache
+    </button>
   </div>
   <div class="row">
     <div class="col-4">
       <p>A faire</p>
-      <%# @tasks.each |task|  %>
-        <div class="task-card d-flex flex-column justify-content-between">
+      <div class="todo-section" data-controller="drag_and_drop">
+
+      <% @tasks.each do |task| %>
+        <a class="task-card d-flex flex-column justify-content-between link-card" data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
           <div class="d-flex justify-content-between">
-            <h6>Pose de parquet</h6>
+            <h6><%= task.name %></h6>
             <span class="badge text-bg-dark">Peinture</span>
           </div>
           <div class="d-flex justify-content-between flex-direction-row">
             <p><i class="fa-solid fa-calendar"></i> 02/09</p>
             <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
           </div>
+        </a>
+        <div class="modal fade" id="task-<%= task.id %>" tabindex="-1" aria-labelledby="task-<%= task.id %>" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newtaskLabel">Détails de la tâche</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p><%= task.name %></p>
+              <p><%= task.description %></p>
+              <p><%= task.start_date %></p>
+              <p><%= task.end_date %></p>
+                <%= link_to room_task_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+                  <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-xmark px-2"></i>Supprimer</button>
+                <% end %>
+            </div>
+          </div>
         </div>
-      <%# end %>
+      </div>
+      <% end %>
+      </div>
     </div>
     <div class="col-4">
     En cours
     </div>
     <div class="col-4">
     Complété
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="newtask" tabindex="-1" aria-labelledby="newtask" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newtaskLabel">Nouvelle tâche</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@room, @task] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.submit "Ajouter", class: "btn-form" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

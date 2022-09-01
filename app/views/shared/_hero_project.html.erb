@@ -1,4 +1,26 @@
-<h2>Bienvenue à la maison</h2>
+
+<div class="d-flex justify-content-between">
+  <h2>Bienvenue à la maison</h2>
+  <div class="dropdown">
+
+    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <h6>
+        <i class="fa-solid fa-ellipsis"></i>
+      </h6>
+    </a>
+
+    <ul class="dropdown-menu">
+      <%= link_to edit_project_path(@project), class: 'text-decoration-none' do %>
+        <li><p class="dropdown-item"><i class="fa-solid fa-pen pe-2"></i>Modifier</p></li>
+      <% end %>
+      <%= link_to project_path(@project), class: 'text-decoration-none', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <li><p class="dropdown-item"><i class="fa-solid fa-trash pe-2"></i>Supprimer</p></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
 <div class="d-flex col-7 img-size" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @project.photo.key %>'); position: relative;">
   <p style="position: absolute; bottom: 0px; left: 0px; color: white;"><i class="fa-solid fa-location-dot px-3"></i><%= @project.address %></p>
   <p style="position: absolute; bottom: 30px; right: 5px; color: white;"><%= @rooms.count %> pièces à rénover</p>

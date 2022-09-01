@@ -1,7 +1,7 @@
 <div class="bg-todo">
   <div class="d-flex justify-content-between">
     <h4>Tâches</h4>
-    <button type="button" class="btn-show-room" data-bs-toggle="modal" data-bs-target="#newtask">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newtask">
       Ajouter une tache
     </button>
   </div>
@@ -27,19 +27,23 @@
       <% @tasks.order(position: :asc).each do |task| %>
         <div class="modal fade" id="task-<%= task.id %>" tabindex="-1" aria-labelledby="task-<%= task.id %>" aria-hidden="true">
           <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content rounded-4">
               <div class="modal-header">
-                <h5 class="modal-title" id="newtaskLabel">Détails de la tâche</h5>
+                <h4 class="modal-title" id="newtaskLabel"><%= task.name %></h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <p><%= task.name %></p>
+                <h6>Description</h6>
                 <p><%= task.description %></p>
-                <p><%= task.start_date %></p>
-                <p><%= task.end_date %></p>
+                <div class="d-flex justify-content-between">
+                  <p>Début: <%= task.start_date %></p>
+                  <p>Fin : <%= task.end_date %></p>
+                </div>
+                <div class="d-flex justify-content-end">
                   <%= link_to room_task_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
                     <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-xmark px-2"></i>Supprimer</button>
                   <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -67,9 +71,9 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@room, @task] do |f| %>
-          <%= f.input :name %>
-          <%= f.input :description %>
-          <%= f.submit "Ajouter", class: "btn-form" %>
+          <%= f.input :name, label: 'Titre', required: false, autofocus: true, :label_html => { :class => 'label' } %>
+          <%= f.input :description, label: 'Description', required: false, autofocus: true, :label_html => { :class => 'label' } %>
+          <%= f.submit "Ajouter", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>

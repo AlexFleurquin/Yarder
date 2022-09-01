@@ -5,7 +5,6 @@ class Task < ApplicationRecord
 
   acts_as_list
 
-
   # validates :end_date, comparison: { greater_than: :start_date }
   validates :status, inclusion: { in: STATUS_TYPES }
 

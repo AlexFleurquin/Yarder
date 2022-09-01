@@ -8,6 +8,12 @@ class TasksController < ApplicationController
     redirect_to project_room_path(@room.project, @room)
   end
 
+  def move
+    @task = Task.find(params[:id])
+    @task.insert_at(params[:position].to_i)
+    head :ok
+  end
+
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)

@@ -37,7 +37,10 @@
 </div>
 
 <div class="container mt-5">
-<h3>Mes projets en cours</h3>
+  <div class="d-flex justify-content-between mt-5">
+    <h3>Mes projets en cours</h3>
+    <a class="btn btn-primary btn-sm" href="/projects/new">Créer un nouveau projet</a>
+  </div>
 <% if @projects.empty? %>
     <div>
       <div>

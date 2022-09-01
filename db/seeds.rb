@@ -36,5 +36,6 @@ task1.save!
 task2.save!
 
 participation1 = Participation.create!(user_id: user1.id, project_id: project1.id)
+participation1.save!
 
 puts "Done!"

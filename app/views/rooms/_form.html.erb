@@ -1,6 +1,6 @@
 <%= simple_form_for [@project, @room] do |f| %>
   <%= f.input :room_type,
-            as: :radio_buttons,
+            as: :check_boxes,
             collection_wrapper_tag: 'div',
             collection_wrapper_class: 'category-wrapper',
             item_wrapper_class: 'category-item',

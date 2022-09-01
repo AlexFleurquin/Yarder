@@ -1,0 +1,77 @@
+.project_building_type {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project_building_type .form_check {
+  flex: 0 0 30%;
+}
+
+.new_project input[type="radio"] {
+  position: absolute;
+  transform: scale(0);
+}
+
+.new_project input[type="radio"] + label {
+  cursor: pointer;
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  border: 1px solid $purple-light;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  font-weight: bolder;
+  color: $purple-dark;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.new_project input[type="radio"]:checked + label {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid $purple-dark;
+}
+
+#project_building_type_appartement + label:before {
+  color: $purple-light;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 50px;
+  content: "\e4da";
+}
+
+#project_building_type_appartement:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+}
+
+
+#project_building_type_maison + label:before {
+  color: $purple-light;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 50px;
+  content: "\f015";
+}
+
+#project_building_type_maison:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+}
+
+
+#project_building_type_immeuble + label:before {
+  color: $purple-light;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 50px;
+  content: "\f64f";
+}
+
+#project_building_type_immeuble:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+}

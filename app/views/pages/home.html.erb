@@ -2,8 +2,11 @@
   <div class="hero py-5">
     <h1>Suivez simplement et sereinement<br>vos projets de rénovation</h1>
     <div class="py-3 d-flex justify-content-center">
-      <button type="button" class="btn btn-user btn-blue mx-3">Je suis un particulier</button>
-      <button type="button" class="btn btn-user btn-gray">Je suis un professionnel</button>
+      <% if user_signed_in? %>
+      <% else %>
+        <button type="button" class="btn btn-user btn-blue mx-3">Je suis un particulier</button>
+        <button type="button" class="btn btn-user btn-gray">Je suis un professionnel</button>
+      <% end %>
     </div>
   </div>
   <div class="row">

@@ -1,0 +1,43 @@
+<div class="container" data-controller="form-scroll" style="background: white; padding: 20px; border-radius: 10px">
+  <div class="row" style="margin-bottom: 20px">
+    <h1>Créer mon projet</h1>
+  </div>
+
+  <div class="wrapper" style="padding: 0 50px;height: 400px;position: relative;">
+    <%= simple_form_for(project) do |f| %>
+
+    <div class="div" data-form-scroll-target="form1">
+      <%= f.input :name, label: 'Commençons par donner un nom au projet:' %>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 500px;" data-action="click->form-scroll#nextPage2">Suivant</p>
+    </div>
+    <div class="div d-none" data-form-scroll-target="form2">
+      <%= f.input :building_type, as: :radio_buttons, class:"big-button", collection: Project::BUILDING_TYPES, label: 'Quel type de batiment rénovons nous ?' %>
+      <%= f.input :construction_year, label: "Avons nous l'année de construction ?" %>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 570px;" data-action="click->form-scroll#previousPage1">Retour</p>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 430px;" data-action="click->form-scroll#nextPage3">Suivant</p>
+    </div>
+    <div class="div d-none" data-form-scroll-target="form3">
+      <%= f.input :address,
+        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+        label: 'Adresse',
+        wrapper_html: {data: {controller: "address-autocomplete",
+        address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 570px;" data-action="click->form-scroll#previousPage2">Retour</p>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 430px;" data-action="click->form-scroll#nextPage4">Suivant</p>
+    </div>
+    <div class="div d-none" data-form-scroll-target="form4">
+      <%= f.input :urgency, collection: Project::URGENCIES, label: 'Combien de temps pour finir les travaux ?' %>
+      <%= f.input :budget %>
+      <%= f.input :description %>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 570px;" data-action="click->form-scroll#previousPage3">Retour</p>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 430px;" data-action="click->form-scroll#nextPage5">Suivant</p>
+    </div>
+    <div class="div d-none" data-form-scroll-target="form5">
+      <%= f.input :photo, as: :file, label: 'Une photo représentative du projet' %>
+      <p class="btn btn-show-room" style="position: absolute; bottom: 30px; right: 570px;" data-action="click->form-scroll#previousPage4">Retour</p>
+      <%= f.submit "Suivant", class: "btn btn-show-room", style: "position: absolute; bottom: 30px; right: 430px;" %>
+    </div>
+    <% end %>
+  </div>
+</div>

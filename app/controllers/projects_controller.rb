@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @rooms = @project.rooms
     @room = Room.new
+    @tasks = @room.tasks
     @professionals = current_user.professionals
     @markers = @project.geocode.map do
       {

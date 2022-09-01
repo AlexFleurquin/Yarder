@@ -3,6 +3,7 @@ class TasksController < ApplicationController
     @room = Room.find(params[:room_id])
     @task = Task.new(task_params)
     @task.room = @room
+    @task.status = "A faire"
     @task.save
     redirect_to project_room_path(@room.project, @room)
   end
@@ -22,6 +23,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:start_date, :end_date, :description, :status)
+    params.require(:task).permit(:start_date, :end_date, :name, :position, :description, :status)
   end
 end

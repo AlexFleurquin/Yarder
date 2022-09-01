@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <%# <div class="row">
       <div class="col-7" style="padding-right: 50px">
         <h4>Description</h4>
         <br>
@@ -79,7 +79,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> %>
 
-    <%= render "tasks/todo" %>
+    <%= render "tasks/todo", room: @room, task: @task %>
 </div>

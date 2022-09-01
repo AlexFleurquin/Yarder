@@ -30,6 +30,11 @@ room2.photos.attach(io: URI.open("https://images.unsplash.com/photo-156454058324
 room1.save!
 room2.save!
 
+task1 = Task.new(name: "Peindre le plafond", description: "Peindre le plafond de la pièce en blanc", room_id: room1.id, status: "A faire", position: 1)
+task2 = Task.new(name: "Mise en route compteur", description: "Mise en route compteur électrique", room_id: room1.id, status: "A faire", position: 2)
+task1.save!
+task2.save!
+
 participation1 = Participation.create!(user_id: user1.id, project_id: project1.id)
 
 puts "Done!"

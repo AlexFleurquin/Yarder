@@ -5,8 +5,8 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @tasks = @room.tasks
     @task = Task.new
+    @tasks = @room.tasks
   end
 
   def new

@@ -13,11 +13,11 @@ class ProjectsController < ApplicationController
     @rooms = @project.rooms
     @room = Room.new
     @professionals = current_user.professionals
-    @markers = @project.geocode do
+    @markers = @project.geocode.map do
       {
-        lat: project.latitude,
-        lng: project.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { project: project }),
+        lat: @project.latitude,
+        lng: @project.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { project: @project }),
         image_url: helpers.asset_url("house-solid")
       }
     end

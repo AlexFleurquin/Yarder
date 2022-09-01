@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @rooms = @project.rooms
+    @room = Room.new
     @professionals = current_user.professionals
     @markers = @project.geocode do
       {
@@ -20,7 +21,7 @@ class ProjectsController < ApplicationController
         image_url: helpers.asset_url("house-solid")
       }
     end
-    
+
   end
 
   def new

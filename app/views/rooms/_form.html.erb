@@ -1,0 +1,4 @@
+<%= simple_form_for [@project, @room] do |f| %>
+  <%= f.input :room_type, as: :check_boxes, collection: Room::ROOM_TYPES %>
+  <%= f.submit "Terminer"%>
+<% end %>

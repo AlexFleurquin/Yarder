@@ -72,16 +72,19 @@ body.dark .card-room {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 24px;
-  gap: 24px;
+  padding: 16px;
   width: 353px;
-  height: 418px;
-  left: 56px;
-  top: 484px;
   background: #FFFFFF;
   border: 1px solid #EAECEE;
   box-shadow: 0px 4px 8px rgba(126, 126, 126, 0.25);
   border-radius: 12px;
+
+  p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+  }
 }
 
 .card-project:hover {
@@ -91,13 +94,14 @@ body.dark .card-room {
 body.dark .card-project {
   background: $dark-gray;
   border: 1px solid $dark-gray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
 }
 
 
 .card-project img {
   border-radius: 8px;
-  width: 305px;
-  height: 157px;
+  height: 220px;
   object-fit: cover;
 }
 
@@ -109,6 +113,11 @@ body.dark .card-project {
 .link-card:hover {
   text-decoration: none;
   color: $gray;
+}
+
+body.dark .link-card {
+  text-decoration: none;
+  color: white;
 }
 
 .professional-cards {

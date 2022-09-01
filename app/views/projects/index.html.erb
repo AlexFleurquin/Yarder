@@ -37,43 +37,45 @@
 </div>
 
 <div class="container mt-5">
-  <div class="d-flex justify-content-between mt-5">
-    <h3>Mes projets en cours</h3>
-    <a class="btn btn-primary btn-sm" href="/projects/new">Créer un nouveau projet</a>
-  </div>
-<% if @projects.empty? %>
-    <div>
+  <% if @projects.empty? %>
       <div>
-        <section class="section">
-          <div class="d-flex justify-content-start align-items-center">
-            <div>
-              <h3>Pas encore de projet ?</h3>
-              <p>Créer votre projet en quelques clics</p>
-              <%= link_to "Créer mon projet", new_project_path, class: "btn btn-outline-dark" %>
+        <div>
+          <section class="section">
+            <div class="d-flex justify-content-start align-items-center">
+              <div>
+                <h3>Pas encore de projet ?</h3>
+                <p>Créer votre projet en quelques clics</p>
+                <%= link_to "Créer mon projet", new_project_path, class: "btn-show-room" %>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
-<% else %>
-  <% @projects.each do |project| %>
-    <div class="card-project mt-5">
-      <%= link_to project_path(project), class: 'link-card' do %>
-        <% if project.photo.attached? %>
-          <img class="card-img-top img-size" src="<%= cl_image_path project.photo.key %>" alt="Card image cap">
-        <% else %>
-          <img class="card-img-top img-size" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Villa">
-        <% end  %>
-        <div class="text-decoration-none">
-          <p class="card-text"><strong><%= project.name %></strong></p>
-          <p><%= project.description %></p>
+          </section>
         </div>
-        <p class="card-text"><em><%= project.urgency %></em></p>
-        <div class="d-flex justify-content-between">
-          <div class="d-flex"><span class="badge rounded-5 text-bg-dark mb-3"><%= project.budget %></span></div>
+      </div>
+  <% else %>
+    <div class="d-flex justify-content-between mt-5">
+      <h3>Mes projets en cours</h3>
+      <%= link_to "Ajouter un nouveau projet", new_project_path, class:"btn-form link-card text-white" %>
+    </div>
+    <div class="row gap-3">
+      <% @projects.each do |project| %>
+        <div class="col-3 card-project mt-5">
+          <%= link_to project_path(project), class: 'link-card' do %>
+            <% if project.photo.attached? %>
+              <img class="card-img-top img-size" src="<%= cl_image_path project.photo.key %>" alt="Card image cap">
+            <% else %>
+              <img class="card-img-top img-size" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Villa">
+            <% end  %>
+            <div class="text-decoration-none">
+              <p class="card-text"><strong><%= project.name %></strong></p>
+              <p><%= project.description %></p>
+            </div>
+            <p class="card-text"><em><%= project.urgency %></em></p>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex"><span class="badge rounded-5 text-bg-dark mb-3"><%= project.budget %></span></div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
   <% end %>
-<% end %>
 </div>

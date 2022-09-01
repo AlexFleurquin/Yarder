@@ -1,0 +1,21 @@
+ <div class="card-room">
+  <%= link_to project_room_path(room.project, room), class: 'link-card' do %>
+    <% if room.photos.attached? %>
+      <img class="card-img-top img-size" src="<%= cl_image_path room.photos.first.key %>" alt="Card image cap">
+    <% else %>
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfDF8MHx8&auto=format&fit=crop&w=800&q=60" class="card-room-img" alt="">
+    <% end  %>
+    <div class="card-room-content w-100">
+      <h6><%= room.room_type %></h6>
+      <p>Coût: 3000€</p>
+      <div class="d-flex justify-content-between flex-direction-row justify-content-between">
+        <p>3 tâches en cours</p>
+        <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+      </div>
+    </div>
+  <% end %>
+      <%#= link_to "Détruire cette pièce", destroy_room_path(room), class: "btn btn-danger" %>
+      <%# room.photos.each do |photo| %>
+      <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# end %>
+</div>

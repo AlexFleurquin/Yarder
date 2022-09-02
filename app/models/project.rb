@@ -2,9 +2,9 @@ class Project < ApplicationRecord
   BUILDING_TYPES = ['Appartement', 'Maison', 'Immeuble']
   URGENCIES = ['Urgent', ' 1 mois < ', ' > 1 mois', 'Pas de date fixée']
   belongs_to :user
-  has_many :rooms
-  has_many :participations
-  has_many :tasks, through: :rooms
+  has_many :rooms, dependent: :destroy
+  has_many :participations, dependent: :destroy
+  has_many :tasks, through: :rooms, dependent: :destroy
   has_one_attached :photo
   validates :name, :address, presence: true
   validates :construction_year, :budget, numericality: true

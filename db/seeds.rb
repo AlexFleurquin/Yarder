@@ -1,10 +1,10 @@
 puts "Deleting previous seed..."
 
 Participation.destroy_all
+Task.destroy_all
 Room.destroy_all
 Project.destroy_all
 User.destroy_all
-Task.destroy_all
 
 puts "Creating 2 users, 1 project, 2 rooms, 2 tasks, 3 photos for each room and 1 participation..."
 

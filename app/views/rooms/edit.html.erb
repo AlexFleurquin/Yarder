@@ -4,15 +4,19 @@
 </div>
 
 <div class="container" style="margin-top: 10px">
-  <h1>Modification de : <%= @room.name %></h1>
+  <h1>Modifier <%= @room.name %></h1>
   <div class="row" style="height: 300px; margin-bottom: 25px">
     <div class="col-6" style="height: 300px">
       <% if @room.photos.first do %>
         <%= cl_image_tag @room.photos.first.key, class: "photo-big" %>
-        <%= link_to "Supprimer", delete_photo_path(@room, photo) %>
+        <%= link_to delete_photo_path(@room, photo) %>
+          <button type="button" class="btn btn-primary">Supprimer</button>
         <% end %>
       <% else %>
-        <%= link_to "Ajouter votre première photo!", edit_room_path(@room.project, @room)%>
+        <%= link_to edit_room_path(@room.project, @room) do%>
+          <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Ajouter votre photo</button>
+        <% end %>
+
       <% end %>
     </div>
     <div class="col-6">
@@ -48,8 +52,12 @@
         </div>
       </div>
       <br>
-    <%= link_to "Annuler", project_room_path(@room.project, @room) %>
-    <br>
-    <%= link_to "Valider", project_room_path(@room.project, @room) %>
+    <%= link_to project_room_path(@room.project, @room) do %>
+      <p class="btn btn-show-room-back"><i class="fa-solid fa-xmark"></i></i> Annuler</p>
+    <% end %>
+
+    <%= link_to project_room_path(@room.project, @room) do %>
+      <button type="button" class="btn btn-primary"><i class="fa-solid fa-check"></i> Valider</button>
+    <% end %>
   </div>
 </div>

@@ -15,8 +15,8 @@
 
 .new_project input[type="radio"] + label {
   cursor: pointer;
-  height: 150px;
-  width: 150px;
+  height: 160px;
+  width: 160px;
   border-radius: 10px;
   border: 1px solid $purple-light;
   display: flex;
@@ -72,6 +72,64 @@
 }
 
 #project_building_type_immeuble:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+}
+
+/* Partie URGENCY selection */
+
+.project_urgency {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project_urgency .form_check {
+  flex: 0 0 20%;
+}
+
+/* Le style des 4 boxs selon l'ID du contenu */
+
+#project_urgency_urgent + label:before {
+  color: $purple-light;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+#project_urgency_urgent:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+}
+
+#project_urgency__1_mois__ + label:before {
+  color: $purple-light;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+#project_urgency__1_mois__:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+}
+
+#project_urgency___1_mois + label:before {
+  color: $purple-light;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+#project_urgency___1_mois:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+}
+
+#project_urgency_pas_de_date_fixée + label:before {
+  color: $purple-light;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+#project_urgency_pas_de_date_fixée:checked + label {
   background-color: $purple-white;
   border-color: $purple-dark;
 }

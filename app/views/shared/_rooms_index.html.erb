@@ -14,25 +14,29 @@
   </div>
   <div class="row">
     <div class="container">
-      <% @rooms.each do |room| %>
-        <div class="container">
-          <div class="row card-pieces">
-            <div class="col-3">
-              <div class="cards-rooms">
-                <%= render "shared/room_card_small", project: @project, room: room %>
+      <% if @rooms.empty? %>
+        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-room-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))" alt="Salon">
+      <% else %>
+        <% @rooms.each do |room| %>
+          <div class="container">
+            <div class="row card-pieces">
+              <div class="col-3">
+                <div class="cards-rooms">
+                  <%= render "shared/room_card_small", project: @project, room: room %>
+                </div>
+              </div>
+              <div class="col-9" style="padding: 20px 60px;">
+                <h4><div class="row">Dernières taches ajoutées</div></h4>
+                <div class="row card-pieces-row">Tache 1</div>
+                <div class="row card-pieces-row">Tache 2</div>
+                <div class="row card-pieces-row">Tache 3</div>
+                <div class="row" style="display: flex; justify-content: flex-end;"><%= link_to "En savoir plus", project_room_path(room.project, room), class: "btn btn-show-room", style: "width: 200px;" %></div>
               </div>
             </div>
-            <div class="col-9" style="padding: 20px 60px;">
-              <h4><div class="row">Dernières taches ajoutées</div></h4>
-              <div class="row card-pieces-row">Tache 1</div>
-              <div class="row card-pieces-row">Tache 2</div>
-              <div class="row card-pieces-row">Tache 3</div>
-              <div class="row" style="display: flex; justify-content: flex-end;"><%= link_to "En savoir plus", project_room_path(room.project, room), class: "btn btn-show-room", style: "width: 200px;" %></div>
-            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    </div>
+      </div>
   </div>
 </div>
 

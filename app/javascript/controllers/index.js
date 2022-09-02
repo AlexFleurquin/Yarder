@@ -18,3 +18,6 @@ application.register("map", MapController)
 
 import FormScrollController from "./form_scroll_controller"
 application.register("form-scroll", FormScrollController)
+
+import RoomsPhotoController from "./rooms_photo_controller"
+application.register("rooms-photo", RoomsPhotoController)

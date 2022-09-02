@@ -1,0 +1,147 @@
+.modal-header {
+  padding: 20px;
+}
+
+.category-wrapper  {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  flex: 0 0 20%;
+  height: 200px;
+  width: 100px;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  align-items: center;
+  background-color: white;
+  border: 1px solid $purple-light;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.category-selector:checked + label {
+  color: white !important;
+}
+
+
+#room_room_type_salon + label:before {
+  color: $purple-dark;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 50px;
+  content: "\f4b8";
+}
+
+#room_room_type_salon:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+  color: $project-black !important;
+}
+
+
+#room_room_type_chambre + label:before {
+  color: $purple-dark;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 50px;
+  content: "\f236";
+}
+
+#room_room_type_chambre:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+  color: $project-black !important;
+}
+
+
+#room_room_type_salle_de_bains_ou_toilettes + label:before {
+  color: $purple-dark;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 50px;
+  content: "\f2cd";
+}
+
+#room_room_type_salle_de_bains_ou_toilettes:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+  color: $project-black !important;
+}
+
+#room_room_type_cuisine + label:before {
+  color: $purple-dark;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 50px;
+  content: "\f2e7";
+}
+
+#room_room_type_cuisine:checked + label {
+  background-color: $purple-white;
+  border-color: $purple-dark;
+  color: $project-black !important;
+}
+
+.label {
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #475569;
+}
+
+.form-control  {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0px 1px 2px rgba(15, 23, 42, 0.04);
+  border-radius: 4px;
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: $gray;
+}
+
+.col-form-label {
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #475569;
+}
+
+.progress-bar {
+  background-color: #d04143;
+  background-image: linear-gradient(318deg, #d04143 0%, #C850C0 100%);
+}
+
+.btn-modal {
+  padding: 10px 60px;
+  margin-top: 50px;
+  background-color: $purple-white;
+  border: 1px solid $purple-light;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $purple-light;
+  }
+}

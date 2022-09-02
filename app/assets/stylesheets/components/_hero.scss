@@ -1,7 +1,7 @@
 .hero h1 {
   font-weight: 700;
   font-size: 48px;
-  line-height: 50px;
+  line-height: 60px;
   align-items: center;
   text-align: center;
   background: radial-gradient(84.08% 84.08% at 50% 50%, #2F91BB 0%, #000000 100%);
@@ -17,4 +17,41 @@ body.dark .hero h1 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
+}
+
+
+.bg-home {
+  background-color: white;
+}
+
+body.dark .bg-home {
+  background-color: #1C1C28;
+}
+
+.image-hero {
+  width: 800px;
+}
+
+.image-hero-2 {
+  width: 800px;
+}
+
+.featurette {
+  margin-top: 150px;
+}
+
+.demo-day {
+  color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 100px;
+  border-radius: 16px;
+}
+
+body.dark .demo-day {
+  color: black;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.demo-day:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

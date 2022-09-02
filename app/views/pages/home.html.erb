@@ -1,82 +1,91 @@
-<div class="container">
-  <div class="hero py-5">
-    <h1>Suivez simplement et sereinement<br>vos projets de rénovation</h1>
-    <div class="py-3 d-flex justify-content-center">
-      <% if user_signed_in? %>
-      <% else %>
-        <button type="button" class="btn btn-user btn-blue mx-3">Je suis un particulier</button>
-        <button type="button" class="btn btn-user btn-gray">Je suis un professionnel</button>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-4">
-      <div class="card-image rounded-4">
-        <img src="https://images.unsplash.com/photo-1575517111478-7f6afd0973db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" class="card-carousel w-100 shadow-lg" alt="...">
+<div class="bg-home">
+  <div class="container">
+    <div class="hero py-5">
+      <h1>Suivez simplement et sereinement<br>vos projets de rénovation</h1>
+      <div class="py-3 d-flex justify-content-center">
+        <% if user_signed_in? %>
+          <%= link_to dashboard_path, class: 'link-card' do %>
+            <button type="button" class="btn btn-user btn-gradient">Accéder à mon dashboard</button>
+          <% end %>
+        <% else %>
+          <button type="button" class="btn btn-user btn-blue mx-3">Je suis un particulier</button>
+          <button type="button" class="btn btn-user btn-gray">Je suis un professionnel</button>
+        <% end %>
       </div>
     </div>
-    <div class="col-4">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1575517111478-7f6afd0973db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" class="card-carousel w-100 shadow-lg" alt="...">
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" class=" card-carousel w-100 shadow-lg" alt="...">
-      </div>
-    </div>
-  </div>
-  <div class="container marketing py-5">
-    <div class="row featurette">
-        <div class="col-md-7 d-flex flex-column justify-content-center">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-          <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-        </div>
-        <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+    <div class="row py-5">
+      <div class="col-4">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1575517111478-7f6afd0973db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60" class="card-carousel w-100 shadow-lg rounded-4" alt="...">
         </div>
       </div>
-
-
-
+      <div class="col-4">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-carousel w-100 shadow-lg rounded-4" alt="...">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" class=" card-carousel w-100 shadow-lg rounded-4" alt="...">
+        </div>
+      </div>
+    </div>
+    <div class="container py-2">
       <div class="row featurette">
-        <div class="col-md-7 order-md-2 d-flex flex-column justify-content-center">
-          <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+          <div class="col-md-7 d-flex flex-column justify-content-center">
+            <h2 class="featurette-heading">Rénovez sans peur. <span class="text-muted">Suivez facilement votre rénovation.</span></h2>
+            <p class="lead">Gardez toujours un oeil sur l'évolution de votre projet.</p>
+          </div>
+          <div class="col-md-5">
+            <div>
+              <%= image_tag "Feature_1.png", class:"image-hero" %>
+            </div>
+          </div>
         </div>
-        <div class="col-md-5 order-md-1">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
 
+
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2 d-flex flex-column justify-content-center">
+            <h2 class="featurette-heading">Coordonnez facilement votre équipe. <span class="text-muted">Plannifiez vous-même les interventions.</span></h2>
+            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <div>
+              <%= image_tag "Feature_3.png" %>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row featurette">
+          <div class="col-md-7 d-flex flex-column justify-content-center">
+            <h2 class="featurette-heading">Gardez le contrôle. <span class="text-muted">Toujours un oeil sur votre budget.</span></h2>
+            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+          </div>
+          <div class="col-md-5">
+            <div>
+              <%= image_tag "Feature_1.png", class:"image-hero" %>
+            </div>
+          </div>
         </div>
       </div>
 
-
-
-      <div class="row featurette">
-        <div class="col-md-7 d-flex flex-column justify-content-center">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-        </div>
-        <div class="col-md-5">
-          <img src="../../assets/images/Feature_1.png" alt="" width="5OOpx">
-        </div>
+      <div class="overflow-hidden p-3 p-md-5 bg-dark text-center demo-day">
+      <div class="col-md-6 p-lg-6 mx-auto my-5">
+        <h1 class="display-4 fw-normal">Demo Day</h1>
+        <p class="lead fw-normal">Encore quelques jours avant le grand dévoilement.</p>
+        <a class="btn btn-user btn-gradient" href="#">Restez connecté 🍿</a>
       </div>
+      <div class="product-device shadow-sm d-none d-md-block"></div>
+      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light rounded-4">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal">Punny headline</h1>
-      <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
-      <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-    </div>
-    <div class="product-device shadow-sm d-none d-md-block"></div>
-    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+
+
+    <%#= render "testimonials" %>
+
+
   </div>
-
-
-
-  <%#= render "testimonials" %>
-
-
 </div>

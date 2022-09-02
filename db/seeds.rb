@@ -1,12 +1,12 @@
 puts "Deleting previous seed..."
 
 Participation.destroy_all
+Task.destroy_all
 Room.destroy_all
 Project.destroy_all
 User.destroy_all
-Task.destroy_all
 
-puts "Creating 2 users, 1 project, 2 rooms, 3 photos for each room and 1 participation..."
+puts "Creating 2 users, 1 project, 2 rooms, 2 tasks, 3 photos for each room and 1 participation..."
 
 
 user1 = User.new(first_name: 'Romain', last_name: 'Paillard', email: 'romain@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true)

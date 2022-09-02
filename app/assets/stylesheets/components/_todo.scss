@@ -1,5 +1,5 @@
 .bg-todo {
-  width: 1335px;
+  width: 1200px;
   margin-top: 48px;
   background-color: white;
   padding: 16px;
@@ -7,11 +7,15 @@
 }
 
 .task-card {
-  width: 400px;
+  width: 300px;
   height: 120px;
   padding: 12px;
   background-color: white;
   border-radius: 4px;
   margin-bottom: 6px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.colonne {
+  height: 250px;
 }

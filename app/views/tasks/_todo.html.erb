@@ -8,17 +8,19 @@
   <div class="row me-5" data-controller="drag" data-drag-animation-value="150" data-drag-name-value="task">
     <div class="col-4">
       <p class="ms-5">A faire</p>
-      <ul class="todo-section" data-drag-target="todo" >
+      <ul class="todo-section colonne" data-drag-target="todo" >
       <% @tasks.order(position: :asc).each do |task| %>
-        <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card">
+        <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card" style="position: relative;">
           <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
             <div class="d-flex justify-content-between">
               <h6><%= task.name %></h6>
-              <span class="badge text-bg-dark">Peinture</span>
+              <span class="badge text-bg-dark" style="position: absolute; right: 7px; top: 17px;">Peinture</span>
             </div>
             <div class="d-flex justify-content-between">
-              <p><i class="fa-solid fa-calendar"></i> 02/09</p>
-              <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+              <p style="position: absolute; bottom: 20px; left: 13px; font-size: 14px;"><em><strong>Date de fin:</strong> 9 sept. 22</em></p>
+              <p style="position: absolute; bottom: 9px; left: 13px; font-size: 13px; margin-bottom: 0px;"><i class="fa-solid fa-exclamation"></i><em>  plus que 1 sem.</em></p>
+              <img class="avatar" style="position: absolute; bottom: 3px; right: 7px;" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+              <p style="position: absolute; bottom: 3px; right: 60px; margin-bottom: 0px;"><i class="fa-regular fa-envelope"></i></p>
             </div>
           </a>
         </li>
@@ -35,12 +37,11 @@
               <div class="modal-body">
                 <h6>Description</h6>
                 <p><%= task.description %></p>
+                <p><h6>Date de début: <%= task.start_date %></h6></p>
+                <p><h6>Date de fin: <%= task.end_date %></h6></p>
                 <div class="d-flex justify-content-between">
-                  <p>Début: <%= task.start_date %></p>
-                  <p>Fin : <%= task.end_date %></p>
-                </div>
-                <div class="d-flex justify-content-end">
-                  <%= link_to room_task_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+                  <button>Associer un artisan</button>
+                  <%= link_to room_task_path(@room, task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
                     <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-xmark px-2"></i>Supprimer</button>
                   <% end %>
                 </div>
@@ -52,11 +53,11 @@
     </div>
     <div class="col-4">
       <p class="ms-5">En cours</p>
-      <ul data-drag-target="inProgress"></ul>
+      <ul data-drag-target="inProgress" class="colonne"></ul>
     </div>
     <div class="col-4">
       <p class="ms-5">Complété</p>
-      <ul data-drag-target="done"></ul>
+      <ul data-drag-target="done" class="colonne"></ul>
     </div>
   </div>
 </div>

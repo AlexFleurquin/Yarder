@@ -4,53 +4,38 @@
 </div>
 
 <div class="container" style="margin-top: 10px">
-  <h1>Modification de : <%= @room.name %></h1>
+  <h1>Modifier <%= @room.name %></h1>
   <div class="row" style="height: 300px; margin-bottom: 25px">
     <div class="col-6" style="height: 300px">
-      <% if @room.photos.first %>
+      <% if @room.photos.first do %>
         <%= cl_image_tag @room.photos.first.key, class: "photo-big" %>
+        <%= link_to delete_photo_path(@room, photo) %>
+          <button type="button" class="btn btn-primary">Supprimer</button>
+        <% end %>
       <% else %>
-        <%= link_to "Ajouter votre première photo!", edit_room_path(@room.project, @room)%>
+        <%= link_to edit_room_path(@room.project, @room) do%>
+          <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Ajouter votre photo</button>
+        <% end %>
+
       <% end %>
     </div>
     <div class="col-6">
       <div class="row" style="height: 150px">
         <div class="col-6" style="height: 150px">
-          <% if @room.photos.second %>
-            <%= cl_image_tag @room.photos.second.key, class: "photo-small" %>
-          <% end %>
-        </div>
-        <div class="col-6" style="height: 150px">
-          <% if @room.photos.third %>
-            <%= cl_image_tag @room.photos.third.key, class: "photo-small" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="row" style="height: 150px">
-        <div class="col-6">
-          <% if @room.photos.fourth %>
-            <%= cl_image_tag @room.photos.fourth.key, class: "photo-small" %>
-          <% end %>
-        </div>
-        <div class="col-6">
-          <% if @room.photos.fifth %>
-            <%= cl_image_tag @room.photos.fifth.key, class: "photo-small" %>
+          <% if @room.photos.count != 0 %>
+            <% @room.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <%= link_to "Supprimer", delete_photo_path(@room, photo) %>
+            <% end %>
+          <% else %>
+            <i class="fas fa-image"></i>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 
-
-    <% if @room.photos.count != 0 %>
-      <% @room.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <%= link_to "Supprimer", delete_photo_path(@room, photo) %>
-      <% end %>
-    <% else %>
-      <i class="fas fa-image"></i>
-    <% end %>
-
+  <div>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Ajouter des photos
       </button>
@@ -66,10 +51,13 @@
           </div>
         </div>
       </div>
+      <br>
+    <%= link_to project_room_path(@room.project, @room) do %>
+      <p class="btn btn-show-room-back"><i class="fa-solid fa-xmark"></i></i> Annuler</p>
+    <% end %>
 
-    <br>
-    <%= link_to "Annuler", project_room_path(@room.project, @room) %>
-    <br>
-    <%= link_to "Valider", project_room_path(@room.project, @room) %>
-
+    <%= link_to project_room_path(@room.project, @room) do %>
+      <button type="button" class="btn btn-primary"><i class="fa-solid fa-check"></i> Valider</button>
+    <% end %>
+  </div>
 </div>

@@ -5,8 +5,8 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @tasks = @room.tasks
     @task = Task.new
+    @tasks = @room.tasks
   end
 
   def new
@@ -39,13 +39,13 @@ class RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-    authorize @room
+    @project = @room.project
     if @room.update(room_params)
       flash[:notice] = "Votre pièce a été mise à jour"
     else
       flash[:alert] = "Erreur ! Votre pièce n'a pas pu etre mise à jour"
     end
-    redirect_to room_path(@room)
+    redirect_to project_room_path(@project, @room)
   end
 
   def destroy

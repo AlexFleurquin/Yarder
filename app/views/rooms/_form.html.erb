@@ -1,4 +1,20 @@
-<%= simple_form_for [@project, @room] do |f| %>
-  <%= f.input :room_type, as: :check_boxes, collection: Room::ROOM_TYPES %>
-  <%= f.submit "Terminer"%>
-<% end %>
+<div class="container" data-controller="rooms-photo">
+  <div class="row" >
+    <%= simple_form_for [@project, @room] do |f| %>
+      <%= f.input :room_type,
+                as: :check_boxes,
+                collection: Room::ROOM_TYPES,
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper',
+                item_wrapper_class: 'category-item',
+                input_html: {class: 'category-selector', data: { action: "change->rooms-photo#display" }},
+                :label_html => { :class => 'label' } %>
+      <% Room::ROOM_TYPES.each do |room| %>
+        <%= f.simple_fields_for room.to_sym do |ff|  %>
+          <%= ff.input :photos, as: :file, input_html: { multiple: true }, class: "d-none" %>
+        <% end %>
+      <% end %>
+      <div class="row"><%= f.submit "Ajouter", class: "btn-modal"%></div>
+    <% end %>
+  </div>
+</div>

@@ -5,7 +5,7 @@ Room.destroy_all
 Project.destroy_all
 User.destroy_all
 
-puts "Creating 2 users, 1 project, 2 rooms, 3 photos for each room and 1 participation..."
+puts "Creating 2 users, 1 project, 2 rooms, 2 tasks, 3 photos for each room and 1 participation..."
 
 
 user1 = User.new(first_name: 'Romain', last_name: 'Paillard', email: 'romain@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true)
@@ -36,5 +36,6 @@ task1.save!
 task2.save!
 
 participation1 = Participation.create!(user_id: user1.id, project_id: project1.id)
+participation1.save!
 
 puts "Done!"

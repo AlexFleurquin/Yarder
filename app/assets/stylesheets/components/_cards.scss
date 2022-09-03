@@ -1,10 +1,7 @@
 .card-params {
   padding: 0px;
-  background-color: white;
-  border: 1px solid #DDDDDD;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   height: 300px;
+  border-radius: 0px 16px 16px 0px;
 }
 
 .img-size {
@@ -12,8 +9,13 @@
   background-position: bottom;
 }
 
+.img-hero {
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 16px 0 0px 16px;
+}
+
 body.dark .card-params {
-  border: 1px solid $dark-gray;
   background-color: $dark-card;
 }
 
@@ -130,6 +132,13 @@ body.dark .link-card {
   background-color: white;
   border-radius: 6px;
   padding: 16px;
+}
+
+body.dark .card-user {
+  background-color: $dark-gray;
+  border: transparent;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
 }
 
 .card-pieces {

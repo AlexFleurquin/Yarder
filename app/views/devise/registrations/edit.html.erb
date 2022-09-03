@@ -1,29 +1,57 @@
-<div class="container-header">
-</div>
+<%= render "shared/header" %>
 
-<div class="container">
-  <div class="card-user">
+<div class="container mt-5">
+  <div class="card-user p-5">
   <!-- Button trigger modal -->
-    <div class="d-flex flex-direction-row justify-content-start">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle me-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+    <div class="d-flex flex-direction-row align-items-center">
+      <%= image_tag (cl_image_path current_user.photo.key), class: "avatar-xl", alt: "avatar-large" %>
+      <h3 class="ms-3"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+
     </div>
 
-      <% if current_user.is_pro %>
-        <span class="badge rounded-pill text-bg-dark">Professionnel</span>
-        <p><%= current_user.company %></p>
-        <p><%= current_user.email %></p>
-        <%= current_user.phone_number %>
-        <p><%= current_user.siret %></p>
-        <p><%= current_user.bio %></p>
+    <h5 class="mt-5 mb-4">Informations personnelles</h5>
+      <% if current_user.is_pro == false %>
+        <div>
+          <h6>Bio</h6>
+          <p><%= current_user.bio %></p>
+        </div>
+        <div class="d-flex flex-row justify-content-start">
+          <h6>Statut</h6>
+          <span class="badge rounded-pill text-bg-dark">Professionnel</span>
+        </div>
+        <div>
+          <h6>Entreprise</h6>
+          <p><%= current_user.company %></p>
+        </div>
+        <div>
+          <h6>Email</h6>
+          <p><%= current_user.email %></p>
+        </div>
+        <div>
+          <h6>Numéro de téléphone</h6>
+          <p><%= current_user.phone_number %></p>
+        </div>
+        <div>
+          <h6>Siret</h6>
+          <p><%= current_user.siret %></p>
+        </div>
       <% else %>
-        <span class="badge rounded-pill text-bg-primary">Particulier</span>
-        <p><%= current_user.email %></p>
-        <%= current_user.phone_number %>
+        <div class="d-flex lex-direction-row align-items-baseline">
+          <h6>Statut</h6>
+          <span class="badge rounded-pill text-bg-primary ms-3">Particulier</span>
+        </div>
+        <div class="d-flex lex-direction-row align-items-baseline">
+          <h6>Email</h6>
+          <p class="ms-3"><%= current_user.email %></p>
+        </div>
+        <div class="d-flex lex-direction-row align-items-baseline">
+          <h6>Numéro de téléphone</h6>
+          <p class="ms-3"><%= current_user.phone_number %></p>
+        </div>
       <% end %>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-edit">
-      Modifier
-    </button>
+    <div class="d-flex lex-direction-row justify-content-end">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-edit">Modifier</button>
+    </div>
   </div>
 
 </div>

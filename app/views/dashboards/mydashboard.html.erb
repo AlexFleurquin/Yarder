@@ -9,7 +9,7 @@
               <div>
                 <h3>Pas encore de projet ?</h3>
                 <p>Créer votre projet en quelques clics</p>
-                <%= link_to "Créer mon projet", new_project_path, class: "btn-show-room" %>
+                <%= link_to "Créer mon projet", new_project_path, class: "btn btn-primary" %>
               </div>
             </div>
           </section>
@@ -18,7 +18,7 @@
   <% else %>
     <div class="d-flex justify-content-between mt-5">
       <h3>Mes projets en cours</h3>
-      <%= link_to "Ajouter un nouveau projet", new_project_path, class:"btn-form link-card text-white" %>
+      <%= link_to "Ajouter un nouveau projet", new_project_path, class:"btn btn-primary" %>
     </div>
     <div class="row gap-3">
       <% @projects.each do |project| %>

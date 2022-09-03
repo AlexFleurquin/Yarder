@@ -1,3 +1,12 @@
+.bg-footer {
+  background-color: #FEFEFE;
+}
+
+body.dark .bg-footer {
+  background-color: $dark-gray;
+}
+
+
 .content-wrapper {
   min-height: calc(100vh - 70px - 80px);
 }

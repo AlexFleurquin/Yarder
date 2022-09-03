@@ -16,50 +16,10 @@
 
   <body class="<%= cookies[:theme] %>">
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
     <div class="content-wrapper">
+      <%= render "shared/flashes" %>
       <%= yield %>
     </div>
-    <% if user_signed_in? %>
-      <footer class="container d-flex flex-wrap justify-content-end py-3 my-4">
-      <% if cookies[:theme] == "light" %>
-        <%= link_to root_path(theme: "dark") do %>
-          <span class="ms-3"><%= render :partial => 'svg/light' %></span>
-        <% end %>
-      <% else %>
-        <%= link_to root_path(theme: "light") do %>
-          <span class="ms-3"><%= render :partial => 'svg/dark' %></span>
-        <% end %>
-      <% end %>
-    <% else %>
-    <footer>
-      <div class="b-example-divider"></div>
-        <div class="container">
-          <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-              <%= link_to dashboard_path, class: "mb-3 mb-md-0 text-muted text-decoration-none lh-1"  do %>
-                <a href="/"><%= render :partial => 'svg/logo' %></a>
-              <% end %>
-              <span class="text-muted">&copy; 2022 Yarder</span>
-            </div>
-
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-              <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-              <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-              <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-              <% if cookies[:theme] == "light" %>
-                <%= link_to root_path(theme: "dark") do %>
-                  <li class="ms-3"><%= render :partial => 'svg/light' %></li>
-                <% end %>
-              <% else %>
-                <%= link_to root_path(theme: "light") do %>
-                  <li class="ms-3"><%= render :partial => 'svg/dark' %></li>
-                <% end %>
-              <% end %>
-            </ul>
-          </footer>
-          <% end %>
-        </div>
-    </footer>
+    <%= render "shared/footer" %>
   </body>
 </html>

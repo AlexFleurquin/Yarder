@@ -45,7 +45,7 @@ body.dark .card-params {
   gap: 8px;
   width: 313px;
   background: #FFFFFF;
-  box-shadow: 0px 4px 8px rgba(126, 126, 126, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 8px;
 }
 
@@ -148,8 +148,28 @@ body.dark .card-user {
   padding: 30px 20px;
 }
 
-.card-pieces-row {
+body.dark .card-pieces {
+  background-color: $dark-gray;
+}
+
+.card-task-row {
   padding: 20px;
   margin: 15px 0;
-  outline: auto;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0px 4px 6px -1px rgba(15, 23, 42, 0.08);
+  border-radius: 4px;
+
+  .task-title {
+    margin-bottom: 0rem;
+  }
+
+  .task-badge {
+    padding: 2px 8px;
+    background: #1C1C28;
+    border: 1px solid #393953;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+  }
 }

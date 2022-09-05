@@ -73,6 +73,20 @@
 
 }
 
+body.dark .btn-show-room-back {
+  background: none;
+  color: gray;
+  margin: 10px;
+  padding: 3px 12px;
+  text-decoration: none;
+  border: 0 solid;
+
+  &:hover {
+    color: white;
+  }
+
+}
+
 .btn-link {
   color: gray;
   text-decoration: none;

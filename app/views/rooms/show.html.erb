@@ -6,16 +6,20 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-    <h1><%= @room.name %></h1>
+      <%= link_to project_path(@room.project, active: "pieces") do %>
+        <button class="btn btn-show-room-back"><i class="fa-solid fa-arrow-left"></i> Retour aux pièces</button>
+      <% end %>
+
     </div>
     <div class="col-8 header-show">
-    <%= link_to "Retour aux pièces", project_path(@room.project, active: "pieces"), class: "btn btn-show-room" %>
-    <%= link_to "Modifier", edit_room_path(@room.project, @room), class: "btn btn-show-room" %>
-    <%= link_to "Supprimer", project_room_path(@room.project, @room), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer cette pièce ?"}, class: "btn btn-show-room" %>
+
+    <%= link_to "Modifier", edit_room_path(@room.project, @room), class: "btn btn-outline-primary me-2" %>
+    <%= link_to "Supprimer", project_room_path(@room.project, @room), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer cette pièce ?"}, class: "btn btn-outline-danger" %>
     </div>
   </div>
 
   <div class="container">
+    <h1><%= @room.name %></h1>
     <div class="row container-img-room">
       <div class="col-6">
         <% if @room.photos.first %>

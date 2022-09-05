@@ -5,9 +5,42 @@
 
 <h1>ANNUAIRE DES ARTISANS</h1>
 
+
+<div class="professional-cards">
+  <% @artisans.each do |artisan| %>
+    <div class="card shadow rounded mt-3" style="width: 18rem; position: relative;">
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target= "#Modal-<%= artisan.id%>">
+        <div class="d-flex justify-content-around mt-3">
+          <%= cl_image_tag artisan.photo.key, class: "avatar" %>
+        </div>
+        <p style="color: #818CF8; position: absolute; top: 5px; right: 5px;"><i class="fa-solid fa-user-plus"></i></p>
+        <div class="card-body d-flex justify-content-around">
+          <h5 class="card-title"><%= artisan.first_name %> <%= artisan.last_name %></h5>
+        </div>
+        <div class="card-body d-flex justify-content-around">
+          <p class="card-text"><%= artisan.speciality %></p>
+        </div>
+        <div class="card-body border-top p-1", style= "height: 40px;">
+          <div class="d-flex justify-content-around">
+            <div class="d-flex">
+              <% if (artisan.chatrooms_as_professional.select { |chatroom| chatroom.client == current_user }) == [] %>
+                <%= link_to create_chatroom_path(artisan: artisan), data: { turbo_method: :post } do %>
+                  <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
+                <% end %>
+              <% else %>
+                <%= link_to chatrooms_path(query: artisan.first_name) do %>
+                  <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
+                <% end %>
+              <% end %>
+              <p style="color: #818CF8;"><i class="fa-solid fa-comment"></i></p>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  <% end %>
+</div>
+
 <% @artisans.each do |artisan| %>
   <%= render "shared/modal_artisan_infos", artisan: artisan %>
 <% end %>
-
-<div class="container container-new">
-</div>

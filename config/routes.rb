@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   get "rooms/:room_id/delete_photo/:photo", to: "rooms#delete_photo", as: "delete_photo"
   post "/chatrooms", to: "chatrooms#create", as: "create_chatroom"
   get "/artisans", to: "participations#artisans", as: "artisans"
-  get "/artisans/:artisan_id", to: "participations#artisan_show", as: "artisan"
+
 end

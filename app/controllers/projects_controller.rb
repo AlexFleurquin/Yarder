@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :index
   def index
     @projects = Project.all
     # if params[:query].present?
@@ -27,10 +28,12 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @projects = Project.all
     @project = Project.new
   end
 
   def create
+    @projects = Project.all
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save

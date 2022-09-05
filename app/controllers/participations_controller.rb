@@ -1,5 +1,7 @@
 class ParticipationsController < ApplicationController
+  before_action :index
   def index
+    @projects = Project.all
   end
 
   def new

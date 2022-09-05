@@ -43,6 +43,13 @@ body.dark .nav-item {
   border-radius: 48px;
 }
 
+
 body.dark .nav-link {
   color: #88888A;
+}
+
+.nav-project {
+  color: #88888A !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
 }

@@ -11,8 +11,12 @@ class Task < ApplicationRecord
 
   default_scope -> { order(:start_date) }  # Our meetings will be ordered by their start_time by default
 
+  def start_time
+    start_date
+  end
+
   def time
-    "#{start_date.strftime('%I:%M %p')} - #{end_date.strftime('%I:%M %p')}"
+    "#{start_date.strftime('%I:%M')} - #{end_date.strftime('%I:%M')}"
   end
 
   def multi_days?

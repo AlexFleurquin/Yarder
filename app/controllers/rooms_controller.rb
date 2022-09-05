@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
     clean_list.each do |room|
       @room = Room.new(name: room, room_type: room)
       @room.project = @project
-      @room.photos = params["room"]["photos"]
+      @room.photos = params["room"][room.to_sym]["photos"]
       @room.save!
     end
     redirect_to project_path(@project)

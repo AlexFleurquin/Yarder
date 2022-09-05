@@ -3,12 +3,39 @@
 
 </div>
 
-<%= week_calendar(events: @tasks, end_attribute: :end_date) do |date, tasks| %>
-  <%= date %>
+<%= week_calendar(events: @project.tasks, end_attribute: :end_date) do |date, tasks| %>
+    <span class="badge rounded-pill text-bg-secondary"><%= date %></span>
+
 
     <% tasks.each do |task| %>
-    <div class="meeting">  <-- We will add some style to the meeting class later so let's add it now -->
-      <p><%= task.name %></p>
-    </div>
-  <% end %>
+      <div class="meeting-card" data-id="<%= task.id %>">
+        <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
+          <p><h6><%= task.name %></h6></p>
+          <div class="d-flex justify-content-between"></div>
+            <% unless task.multi_days? %>
+              <small><%= task.time  %></small>
+            <% else %>
+              <small>Plusieurs jours</small>
+            <% end %>
+            <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+        </a>
+      </div>
+      <div class="modal fade" id="task-<%= task.id %>" tabindex="-1" aria-labelledby="task-<%= task.id %>" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content rounded-4">
+            <div class="modal-header">
+              <h4 class="modal-title" id="newtaskLabel"><%= task.name %></h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6>Description</h6>
+              <p><%= task.description %></p>
+              <p><h6>Date de début: <%= task.start_date.strftime('%k:%M') %></h6></p>
+              <p><h6>Date de fin: <%= task.end_date.strftime('%k:%M') %></h6></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
 <% end %>

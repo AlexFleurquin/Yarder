@@ -10,6 +10,10 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import DragController from "./drag_controller"
 application.register("drag", DragController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
+
 import FormScrollController from "./form_scroll_controller"
 application.register("form-scroll", FormScrollController)
 
@@ -24,3 +28,4 @@ application.register("rooms-photo", RoomsPhotoController)
 
 import UpdateMessagesController from "./update_messages_controller"
 application.register("update-messages", UpdateMessagesController)
+

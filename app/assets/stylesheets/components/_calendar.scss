@@ -3,7 +3,7 @@
     min-height: 80vh;
     border-radius: 16px;
     background-color: white;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 8px;
     border: transparent;
   }
@@ -14,24 +14,48 @@
 
 
   .today {
-    background-color: $project-blue;
+    background-color: #0EA5E9;
   }
 }
 
-.meeting {
+body.dark .simple-calendar {
+  table {
+    background-color: $dark-gray;
+  }
+
+  thead {
+    color: white;
+  }
+
+  .today {
+    background-color: $dark-card;
+  }
+}
+
+
+.meeting-card {
   color: white;
-  padding: 8px 24px;
+  padding: 4px 8px;
+  background: #0EA5E9;
   border-radius: 4px;
-  background: #1EDD88;
   transition: background 0.3s ease;
+  margin: 4px;
 }
 
-.meeting:hover {
-  background: #1BCB7F;
+.meeting-card:hover {
+  background: $project-blue;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.day-date {
+  background-color: black;
+  border-radius: 50%;
   color: white;
 }
 
-
+body.dark .meeting-card {
+  background: $dark-card;
+}
 
 .day {}
 
@@ -58,7 +82,24 @@
   border-radius: 4px;
   box-sizing: border-box;
   color: $project-blue;
+
+  &:hover {
+    background: $project-blue;
+    color: white;
+  }
 }
+
+body.dark .btn-calendar {
+  background: $dark-gray;
+  color: $project-blue;
+  border: transparent;
+
+  &:hover {
+    background: $project-blue;
+    color: white;
+  }
+}
+
 .next-month { }
 .current-month {}
 

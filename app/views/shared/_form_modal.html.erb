@@ -9,7 +9,7 @@
                 item_wrapper_class: 'category-item',
                 input_html: {class: 'category-selector', data: { action: "change->rooms-photo#display" }},
                 :label_html => { :class => 'label' }, label: "Type de pièce :" %>
-      <div class="row mt-5" style="width: 1105px; padding-left: 12px;">
+      <div class="row mt-5" style="width: 1130px; padding-left: 8px;">
         <% Room::ROOM_TYPES.each do |room| %>
           <div class="col-3" style="display: flex; justify-content: center; padding: 0; width: ">
             <%= f.simple_fields_for room.to_sym do |ff|  %>

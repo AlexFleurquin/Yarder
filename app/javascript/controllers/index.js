@@ -10,19 +10,17 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import DragController from "./drag_controller"
 application.register("drag", DragController)
 
+import FormScrollController from "./form_scroll_controller"
+application.register("form-scroll", FormScrollController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import FormScrollController from "./form_scroll_controller"
-application.register("form-scroll", FormScrollController)
-
 import RoomsPhotoController from "./rooms_photo_controller"
 application.register("rooms-photo", RoomsPhotoController)
 
-// import Flatpickr
-import Flatpickr from 'stimulus-flatpickr'
-require("flatpickr/dist/flatpickr.css")
-application.register('flatpickr', Flatpickr)
+import UpdateMessagesController from "./update_messages_controller"
+application.register("update-messages", UpdateMessagesController)

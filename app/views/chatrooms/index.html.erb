@@ -8,7 +8,15 @@
     <div class="col-4">
       <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <% @chatrooms.each do |chatroom| %>
-          <button class="nav-link <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%= chatroom.id %>" type="button" role="tab" aria-controls="v-pills-<%= chatroom.id %>" aria-selected="true"><%= chatroom.professional.first_name %></button>
+          <div class="d-flex bg-white rounded align-items-center mt-2">
+            <%= cl_image_tag chatroom.professional.photo.key, class: "avatar", style: "height: 40px;" %>
+            <div>
+              <button class="nav-link pb-1 <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%= chatroom.id %>" type="button" role="tab" aria-controls="v-pills-<%= chatroom.id %>" aria-selected="true"><%= chatroom.professional.first_name %> <%= chatroom.professional.last_name %></button>
+              <% if chatroom.messages != [] %>
+                <p style="font-size: 12px; padding: 8px 16px; margin-bottom: 0px; padding-top: 0px;"><em><%= chatroom.messages.last.content %></em></p>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
@@ -18,7 +26,11 @@
           <div class="tab-pane fade show <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>" role="tabpanel" aria-labelledby="v-pills-<%= chatroom.id %>-tab" tabindex="0" data-controller="update-messages" data-update-messages-chatroom-id-value="<%= chatroom.id %>">
             <div class="messages" data-update-messages-target="list">
               <% chatroom.messages.each do |message| %>
-                <%= render "messages/message", message: message %>
+                <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                    <%= render "messages/message", message: message %>
+                  </div>
+                </div>
               <% end %>
             </div>
             <%= simple_form_for [chatroom, @message],

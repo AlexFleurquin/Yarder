@@ -1,6 +1,7 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.all
+    @message = Message.new
   end
 
   def show
@@ -13,6 +14,6 @@ class ChatroomsController < ApplicationController
     @chatroom.client = current_user
     @chatroom.professional_id = params[:professional].to_i
     @chatroom.save
-    redirect_to chatroom_path(@chatroom)
+    redirect_to chatrooms_path
   end
 end

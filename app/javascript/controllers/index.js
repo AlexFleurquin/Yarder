@@ -13,6 +13,7 @@ application.register("drag", DragController)
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
+
 import FormScrollController from "./form_scroll_controller"
 application.register("form-scroll", FormScrollController)
 
@@ -24,3 +25,7 @@ application.register("map", MapController)
 
 import RoomsPhotoController from "./rooms_photo_controller"
 application.register("rooms-photo", RoomsPhotoController)
+
+import UpdateMessagesController from "./update_messages_controller"
+application.register("update-messages", UpdateMessagesController)
+

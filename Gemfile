@@ -40,6 +40,13 @@ gem "geocoder"
 # Use simple calendar
 gem "simple_calendar", "~> 2.4"
 
+# Facebook OAuth
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
+
+
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

@@ -5,13 +5,29 @@
         <div class="col-6">
           <h1>Pièces en rénovation</h1>
         </div>
-
-        <div class="col-6 btn btn-show-room" style="width: 200px;">
-          BUTTON
+        <div class="col-6 d-flex justify-content-end">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addrooms"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
         </div>
       </div>
     </div>
   </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="addrooms" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="container modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Ajouter des pièces à ce projet</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <%= render "rooms/form", project: @project, room: @room %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="row">
     <div class="container">
       <% if @rooms.empty? %>
@@ -27,10 +43,15 @@
               </div>
               <div class="col-9" style="padding: 20px 60px;">
                 <h4><div class="row">Dernières taches ajoutées</div></h4>
-                <div class="row card-pieces-row">Tache 1</div>
-                <div class="row card-pieces-row">Tache 2</div>
-                <div class="row card-pieces-row">Tache 3</div>
-                <div class="row" style="display: flex; justify-content: flex-end;"><%= link_to "En savoir plus", project_room_path(room.project, room), class: "btn btn-show-room", style: "width: 200px;" %></div>
+                <% @tasks.order(position: :asc).each do |task| %>
+                  <div class="d-flex justify-content-between card-task-row">
+                    <p class="task-title"><%= task.name %></p>
+                    <span class="task-badge">Peinture</span>
+                  </div>
+                <% end %>
+                <div class="d-flex justify-content-end">
+                  <%= link_to "En savoir plus", project_room_path(room.project, room), class: "btn btn-primary", style: "width: 200px;" %>
+                </div>
               </div>
             </div>
           </div>

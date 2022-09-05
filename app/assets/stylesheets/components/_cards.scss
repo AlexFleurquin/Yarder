@@ -1,10 +1,7 @@
 .card-params {
   padding: 0px;
-  background-color: white;
-  border: 1px solid #DDDDDD;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   height: 300px;
+  border-radius: 0px 16px 16px 0px;
 }
 
 .img-size {
@@ -12,8 +9,13 @@
   background-position: bottom;
 }
 
+.img-hero {
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 16px 0 0px 16px;
+}
+
 body.dark .card-params {
-  border: 1px solid $dark-gray;
   background-color: $dark-card;
 }
 
@@ -43,7 +45,7 @@ body.dark .card-params {
   gap: 8px;
   width: 313px;
   background: #FFFFFF;
-  box-shadow: 0px 4px 8px rgba(126, 126, 126, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 8px;
 }
 
@@ -132,6 +134,13 @@ body.dark .link-card {
   padding: 16px;
 }
 
+body.dark .card-user {
+  background-color: $dark-gray;
+  border: transparent;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
+}
+
 .card-pieces {
   background: white;
   border-radius: 10px;
@@ -139,8 +148,28 @@ body.dark .link-card {
   padding: 30px 20px;
 }
 
-.card-pieces-row {
+body.dark .card-pieces {
+  background-color: $dark-gray;
+}
+
+.card-task-row {
   padding: 20px;
   margin: 15px 0;
-  outline: auto;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0px 4px 6px -1px rgba(15, 23, 42, 0.08);
+  border-radius: 4px;
+
+  .task-title {
+    margin-bottom: 0rem;
+  }
+
+  .task-badge {
+    padding: 2px 8px;
+    background: #1C1C28;
+    border: 1px solid #393953;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+  }
 }

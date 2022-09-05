@@ -1,9 +1,20 @@
 .simple-calendar {
   table {
     min-height: 80vh;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 8px;
+    border: transparent;
   }
+
+  thead, tbody, tfoot, tr, td, th {
+    border: transparent;
+  }
+
+
   .today {
-    background-color: #FAF3DD;
+    background-color: $project-blue;
   }
 }
 
@@ -20,12 +31,35 @@
   color: white;
 }
 
-.btn-prev {
+
+
+.day {}
+
+.wday-0 {}
+.wday-1 {}
+.wday-2 {}
+.wday-3 {}
+.wday-4 {}
+.wday-5 {}
+.wday-6 {}
+
+.today {}
+.past {}
+.future {}
+
+.start-date {
+
+}
+
+.btn-calendar {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
   box-shadow: 0px 1px 2px rgba(15, 23, 42, 0.04);
   border-radius: 4px;
-  width: 38px;
-  height: 38px;
   box-sizing: border-box;
+  color: $project-blue;
 }
+.next-month { }
+.current-month {}
+
+.has-events {}

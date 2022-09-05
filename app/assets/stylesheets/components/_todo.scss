@@ -6,14 +6,23 @@
   border-radius: 6px;
 }
 
+body.dark .bg-todo {
+  background-color: $dark-card;
+}
+
 .task-card {
   width: 300px;
   height: 120px;
   padding: 12px;
-  background-color: white;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0px 4px 6px -1px rgba(15, 23, 42, 0.08);
   border-radius: 4px;
   margin-bottom: 6px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+body.dark .task-card {
+  background-color: $dark-gray;
 }
 
 .colonne {

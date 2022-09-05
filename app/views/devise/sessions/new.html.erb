@@ -10,18 +10,30 @@
             <%= f.input :email,
                         required: false,
                         autofocus: true,
+                        placeholder: 'elon.musk@spacex.com',
+                        label: 'Email',
+                        :label_html => { :class => 'label' },
                         input_html: { autocomplete: "email" } %>
             <%= f.input :password,
                         required: false,
+                        label: 'Mot de passe',
+                        :label_html => { :class => 'label' },
                         input_html: { autocomplete: "current-password" } %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
 
-        <div class="row justify-content-center">
-          <div class="col text-center">
-            <div class="form-actions" style="display: flex; justify-content: space-between; font-size: 12px;">
-              <%= f.button :submit, "Log in", class: 'btn btn-black' %>
-              <%= render "devise/shared/links" %>
+        <div>
+          <div class="form-actions d-flex justify-content-between">
+            <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: "btn btn-link" %><br />
+            <%= f.button :submit, "Se connecter", class: 'btn btn-primary' %>
+          </div>
+          <div>
+            <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>
+          </div>
+
+          <div class="py-5">
+            <div class="form-actions d-flex justify-content-start align-items-baseline">
+                <p>Pas encore de compte ?</p>
+                <%= link_to "Créer un compte", new_registration_path(resource_name), class: "btn btn-link ms-2" %>
             </div>
           </div>
         </div>

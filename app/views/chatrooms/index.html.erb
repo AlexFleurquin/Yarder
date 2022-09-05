@@ -1,0 +1,6 @@
+<h1>Mes conversations</h1>
+<ul>
+  <% @chatrooms.each do |chatroom| %>
+    <li><%= link_to chatroom.id, chatroom_path(chatroom) %></li>
+  <% end %>
+</ul>

@@ -17,8 +17,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :chatrooms, only: %i[index show] do
+    resources :messages, only: :create
+  end
+
   patch "tasks/:id/move", to: "tasks#move", as: "move"
   get "dashboard", to: "dashboards#mydashboard", as: "dashboard"
   get "/projects/:project_id/rooms/:id/edit", to: "rooms#edit", as: "edit_room"
   get "rooms/:room_id/delete_photo/:photo", to: "rooms#delete_photo", as: "delete_photo"
+  post "/chatrooms", to: "chatrooms#create", as: "create_chatroom"
 end

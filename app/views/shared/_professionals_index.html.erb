@@ -20,7 +20,15 @@
       <div class="card-body border-top p-1", style= "height: 40px;">
         <div class="d-flex justify-content-around">
           <div class="d-flex">
-            <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Envoyer un message</p>
+            <% if (professional.chatrooms_as_professional.select { |chatroom| chatroom.client == current_user }) == [] %>
+              <%= link_to create_chatroom_path(professional: professional), data: { turbo_method: :post } do %>
+                <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
+              <% end %>
+            <% else %>
+              <%= link_to chatroom_path(Chatroom.find_by professional_id: professional.id, client_id: current_user.id) do %>
+                <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
+              <% end %>
+            <% end %>
             <p style="color: #818CF8;"><i class="fa-solid fa-comment"></i></p>
           </div>
         </div>

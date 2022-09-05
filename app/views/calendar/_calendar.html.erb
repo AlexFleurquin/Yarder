@@ -4,7 +4,7 @@
 </div>
 
 <%= week_calendar(events: @project.tasks, end_attribute: :end_date) do |date, tasks| %>
-    <span class="badge-calendar"><%= date %></span>
+    <span class="badge rounded-pill text-bg-secondary"><%= date %></span>
 
 
     <% tasks.each do |task| %>

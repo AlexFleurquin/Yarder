@@ -40,6 +40,10 @@ gem "geocoder"
 # Use simple calendar
 gem "simple_calendar", "~> 2.4"
 
+# Google OAuth
+gem 'omniauth-google-oauth2'
+
+
 # Facebook OAuth
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'

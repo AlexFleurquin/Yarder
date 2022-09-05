@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :participations, only: %i[create destroy]
     resources :rooms, only: %i[show new create update destroy]
-
+    resources :tasks
   end
   resources :rooms, only: [] do
     resources :tasks, only: %i[create update destroy] do

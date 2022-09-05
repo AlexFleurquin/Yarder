@@ -1,4 +1,8 @@
 class TasksController < ApplicationController
+  def index
+    @tasks = Task.all
+  end
+
   def create
     @room = Room.find(params[:room_id])
     @task = Task.new(task_params)

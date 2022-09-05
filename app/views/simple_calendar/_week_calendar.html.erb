@@ -6,7 +6,7 @@
       <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view, class: 'btn btn-calendar' %>
     </div>
     <%= link_to room_tasks_path(@project, @room) do %>
-      <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Ajouter un rendez-vous</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newtask"><i class="fa-solid fa-plus"></i> Ajouter un rendez-vous</button>
     <% end %>
   </div>
 
@@ -31,4 +31,20 @@
       <% end %>
     </tbody>
   </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="newtask" tabindex="-1" aria-labelledby="newtask" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newtaskLabel">Nouveau rendez-vous</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+    </div>
+  </div>
 </div>

@@ -4,6 +4,9 @@ class CalendarController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
 
     # Or, for a weekly view:
-    @tasks = Task.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
+    @tasks = Task.all
+    @tasks = Task.where(starts_at: Time.now.beginning_of_week..Time.now.end_of_week)
+
+
   end
 end

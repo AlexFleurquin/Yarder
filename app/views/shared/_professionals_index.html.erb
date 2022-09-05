@@ -1,38 +1,53 @@
 <div class="d-flex justify-content-between align-items-baseline">
   <h1>Equipe</h1>
-  <%= link_to artisans_path(@artisans) do %>
-    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Ajouter un membre</button>
+  <% if @professionals.empty? == false %>
+    <%= link_to artisans_path(@artisans) do %>
+      <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Ajouter un membre</button>
+    <% end %>
   <% end %>
 </div>
-<div class="professional-cards">
-  <% @professionals.each do |professional| %>
-    <div class="card shadow rounded mt-3" style="width: 18rem; position: relative;">
-      <div class="d-flex justify-content-around mt-3">
-        <%= cl_image_tag professional.photo.key, class: "avatar" %>
-      </div>
-      <p style="color: #818CF8; position: absolute; top: 5px; right: 5px;"><i class="fa-solid fa-trash-can"></i></p>
-      <div class="card-body d-flex justify-content-around">
-        <h5 class="card-title"><%= professional.first_name %> <%= professional.last_name %></h5>
-      </div>
-      <div class="card-body d-flex justify-content-around">
-        <p class="card-text"><%= professional.speciality %></p>
-      </div>
-      <div class="card-body border-top p-1", style= "height: 40px;">
-        <div class="d-flex justify-content-around">
-          <div class="d-flex">
-            <% if (professional.chatrooms_as_professional.select { |chatroom| chatroom.client == current_user }) == [] %>
-              <%= link_to create_chatroom_path(professional: professional), data: { turbo_method: :post } do %>
-                <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
-              <% end %>
-            <% else %>
-              <%= link_to chatrooms_path(query: professional.first_name) do %>
-                <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
-              <% end %>
-            <% end %>
-            <p style="color: #818CF8;"><i class="fa-solid fa-comment"></i></p>
+<div class="container mt-5">
+  <% if @professionals.empty? %>
+    <div class="d-flex flex-column align-items-center mt-5">
+      <%= render :partial => 'svg/empty_pro' %>
+      <h5 class="mt-5">Pas encore d'artisans ?</h5>
+      <p class="mt-1">Trouver l'artisan qu'il vous faut</p>
+      <%= link_to artisans_path do %>
+        <button type="button" class="btn btn-empty mt-4"><i class="fa-solid fa-plus"></i> Ajouter un artisan</button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="professional-cards">
+      <% @professionals.each do |professional| %>
+        <div class="card shadow rounded mt-3" style="width: 18rem; position: relative;">
+          <div class="d-flex justify-content-around mt-3">
+            <%= cl_image_tag professional.photo.key, class: "avatar" %>
+          </div>
+          <p style="color: #818CF8; position: absolute; top: 5px; right: 5px;"><i class="fa-solid fa-trash-can"></i></p>
+          <div class="card-body d-flex justify-content-around">
+            <h5 class="card-title"><%= professional.first_name %> <%= professional.last_name %></h5>
+          </div>
+          <div class="card-body d-flex justify-content-around">
+            <p class="card-text"><%= professional.speciality %></p>
+          </div>
+          <div class="card-body border-top p-1", style= "height: 40px;">
+            <div class="d-flex justify-content-around">
+              <div class="d-flex">
+                <% if (professional.chatrooms_as_professional.select { |chatroom| chatroom.client == current_user }) == [] %>
+                  <%= link_to create_chatroom_path(professional: professional), data: { turbo_method: :post } do %>
+                    <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
+                  <% end %>
+                <% else %>
+                  <%= link_to chatrooms_path(query: professional.first_name) do %>
+                    <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
+                  <% end %>
+                <% end %>
+                <p style="color: #818CF8;"><i class="fa-solid fa-comment"></i></p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>

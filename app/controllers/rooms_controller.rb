@@ -1,5 +1,8 @@
 class RoomsController < ApplicationController
+  before_action :index
+
   def index
+    @projects = Project.all
     @rooms = Room.all
   end
 

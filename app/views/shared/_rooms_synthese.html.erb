@@ -1,13 +1,25 @@
 <div class="d-flex justify-content-between mt-5">
   <h3>Pièces en rénovation</h3>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addroom">Ajouter une pièce</button>
-</div>
-
-<div class="cards-rooms">
-  <% @rooms.each do |room| %>
-    <%= render "shared/room_card_small", project: @project, room: room %>
+  <% if @rooms.empty? == false %>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addroom">Ajouter une pièce</button>
   <% end %>
 </div>
+
+<% if @rooms.empty? %>
+  <div class="d-flex flex-column align-items-center mt-5">
+    <%= render :partial => 'svg/empty_room' %>
+    <h5 class="mt-5">Commencer par ajouter une pièce</h5>
+    <p class="mt-1">Ajouter facilement une pièce pour préparer sa rénovation</p>
+    <button type="button" class="btn btn-empty mt-4" data-bs-toggle="modal" data-bs-target="#addroom"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
+  </div>
+<% else %>
+  <div class="cards-rooms">
+    <% @rooms.each do |room| %>
+      <%= render "shared/room_card_small", project: @project, room: room %>
+    <% end %>
+  </div>
+<% end %>
+
 
 <!-- Modal -->
 <div class="modal fade" id="addroom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

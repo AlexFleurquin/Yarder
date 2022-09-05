@@ -78,7 +78,7 @@ body.dark .card-room {
   width: 353px;
   background: #FFFFFF;
   border: 1px solid #EAECEE;
-  box-shadow: 0px 4px 8px rgba(126, 126, 126, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 12px;
 
   p {
@@ -96,8 +96,12 @@ body.dark .card-room {
 body.dark .card-project {
   background: $dark-gray;
   border: 1px solid $dark-gray;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: white;
+}
+
+body.dark .card-project:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
@@ -124,9 +128,52 @@ body.dark .link-card {
 
 .professional-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.card-pro {
+  background: white;
+  border: 2px solid #5C5A66;
+  border-radius: 8px;
+  color: $dark-gray;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-pro:hover {
+  background: white;
+  border: 2px solid #5C5A66;
+  border-radius: 8px;
+  color: $dark-gray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+body.dark .card-pro {
+  background: #222127;
+  border: 2px solid #5C5A66;
+  border-radius: 8px;
+  color: white;
+}
+
+body.dark .card-pro:hover {
+  background: #222127;
+  border: 2px solid #5C5A66;
+  border-radius: 8px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card-pro-content {
+  width: 100%;
+  border: transparent;
+  background-color: transparent;
+  color: $dark-gray;
+}
+
+body.dark .card-pro-content {
+  color: white;
+}
+
 
 .card-user {
   background-color: white;

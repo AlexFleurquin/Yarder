@@ -1,24 +1,22 @@
 <%= render "header" %>
 
 <div class="container mt-5">
+  <div class="container mt-5">
   <% if @projects.empty? %>
-      <div>
-        <div>
-          <section class="section">
-            <div class="d-flex justify-content-start align-items-center">
-              <div>
-                <h3>Pas encore de projet ?</h3>
-                <p>Créer votre projet en quelques clics</p>
-                <%= link_to "Créer mon projet", new_project_path, class: "btn btn-primary" %>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
+    <div class="d-flex flex-column align-items-center mt-5">
+      <%= render :partial => 'svg/empty_project' %>
+      <h5 class="mt-5">Pas encore de projet ?</h5>
+      <p class="mt-1">Créer en un facilement</p>
+      <%= link_to new_project_path do %>
+        <button type="button" class="btn btn-empty mt-4"><i class="fa-solid fa-plus"></i> Ajouter un projet</button>
+      <% end %>
+    </div>
   <% else %>
     <div class="d-flex justify-content-between mt-5">
       <h3>Mes projets en cours</h3>
-      <%= link_to "Ajouter un nouveau projet", new_project_path, class:"btn btn-primary" %>
+      <%= link_to new_project_path do %>
+        <button type="button" class="btn btn-empty"><i class="fa-solid fa-plus"></i> Ajouter un projet</button>
+      <% end %>
     </div>
     <div class="row gap-3">
       <% @projects.each do |project| %>

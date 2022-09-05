@@ -15,17 +15,6 @@
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-select dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="visually-hidden">Toggle Dropdown</span>
-      </button>
-
-      <ul class="dropdown-menu">
-        <% @projects.each do |project| %>
-          <%= link_to project_path(project), class:"text-decoration-none" do %>
-            <li class="dropdown-item"><%= project.name %></li>
-          <% end %>
-        <% end %>
-      </ul>
     </div>
     <nav class="mt-5">
       <div class="nav nav-pills" id="nav-tab" role="tablist">

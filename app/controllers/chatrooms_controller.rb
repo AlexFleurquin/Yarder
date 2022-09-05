@@ -1,5 +1,6 @@
 class ChatroomsController < ApplicationController
   def index
+    @projects = Project.all
     @chatrooms = Chatroom.all
     @message = Message.new
   end

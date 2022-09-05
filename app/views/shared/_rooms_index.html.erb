@@ -6,7 +6,9 @@
           <h1>Pièces en rénovation</h1>
         </div>
         <div class="col-6 d-flex justify-content-end">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addrooms"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
+          <% if @rooms.empty? == false %>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addrooms"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
+          <% end %>
         </div>
       </div>
     </div>
@@ -31,7 +33,12 @@
   <div class="row">
     <div class="container">
       <% if @rooms.empty? %>
-        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-room-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))" alt="Salon">
+        <div class="d-flex flex-column align-items-center mt-5">
+          <%= render :partial => 'svg/empty_room' %>
+          <h5 class="mt-5">Commencer par ajouter une pièce</h5>
+          <p class="mt-1">Ajouter facilement une pièce pour préparer sa rénovation</p>
+          <button type="button" class="btn btn-empty mt-4" data-bs-toggle="modal" data-bs-target="#addroom"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
+        </div>
       <% else %>
         <% @rooms.each do |room| %>
           <div class="container">

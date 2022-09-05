@@ -15,7 +15,7 @@
             <%= f.simple_fields_for room.to_sym do |ff|  %>
               <%= ff.input :photos, as: :file,
                             input_html: { multiple: true, class: "d-none" },
-                            label_html: { id: room, class: 'upload-photo d-none', data: {rooms_photo_target: "hidden"}}, label: '📷 Ajouter des photos' %>
+                            label_html: { id: room, class: 'upload_photo d-none', data: {rooms_photo_target: "hidden"}}, label: '📷 Ajouter des photos' %>
             <% end %>
           </div>
         <% end %>

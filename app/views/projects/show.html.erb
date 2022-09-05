@@ -14,8 +14,8 @@
     </div>
     <nav class="mt-5">
       <div class="nav nav-pills" id="nav-tab" role="tablist">
-        <button class="nav-link nav-link-dashboard" id="nav-synthese-tab" data-bs-toggle="tab" data-bs-target="#nav-synthese" type="button" role="tab" aria-controls="nav-overview" aria-selected="true">Synthèse</button>
-        <button class="nav-link nav-link-dashboard <%= "active" if params[:active] == "pieces" %>" id="nav-pieces-tab" data-bs-toggle="tab" data-bs-target="#nav-pieces" type="button" role="tab" aria-controls="nav-rooms" aria-selected="true">Pièces</button>
+        <button class="nav-link nav-link-dashboard active" id="nav-synthese-tab" data-bs-toggle="tab" data-bs-target="#nav-synthese" type="button" role="tab" aria-controls="nav-overview" aria-selected="true">Synthèse</button>
+        <button class="nav-link nav-link-dashboard" id="nav-pieces-tab" data-bs-toggle="tab" data-bs-target="#nav-pieces" type="button" role="tab" aria-controls="nav-rooms" aria-selected="true">Pièces</button>
         <button class="nav-link nav-link-dashboard" id="nav-planning-tab" data-bs-toggle="tab" data-bs-target="#nav-planning" type="button" role="tab" aria-controls="nav-planning" aria-selected="true">Planning</button>
         <button class="nav-link nav-link-dashboard" id="nav-professionals-tab" data-bs-toggle="tab" data-bs-target="#nav-professionals" type="button" role="tab" aria-controls="nav-professionals" aria-selected="true">Artisans</button>
         <button class="nav-link nav-link-dashboard" id="nav-documents-tab" data-bs-toggle="tab" data-bs-target="#nav-documents" type="button" role="tab" aria-controls="nav-documents" aria-selected="true">Documents</button>
@@ -25,8 +25,8 @@
 </div>
 
 <div class="container py-5">
-
   <div class="tab-content" id="nav-tabContent">
+    <%# Synthese %>
     <div class="tab-pane fade show active" id="nav-synthese" role="tabpanel" aria-labelledby="nav-synthese-tab" tabindex="0">
       <section class="section row">
         <%= render "shared/hero_project" %>
@@ -36,7 +36,7 @@
       </section>
     </div>
 
-
+    <%# Pieces %>
     <div class="tab-pane fade" id="nav-pieces" role="tabpanel" aria-labelledby="nav-pieces-tab" tabindex="0">
       <section class="section">
         <div class="d-flex justify-content-start align-items-center">
@@ -45,20 +45,21 @@
       </section>
     </div>
 
-
+    <%# Planning %>
     <div class="tab-pane fade" id="nav-planning" role="tabpanel" aria-labelledby="nav-planning-tab" tabindex="0">
       <section class="section">
         <%= render "calendar/calendar" %>
       </section>
     </div>
 
-
+    <%# Artisans %>
     <div class="tab-pane fade" id="nav-professionals" role="tabpanel" aria-labelledby="nav-professionals-tab" tabindex="0">
       <section class="section">
           <%= render "shared/professionals_index" %>
       </section>
     </div>
 
+    <%# Documents %>
     <div class="tab-pane fade" id="nav-documents" role="tabpanel" aria-labelledby="nav-prodocumentsfile-tab" tabindex="0">
       <section class="section">
         <%= render "shared/documents_index" %>

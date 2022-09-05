@@ -21,3 +21,8 @@ application.register("form-scroll", FormScrollController)
 
 import RoomsPhotoController from "./rooms_photo_controller"
 application.register("rooms-photo", RoomsPhotoController)
+
+// import Flatpickr
+import Flatpickr from 'stimulus-flatpickr'
+require("flatpickr/dist/flatpickr.css")
+application.register('flatpickr', Flatpickr)

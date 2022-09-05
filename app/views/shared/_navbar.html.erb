@@ -43,7 +43,8 @@
         <% if current_user.photo.attached? %>
           <div class="nav-menu dropdown">
             <span><i class="fa-solid fa-bars"></i></span>
-            <%= image_tag (cl_image_path current_user.photo.key), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% avatar_url = current_user.facebook_picture_url || (cl_image_path current_user.photo.key) %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profil", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

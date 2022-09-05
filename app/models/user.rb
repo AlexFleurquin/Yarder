@@ -10,5 +10,8 @@ class User < ApplicationRecord
   has_many :professionals_participations, through: :projects, source: :participations
   has_many :professionals, through: :professionals_participations, source: :user
 
+  has_many :chatrooms_as_client, class_name: "Chatroom", foreign_key: :client_id
+  has_many :chatrooms_as_professional, class_name: "Chatroom", foreign_key: :professional_id
+
   has_one_attached :photo
 end

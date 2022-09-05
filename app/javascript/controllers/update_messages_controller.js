@@ -23,6 +23,7 @@ export default class extends Controller {
 
     const response = await fetch(`/chatrooms/${this.chatroomIdValue}/messages`, options)
     const data = await response.json()
-    console.log(data)
+
+    this.listTarget.insertAdjacentHTML('beforeend', data.html)
   }
 }

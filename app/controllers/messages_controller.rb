@@ -6,10 +6,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save!
-      respond_to do |format|
-        format.html
-        format.json { json_response }
-      end
+      render json: json_response
     else
       render "chatrooms/show", status: :unprocessable_entity
     end

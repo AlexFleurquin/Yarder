@@ -112,3 +112,26 @@ body.dark .btn-show-room-back {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 }
+
+.btn-select {
+  background-color: transparent;
+
+  &:hover {
+    border: transparent;
+  }
+
+  &:visited {
+    border: transparent;
+  }
+}
+
+.dropdown-toggle .dropdown-toggle-split .show {
+  &:active {
+    border-color: transparent;
+  }
+
+  &:focus {
+    border-color: transparent;
+  }
+
+}

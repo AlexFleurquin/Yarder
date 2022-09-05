@@ -6,6 +6,10 @@
   position: relative;
 }
 
+body.dark .container_form {
+  background: $dark-card;
+}
+
 .row_progress_suivant {
   align-items: center;
   width: 90%;

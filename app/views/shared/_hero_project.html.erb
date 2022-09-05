@@ -19,7 +19,7 @@
     </ul>
   </div>
 </div>
-<div class="row hero-project">
+<div class="row hero-project" style="padding-left: calc(var(--bs-gutter-x) * 1);">
   <% if @project.photo.key %>
     <div class="col-7 d-flex img-hero" style="background-image: url('<%= cl_image_path @project.photo.key %>')">
       <div class="d-flex flex-direction-row align-items-end">

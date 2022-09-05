@@ -31,8 +31,8 @@ room2.photos.attach(io: URI.open("https://images.unsplash.com/photo-156454058324
 room1.save!
 room2.save!
 
-task1 = Task.new(name: "Peindre le plafond", description: "Peindre le plafond de la pièce en blanc", room_id: room1.id, status: "A faire", position: 1)
-task2 = Task.new(name: "Mise en route compteur", description: "Mise en route compteur électrique", room_id: room1.id, status: "A faire", position: 2)
+task1 = Task.new(name: "Peindre le plafond", description: "Peindre le plafond de la pièce en blanc", room_id: room1.id, status: "A faire", position: 1, start_date: "2022-09-01 00:00:00 UTC" , end_date: "2022-09-20 00:00:00 UTC")
+task2 = Task.new(name: "Mise en route compteur", description: "Mise en route compteur électrique", room_id: room1.id, status: "A faire", position: 2, start_date: "2022-09-10 00:00:00 UTC" , end_date: "2022-09-15 00:00:00 UTC")
 task1.save!
 task2.save!
 

@@ -73,10 +73,10 @@
       <div data-controller="preview">
         <%= f.input :photo, as: :file, label: 'Une photo représentative du projet',
                     required: false, autofocus: true, :label_html => { :class => 'label' },
-                    input_html: {data: { action: "change->preview#preview" }}  %>
+                    input_html: {data: { action: "change->preview#preview" }} %>
 
         <div class="row" style="justify-content: center; padding: 10px;">
-          <img id="output" class="d-none img-preview" data-preview-target="output" src="#" alt="your image" style="border-radius: 10px; box-shadow: 0px 1px 2px rgba(15, 23, 42, 0.04);" />
+          <img id="output" class="d-none img_preview" data-preview-target="output" src="#" alt="your image" style="border-radius: 10px; box-shadow: 0px 1px 2px rgba(15, 23, 42, 0.04);" />
         </div>
       </div>
       <div class="row py-5 row_progress_suivant">

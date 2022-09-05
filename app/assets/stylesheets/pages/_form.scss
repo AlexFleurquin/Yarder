@@ -1,3 +1,49 @@
+.container_form {
+  width: 900px;
+  border-radius: 10px;
+  background: white;
+  height: 600px;
+  position: relative;
+}
+
+.row_progress_suivant {
+  align-items: center;
+  width: 90%;
+  position: absolute;
+  left: 60px;
+  bottom: -70px;
+}
+
+.img-preview {
+  padding: 0;
+  object-fit: cover;
+  height: 100%;
+  width: 350px;
+}
+
+.submit_form {
+  position: absolute;
+  bottom: 160px;
+  width: 500px;
+  margin-left: 320px;
+}
+
+.room_room_type legend {
+  font-size: larger;
+  color: black;
+  margin-left: 8px;
+  padding-bottom: 30px;
+}
+
+.upload-photo {
+  border: 1px solid #d3d3d3;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
+}
+
 .project_building_type {
   display: flex;
   justify-content: space-around;

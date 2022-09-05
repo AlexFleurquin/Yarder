@@ -1,12 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets=['Salon', 'Chambre', 'Salle de bains ou toilettes', 'Cuisine'];
+  static targets=["hidden"];
 
   connect() {
   }
 
   display(event) {
-    console.log(event)
+    let room = event.target.defaultValue
+    this.hiddenTargets.forEach(i => {
+      if (i.id === room) {
+        i.classList.toggle("d-none")
+      }
+    })
   }
 }

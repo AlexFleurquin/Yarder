@@ -1,0 +1,58 @@
+<!-- Button trigger modal -->
+  <div class="professional-cards">
+    <div class="card shadow rounded mt-3" style="width: 18rem; position: relative;">
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target= "#Modal-<%= artisan.id%>">
+        <div class="container container-new">
+        </div>
+
+        <div class="d-flex justify-content-around mt-3">
+          <img class="avatar" src="http://res.cloudinary.com/matbnc/image/upload/v1/development/n0yoy8sosy4krxoff5zo1qn9vfxw" alt="Romain">
+        </div>
+        <p style="color: #818CF8; position: absolute; top: 5px; right: 5px;"><i class="fa-solid fa-user-plus"></i></p>
+        <div class="card-body d-flex justify-content-around">
+          <h5 class="card-title"><%= artisan.first_name %> <%= artisan.last_name %></h5>
+        </div>
+        <div class="card-body d-flex justify-content-around">
+        <p class="card-text">Electricien</p>
+        </div>
+        <div class="card-body border-top p-1" style="height: 40px;">
+          <div class="d-flex justify-content-around">
+            <div class="d-flex">
+              <a data-turbo-method="post" href="/chatrooms?professional=7">
+                <p style="color: #818CF8; font-size: 12px; margin: 3px 5px;">Contacter</p>
+              </a>
+              <p style="color: #818CF8;"><i class="fa-solid fa-comment"></i></p>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal-<%= artisan.id%>" tabindex="-1" aria-labelledby="<%= artisan.id%>ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="<%= artisan.id%>ModalLabel"><%= artisan.first_name %> <%= artisan.last_name %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= artisan.speciality %>
+        <br>
+        <%= artisan.bio %>
+        <br>
+        <%= artisan.email %>
+        <%= artisan.phone_number %>
+        <div class="d-flex justify-content-around mt-3">
+          <img class="avatar" src="http://res.cloudinary.com/matbnc/image/upload/v1/development/n0yoy8sosy4krxoff5zo1qn9vfxw" alt="Romain">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= link_to artisans_path(@artisans) do %>
+          <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i>Ajouter à mon équipe</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

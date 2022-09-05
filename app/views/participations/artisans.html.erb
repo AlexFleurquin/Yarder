@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="container-header-dashboard container">
+  </div>
+</div>
+
+<h1>ANNUAIRE DES ARTISANS</h1>
+
+<% @artisans.each do |artisan| %>
+  <%= render "shared/modal_artisan_infos", artisan: artisan %>
+<% end %>
+
+<div class="container container-new">
+</div>

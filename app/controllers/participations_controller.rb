@@ -10,4 +10,12 @@ class ParticipationsController < ApplicationController
 
   def destroy
   end
+
+  def artisans
+    @artisans = User.artisans
+  end
+
+  def artisan_show
+    @artisan = User.artisan(params[:id])
+  end
 end

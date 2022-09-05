@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :projects do
-    resources :participations, only: %i[create destroy]
+    resources :participations, only: %i[index show create destroy]
     resources :rooms, only: %i[show new create update destroy]
 
   end
@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   get "/projects/:project_id/rooms/:id/edit", to: "rooms#edit", as: "edit_room"
   get "rooms/:room_id/delete_photo/:photo", to: "rooms#delete_photo", as: "delete_photo"
   post "/chatrooms", to: "chatrooms#create", as: "create_chatroom"
+  get "/artisans", to: "participations#artisans", as: "artisans"
+  get "/artisans/:artisan_id", to: "participations#artisan_show", as: "artisan"
 end

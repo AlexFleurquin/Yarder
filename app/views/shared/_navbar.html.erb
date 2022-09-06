@@ -12,7 +12,7 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <% if @projects.empty? %>
+        <% if @projects&.empty? %>
           <%= link_to dashboard_path, class: "nav-link mx-4 dropdown p-0"  do %>
             <span><%= render :partial => 'svg/box' %>Projets</span>
           <% end %>
@@ -23,7 +23,7 @@
                 <span class="nav-project"><%= render :partial => 'svg/box' %>Projets</span>
               </a>
               <ul class="dropdown-menu">
-                <% @projects.each do |project| %>
+                <% @projects&.each do |project| %>
                   <%= link_to project_path(project), class:"text-decoration-none" do %>
                     <li class="dropdown-item"><%= project.name %></li>
                   <% end %>

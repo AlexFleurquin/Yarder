@@ -5,8 +5,8 @@
       <span class="calendar-title btn btn-calendar">Aujourd'hui</span>
       <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view, class: 'btn btn-calendar' %>
     </div>
-    <%= link_to room_tasks_path(@project, @room) do %>
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newtask"><i class="fa-solid fa-plus"></i> Ajouter un rendez-vous</button>
+    <%= link_to project_path(@project) do %>
+      <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Ajouter un rendez-vous</button>
     <% end %>
   </div>
 

@@ -28,5 +28,8 @@ application.register("preview", PreviewController)
 import RoomsPhotoController from "./rooms_photo_controller"
 application.register("rooms-photo", RoomsPhotoController)
 
+import SweetalertController from "./sweetalert_controller"
+application.register("sweetalert", SweetalertController)
+
 import UpdateMessagesController from "./update_messages_controller"
 application.register("update-messages", UpdateMessagesController)

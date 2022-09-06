@@ -13,8 +13,8 @@
       <%= link_to edit_project_path(@project), class: 'text-decoration-none' do %>
         <li><p class="dropdown-item"><i class="fa-solid fa-pen pe-2"></i>Modifier</p></li>
       <% end %>
-      <%= link_to project_path(@project), class: 'text-decoration-none', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <li><p class="dropdown-item"><i class="fa-solid fa-trash pe-2"></i>Supprimer</p></li>
+      <%= link_to project_path(@project), class: 'text-decoration-none', data: {turbo_method: :delete, controller: "sweetalert", action: "click->sweetalert#projectDelete", sweetalert_path_value: project_path(@project) } do %>
+        <li><p class="dropdown-item"><i class="fa-solid fa-trash pe-2" id="sweet-alert-delete"></i>Supprimer</p></li>
       <% end %>
     </ul>
   </div>

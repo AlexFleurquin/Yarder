@@ -1,4 +1,4 @@
- <div class="card-room">
+ <div class="card-room" id="<%= dom_id(room) %>">
   <%= link_to project_room_path(room.project, room), class: 'link-card' do %>
     <% if room.photos.attached? %>
       <img class="card-room-img" src="<%= cl_image_path room.photos.first.key %>" alt="Card image cap">
@@ -16,8 +16,10 @@
     <div class="card-room-content w-100">
       <div class="d-flex justify-content-between flex-direction-row mb-3">
         <h6><%= room.room_type %></h6>
-        <%= link_to project_room_path(room.project, room), data: {turbo_method: :delete }, class: 'text-decoration-none' do %>
-          <h6><i class="fa-solid fa-trash-can"></i></h6>
+        <%= link_to project_room_path(room.project, room),
+                    data: {turbo_method: :delete, controller: "sweetalert", action: "click->sweetalert#open", sweetalert_path_value: project_room_path(room.project, room) },
+                    class: 'text-decoration-none' do %>
+          <h6><i class="fa-solid fa-trash-can" id="sweet-alert-delete"></i></h6>
         <% end %>
       </div>
 

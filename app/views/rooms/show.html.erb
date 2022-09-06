@@ -14,7 +14,11 @@
     <div class="col-8 header-show">
 
     <%= link_to "Modifier", edit_room_path(@room.project, @room), class: "btn btn-outline-primary me-2" %>
-    <%= link_to "Supprimer", project_room_path(@room.project, @room), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer cette pièce ?"}, class: "btn btn-outline-danger" %>
+    <%= link_to "Supprimer", project_room_path(@room.project, @room),
+                             data: {turbo_method: :delete, controller: "sweetalert",
+                             action: "click->sweetalert#roomDelete",
+                             sweetalert_path_value: project_room_path(@room.project, @room),
+                             sweetalert_redirection_value: project_path(@room.project) }, class: "btn btn-outline-danger" %>
     </div>
   </div>
 

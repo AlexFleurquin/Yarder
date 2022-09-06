@@ -14,7 +14,8 @@
 
 
   .today {
-    background-color: #0EA5E9;
+    border-top: 2px solid #0EA5E9;
+    background-color: transparent;
   }
 }
 
@@ -28,7 +29,7 @@ body.dark .simple-calendar {
   }
 
   .today {
-    background-color: $dark-card;
+    background-color: transparent;
   }
 }
 

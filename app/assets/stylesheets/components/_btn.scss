@@ -193,3 +193,13 @@ body.dark .btn-pro {
     color: white;
   }
 }
+
+.btn-transparent {
+  border: transparent;
+  background-color: transparent;
+}
+
+.btn:disabled, .btn.disabled, fieldset:disabled .btn {
+  border-color: transparent;
+  color: $medium-gray;
+}

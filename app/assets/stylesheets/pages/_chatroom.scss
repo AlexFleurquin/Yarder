@@ -30,13 +30,15 @@
 }
 
 
-.nav-pills .nav-link.active {
+.nav-link:active {
   color: black !important;
+  background-color: transparent;
   border: none;
 }
 
+
 .message-row {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   padding: 8px;
 }
 
@@ -50,7 +52,8 @@
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: $project-blue;
+  color: white;
 }
 
 .receiver-style {
@@ -71,4 +74,30 @@
 
 .sender-style .sender-style, .receiver-style .receiver-style {
   width: 100%;
+}
+
+.contact-item {
+  background-color: white;
+  border-radius: 6px;
+  padding: 12px;
+
+  p {
+    font-size: 12px;
+    color: $medium-gray;
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: $project-blue;
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    p {
+      color: white;
+    }
+  }
+}
+
+.messagebar {
+  margin-top: 16px;
 }

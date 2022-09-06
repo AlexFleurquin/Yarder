@@ -15,19 +15,21 @@
       <% end %>
     </div>
   <% else %>
-    <div class="d-flex align-items-start row">
+    <div class="d-flex align-items-end row">
       <div class="col-4">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <% @chatrooms.each do |chatroom| %>
-            <div class="d-flex bg-white rounded align-items-center mt-2">
-              <%= cl_image_tag chatroom.professional.photo.key, class: "avatar", style: "height: 40px;" %>
-              <div>
-                <button class="nav-link pb-1 <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%= chatroom.id %>" type="button" role="tab" aria-controls="v-pills-<%= chatroom.id %>" aria-selected="true"><%= chatroom.professional.first_name %> <%= chatroom.professional.last_name %></button>
-                <% if chatroom.messages != [] %>
-                  <p style="font-size: 12px; padding: 8px 16px; margin-bottom: 0px; padding-top: 0px;"><em><%= chatroom.messages.last.content %></em></p>
-                <% end %>
+            <button class="btn-transparent <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%= chatroom.id %>" type="button" role="tab" aria-controls="v-pills-<%= chatroom.id %>" aria-selected="true">
+              <div class="d-flex flex-row justify-content-start align-items-center contact-item">
+                <%= cl_image_tag chatroom.professional.photo.key, class: "avatar me-4" %>
+                <div class="d-flex flex-column justify-content-end align-items-start">
+                  <h6 class="mb-0"><%= chatroom.professional.first_name %> <%= chatroom.professional.last_name %></h6>
+                  <% if chatroom.messages != [] %>
+                    <p><%= chatroom.messages.last.content %></p>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            </button>
           <% end %>
         </div>
       </div>
@@ -45,7 +47,7 @@
                 <% end %>
               </div>
               <%= simple_form_for [chatroom, @message],
-              html: {class: "d-flex", data: { update_messages_target: "form", action: "submit->update-messages#send" }} do |f|
+              html: {class: "d-flex messagebar", data: { update_messages_target: "form", action: "submit->update-messages#send" }} do |f|
               %>
                 <%= f.input :content,
                   label: false,

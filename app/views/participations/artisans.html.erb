@@ -19,15 +19,10 @@
   <% else %>
   <div class="professional-cards">
     <% @artisans.each do |artisan| %>
-      <div class="card-pro">
-        <button type="button" class="card-pro-content" data-bs-toggle="modal" data-bs-target= "#Modal-<%= artisan.id%>">
-          <div class="d-flex justify-content-end">
-            <p class="m-2 btn-pro">En savoir plus</i></p>
-          </div>
-          <div class="d-flex flex-column align-items-center">
+      <div class="card-pro d-flex flex-column justify-content-around">
+        <button type="button" class="d-flex flex-column align-items-center card-pro-content" data-bs-toggle="modal" data-bs-target= "#Modal-<%= artisan.id%>">
             <%= cl_image_tag artisan.photo.key, class: "avatar" %>
             <h5 class="mt-2"><%= artisan.first_name %> <%= artisan.last_name %></h5>
-          </div>
           <div class="d-flex justify-content-around">
             <p><%= artisan.speciality %></p>
           </div>

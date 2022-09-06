@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @rooms = @project.rooms
     @room = Room.new
     @tasks = @room.tasks
-    @professionals = current_user.professionals
+    @participations = @project.participations
     @markers = @project.geocode.map do
       {
         lat: @project.latitude,

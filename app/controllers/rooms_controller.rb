@@ -54,7 +54,7 @@ class RoomsController < ApplicationController
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
-    redirect_to project_path(@room.project), status: :see_other
+    render json: { element_id: @room.id, dom_id: "room_#{@room.id}" }
   end
 
   private

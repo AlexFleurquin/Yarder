@@ -13,7 +13,7 @@
     <button type="button" class="btn btn-empty mt-4" data-bs-toggle="modal" data-bs-target="#addroom"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
   </div>
 <% else %>
-  <div class="cards-rooms">
+  <div class="cards-rooms" style="margin-top: 24px">
     <% @rooms.each do |room| %>
       <%= render "shared/room_card_small", project: @project, room: room %>
     <% end %>

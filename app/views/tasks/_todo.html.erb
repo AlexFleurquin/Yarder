@@ -14,11 +14,17 @@
           <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
             <div class="d-flex justify-content-between">
               <h6><%= task.name %></h6>
-              <span>Peinture</span>
+              <% if task.category %>
+                <span class="task-badge"><%= task.category %></span>
+              <% end %>
             </div>
             <div class="d-flex justify-content-between align-items-end pt-3">
-              <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= task.end_date.strftime('%e %B') %></p>
-              <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+              <% if task.start_date && task.end_date %>
+                <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= task.end_date.strftime('%e %B') %></p>
+              <% end %>
+              <% if task.user %>
+                <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+              <% end %>
             </div>
           </a>
         </li>
@@ -39,16 +45,41 @@
                     <p><%= task.description %></p>
                   </div>
                   <div>
-                    <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                    <% if task.user %>
+                      <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                    <% end %>
                   </div>
                 </div>
+                <% if task.user %>
+                  <div>
+                    <span class="label"><i class="fa-regular fa-user"></i></i> Artisan</span>
+                    <p> <%= task.user.first_name %> <%= task.user.last_name %> </p>
+                  </div>
+                <% end %>
                 <div>
-                  <span class="label">Prévue le</span>
-                  <p><i class="fa-regular fa-calendar"></i> Du <%= task.start_date.strftime('%e %B')%> au <%= task.end_date.strftime('%e %B') %></p>
+                  <span class="label"><i class="fa-solid fa-list-check"></i> Statut</span>
+                  <p> <%= task.status %></p>
                 </div>
+                <% if task.start_date && task.end_date %>
+                  <div>
+                    <span class="label"><i class="fa-regular fa-calendar"></i> Prévue le</span>
+                    <p>Du <%= task.start_date.strftime('%e %B')%> au <%= task.end_date.strftime('%e %B') %></p>
+                  </div>
+                <% end %>
+                <% if task.category %>
+                  <div>
+                    <span class="label"><i class="fa-solid fa-paint-roller"></i> Type</span>
+                    <p><%= task.category %></p>
+                  </div>
+                <% end %>
+
+
+
 
                 <div class="d-flex justify-content-between">
-                  <button type="button" class="btn btn-primary">Contacter <%= task.user.first_name %> 💬</button>
+                  <%= link_to chatrooms_path do  %>
+                    <button type="button" class="btn btn-primary">Contacter  <% if task.user %> <%= task.user.first_name %> <% end %> 💬</button>
+                  <% end %>
                   <%= link_to room_task_path(@room, task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
                     <button type="button" class="btn btn-delete"><i class="fa-solid fa-xmark px-2"></i>Supprimer</button>
                   <% end %>
@@ -83,6 +114,7 @@
           <%= f.input :name, label: 'Titre', placeholder: "Peindre le plafond", required: false, autofocus: true, :label_html => { :class => 'label' } %>
           <%= f.input :description, label: 'Description', placeholder: "Peindre le plafond en blanc", required: false, autofocus: true, :label_html => { :class => 'label' } %>
           <%= f.association :user, collection: @room.project.professionnals, label_method: :full_name, value_method: :id, label: 'Artisan', placeholder: "Monsieur propre", :label_html => { :class => 'label' } %>
+          <%= f.input :category, priority: [ "Peinture" ], collection: ['Peinture', 'Plomberie', 'Maçonnerie', 'Electricité', 'Menuisier'], label: 'Type', :label_html => { :class => 'label' } %>
           <div class="row">
             <div class="col-6">
               <%= f.input :start_date, as: :string, label: 'Début', placeholder: "1er Septembre 2022", required: false, input_html: { data: { controller: "flatpickr" } }, :label_html => { :class => 'label' }, data: {

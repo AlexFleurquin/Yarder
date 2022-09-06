@@ -24,7 +24,9 @@
             <div class="d-flex flex-column align-items-center">
               <%= cl_image_tag professional.photo.key, class: "avatar" %>
               <h5 class="mt-2"><%= professional.first_name %> <%= professional.last_name %></h5>
+              <p class="card-text"><%= professional.speciality %></p>
             </div>
+
             <div class="d-flex justify-content-around">
               <p><%= professional.speciality %></p>
             </div>

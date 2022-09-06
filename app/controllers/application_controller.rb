@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def skip_projects?
-   (controller_name == "sessions" && action_name == "new") || (controller_name == "registrations" && action_name == "new") || (action_name == "home")
+    (controller_name == "sessions" && action_name == "new") || (controller_name == "registrations" && action_name == "new") || (action_name == "home") || (controller_name == "omniauth_callbacks") || (action_name == "self.from_omniauth")
   end
 end

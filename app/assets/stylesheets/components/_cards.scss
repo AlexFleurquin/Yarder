@@ -210,13 +210,15 @@ body.dark .card-pieces {
   .task-title {
     margin-bottom: 0rem;
   }
+}
 
-  .task-badge {
-    padding: 2px 8px;
-    background: #1C1C28;
-    border: 1px solid #393953;
-    border-radius: 8px;
-    color: white;
-    font-size: 12px;
-  }
+.task-badge {
+  padding: 2px 8px;
+  background: #1C1C28;
+  border: 1px solid #393953;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  align-items: center;
+  display: flex;
 }

@@ -50,7 +50,7 @@
               </div>
               <div class="col-9" style="padding: 20px 60px;">
                 <h4><div class="row">Dernières taches ajoutées</div></h4>
-                <% @tasks.order(position: :asc).each do |task| %>
+                <% room.tasks.each do |task| %>
                   <div class="d-flex justify-content-between card-task-row">
                     <p class="task-title"><%= task.name %></p>
                     <span class="task-badge">Peinture</span>

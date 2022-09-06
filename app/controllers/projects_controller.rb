@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to dashboard_path, status: :see_other
+    render json: { element_id: @project.id, dom_id: "project_#{@project.id}" }
   end
 
   private

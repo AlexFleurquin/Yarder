@@ -7,14 +7,14 @@
       <div class="col-3 d-flex justify-content-between align-items-center">
         <div>
           <h6>Propriétés</h6>
-          <span>1</span>
+          <span><%= @projects.count %></span>
         </div>
         <span><%= render :partial => 'svg/property' %></span>
       </div>
       <div class="col-3 d-flex justify-content-between align-items-center">
         <div>
           <h6>Chantiers en cours</h6>
-          <span>1</span>
+          <span><%= @projects.count %></span>
         </div>
         <span><%= render :partial => 'svg/chantier' %></span>
       </div>
@@ -28,7 +28,7 @@
       <div class="col-3 d-flex justify-content-between align-items-center">
         <div>
           <h6>Paiements en attente</h6>
-          <span>1</span>
+          <span>0</span>
         </div>
         <span><%= render :partial => 'svg/paiement' %></span>
       </div>

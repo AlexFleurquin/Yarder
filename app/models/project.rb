@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :rooms, dependent: :destroy
   has_many :participations, dependent: :destroy
+  has_many :professionnals, through: :participations, source: :user
   has_many :tasks, through: :rooms, dependent: :destroy
   has_one_attached :photo
   validates :name, :address, presence: true

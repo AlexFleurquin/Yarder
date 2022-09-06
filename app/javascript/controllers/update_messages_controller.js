@@ -25,5 +25,6 @@ export default class extends Controller {
     const data = await response.json()
 
     this.listTarget.insertAdjacentHTML('beforeend', data.html)
+    this.contentTarget.value = ""
   }
 }

@@ -62,3 +62,13 @@
   padding: 10px !important;
   font-size: 14px !important;
 }
+
+.sender-style .message-row.d-flex.justify-content-end, .receiver-style .message-row.d-flex.justify-content-end {
+  display: block !important;
+  margin: unset;
+  padding: unset;
+}
+
+.sender-style .sender-style, .receiver-style .receiver-style {
+  width: 100%;
+}

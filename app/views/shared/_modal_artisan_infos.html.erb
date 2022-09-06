@@ -2,31 +2,49 @@
 <div class="modal fade" id="Modal-<%= artisan.id%>" tabindex="-1" aria-labelledby="<%= artisan.id%>ModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="<%= artisan.id%>ModalLabel"><%= artisan.first_name %> <%= artisan.last_name %></h5>
+      <div class="modal-header d-flex justify-content-between align-items-start">
+        <div class="d-flex justify-content-start">
+          <%= cl_image_tag artisan.photo.key, class: "avatar-large me-3" %>
+          <h5 class="modal-title" id="<%= artisan.id%>ModalLabel"><%= artisan.first_name %> <%= artisan.last_name %></h5>
+        </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= artisan.speciality %>
-        <br>
-        <%= artisan.bio %>
-        <br>
-        <%= artisan.email %>
-        <%= artisan.phone_number %>
-        <div class="d-flex justify-content-around mt-3">
-          <%= cl_image_tag artisan.photo.key, class: "avatar" %>
-        </div>
+        <% if artisan.speciality %>
+          <div>
+            <p class="label">Spécialité</p>
+            <%= artisan.speciality %>
+          </div>
+        <% end %>
+        <% if artisan.bio %>
+          <div>
+            <p class="label">Bio</p>
+            <%= artisan.bio %>
+          </div>
+        <% end %>
+        <% if artisan.email %>
+          <div>
+            <p class="label">Email</p>
+            <%= artisan.email %>
+          </div>
+        <% end %>
+        <% if artisan.phone_number %>
+          <div>
+            <p class="label">Numéro de téléphone</p>
+            <%= artisan.phone_number %>
+          </div>
+        <% end %>
       </div>
       <div class="modal-footer">
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Ajouter +
+          Ajouter
         </button>
         <ul class="dropdown-menu">
           <% current_user.projects.each do |project| %>
             <% if project.assigned?(artisan) %>
               <li class="btn btn-form disabled width: 300px">
-                déjà sur <%= project.name %>
+                Déjà sur <%= project.name %>
               </li>
             <% else %>
               <li style="width: 300px; padding-left: 12px" >

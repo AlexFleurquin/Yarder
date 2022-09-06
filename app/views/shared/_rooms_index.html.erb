@@ -53,7 +53,9 @@
                 <% room.tasks.each do |task| %>
                   <div class="d-flex justify-content-between card-task-row">
                     <p class="task-title"><%= task.name %></p>
-                    <span class="task-badge">Peinture</span>
+                    <% if task.category %>
+                      <span class="task-badge"><%= task.category %></span>
+                    <% end %>
                   </div>
                 <% end %>
                 <div class="d-flex justify-content-end">

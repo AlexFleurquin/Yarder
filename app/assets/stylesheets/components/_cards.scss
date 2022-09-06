@@ -64,7 +64,7 @@ body.dark .card-params {
 body.dark .card-room {
   color: --darkColor;
   border: 1px solid $dark-gray;
-  background-color: $dark-card;
+  background-color: $dark-gray;
 }
 
 .card-project {
@@ -132,7 +132,6 @@ body.dark .link-card {
 
 .card-pro {
   background: white;
-  border: 2px solid #5C5A66;
   border-radius: 8px;
   color: $dark-gray;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -140,7 +139,7 @@ body.dark .link-card {
 
 .card-pro:hover {
   background: white;
-  border: 2px solid #5C5A66;
+  border: 1px solid #F2F2F2;
   border-radius: 8px;
   color: $dark-gray;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -148,20 +147,21 @@ body.dark .link-card {
 
 body.dark .card-pro {
   background: #222127;
-  border: 2px solid #5C5A66;
+  border: 1px solid #5C5A66;
   border-radius: 8px;
   color: white;
 }
 
 body.dark .card-pro:hover {
   background: #222127;
-  border: 2px solid #5C5A66;
+  border: 1px solid #5C5A66;
   border-radius: 8px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .card-pro-content {
+  padding: 16px;
   width: 100%;
   border: transparent;
   background-color: transparent;
@@ -210,6 +210,16 @@ body.dark .card-pieces {
   }
 }
 
+body.dark .card-task-row {
+  background: #413F4B;
+  border: 1px solid #E2E8#5C5A66F0;
+
+
+  .task-title {
+    color: white;
+  }
+}
+
 .task-badge {
   padding: 2px 8px;
   background: #1C1C28;
@@ -219,4 +229,9 @@ body.dark .card-pieces {
   font-size: 12px;
   align-items: center;
   display: flex;
+}
+
+body.dark .task-badge {
+  background-color: $project-blue;
+  color: white;
 }

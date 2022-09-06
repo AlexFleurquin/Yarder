@@ -19,7 +19,7 @@
         <%= link_to project_room_path(room.project, room),
                     data: {turbo_method: :delete, controller: "sweetalert", action: "click->sweetalert#open", sweetalert_path_value: project_room_path(room.project, room) },
                     class: 'text-decoration-none' do %>
-          <h6><i class="fa-solid fa-trash-can" id="sweet-alert-delete"></i></h6>
+          <h6 class="text-dark"><i class="fa-solid fa-trash id="sweet-alert-delete"></i></h6>
         <% end %>
       </div>
 

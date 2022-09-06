@@ -7,3 +7,11 @@ body.dark .modal-content {
   background-color: $dark-gray;
   color: white;
 }
+
+.modal-footer {
+  border-top: none;
+}
+
+.modal-header {
+  border-bottom: none;
+}

@@ -18,13 +18,29 @@
         </div>
       </div>
       <div class="modal-footer">
-        <% current_user.projects.each do |project| %>
-          <%= simple_form_for [project, @participation] do |f| %>
-            <%= f.input :user_id, input_html: {value: artisan.id} %>
-            <%= f.submit "Ajouter à mon équipe" %>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Ajouter +
+        </button>
+        <ul class="dropdown-menu">
+          <% current_user.projects.each do |project| %>
+            <% if project.assigned?(artisan) %>
+              <li class="btn btn-form disabled width: 300px">
+                déjà sur <%= project.name %>
+              </li>
+            <% else %>
+              <li style="width: 300px; padding-left: 12px" >
+                <%= simple_form_for [project, @participation] do |f| %>
+                <div class="d-none">
+                  <%= f.input :user_id, input_html: {value: artisan.id} %>
+                </div>
+                  <%= f.submit "Ajouter à #{project.name}", class:'btn btn-primary' %>
+                <% end %>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
-
+        </ul>
+      </div>
       </div>
     </div>
   </div>

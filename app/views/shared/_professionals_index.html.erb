@@ -23,7 +23,9 @@
           <div class="d-flex justify-content-around mt-3">
             <%= cl_image_tag professional.photo.key, class: "avatar" %>
           </div>
-          <p style="color: #818CF8; position: absolute; top: 5px; right: 5px;"><i class="fa-solid fa-trash-can"></i></p>
+          <div>
+            <p style="color: #818CF8; position: absolute; top: 5px; right: 5px;"><i class="fa-solid fa-trash-can"></i></p>
+          </div>
           <div class="card-body d-flex justify-content-around">
             <h5 class="card-title"><%= professional.first_name %> <%= professional.last_name %></h5>
           </div>

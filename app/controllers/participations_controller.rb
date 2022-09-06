@@ -8,18 +8,23 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    # recup le projet
-    @project = Project.find(params[:id])
-    # recup le user params..
-    @user = User.find(params[:id])
-    # participation.create (participation_params en private)
-    @participation.create(participation_params)
-    # if save redirect to project_path(@project, tab: 'member')  => /projects/15?tab=member
-    if @participation.save redirect_to project_path(@project, tab: 'member')
+    @project = Project.find(params[:project_id])
+    @user = User.find(params[:participation][:user_id])
+    @participation = Participation.new(participation_params)
+    @participation.user = @user
+    @participation.project = @project
+    if @participation.save
+      redirect_to project_path(@project, tab: 'nav-professionals')
+    else
+      redirect_to artisans_path(artisans)
     end
   end
 
   def destroy
+    @participation = Participation.find(params[:id])
+    @participation.destroy
+    authorize @participation
+    redirect_to project_path(@project, tab: 'nav-professionals')
   end
 
   def artisans
@@ -34,6 +39,6 @@ class ParticipationsController < ApplicationController
   private
 
   def participation_params
-    participation_params.require(@participation).permit(:user_id, :project_id)
+    params.require(:participation).permit(:user_id, :project_id)
   end
 end

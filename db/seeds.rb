@@ -1,5 +1,7 @@
 puts "Deleting previous seed..."
 
+Message.destroy_all
+Chatroom.destroy_all
 Participation.destroy_all
 Task.destroy_all
 Room.destroy_all

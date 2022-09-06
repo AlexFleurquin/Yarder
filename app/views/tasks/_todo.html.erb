@@ -10,17 +10,15 @@
       <p class="ms-5">A faire</p>
       <ul class="todo-section colonne" data-drag-target="todo" >
       <% @tasks.order(position: :asc).each do |task| %>
-        <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card" style="position: relative;">
+        <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card">
           <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
             <div class="d-flex justify-content-between">
               <h6><%= task.name %></h6>
-              <span class="badge text-bg-dark" style="position: absolute; right: 7px; top: 17px;">Peinture</span>
+              <span>Peinture</span>
             </div>
-            <div class="d-flex justify-content-between">
-              <p style="position: absolute; bottom: 20px; left: 13px; font-size: 14px;"><em><strong>Date de fin:</strong> <%= task.end_date.strftime('%e %B') %></em></p>
-              <p style="position: absolute; bottom: 9px; left: 13px; font-size: 13px; margin-bottom: 0px;"><i class="fa-solid fa-exclamation"></i><em>  plus que 1 sem.</em></p>
-              <img class="avatar" style="position: absolute; bottom: 3px; right: 7px;" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-              <p style="position: absolute; bottom: 3px; right: 60px; margin-bottom: 0px;"><i class="fa-regular fa-envelope"></i></p>
+            <div class="d-flex justify-content-between align-items-end pt-3">
+              <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= task.end_date.strftime('%e %B') %></p>
+              <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
             </div>
           </a>
         </li>
@@ -35,14 +33,24 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <h6>Description</h6>
-                <p><%= task.description %></p>
-                <p><h6>Date de début: <%= task.start_date.strftime('%e %B') %></h6></p>
-                <p><h6>Date de fin: <%= task.end_date.strftime('%e %B') %></h6></p>
                 <div class="d-flex justify-content-between">
-                  <button type="button" class="btn btn-primary">Associer un artisan</button>
+                  <div>
+                    <span class="label">Description</span>
+                    <p><%= task.description %></p>
+                  </div>
+                  <div>
+                    <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                  </div>
+                </div>
+                <div>
+                  <span class="label">Prévue le</span>
+                  <p><i class="fa-regular fa-calendar"></i> Du <%= task.start_date.strftime('%e %B')%> au <%= task.end_date.strftime('%e %B') %></p>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                  <button type="button" class="btn btn-primary">Contacter <%= task.user.first_name %> 💬</button>
                   <%= link_to room_task_path(@room, task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
-                    <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-xmark px-2"></i>Supprimer</button>
+                    <button type="button" class="btn btn-delete"><i class="fa-solid fa-xmark px-2"></i>Supprimer</button>
                   <% end %>
                 </div>
               </div>
@@ -74,6 +82,7 @@
         <%= simple_form_for [@room, @task] do |f| %>
           <%= f.input :name, label: 'Titre', placeholder: "Peindre le plafond", required: false, autofocus: true, :label_html => { :class => 'label' } %>
           <%= f.input :description, label: 'Description', placeholder: "Peindre le plafond en blanc", required: false, autofocus: true, :label_html => { :class => 'label' } %>
+          <%= f.association :user, collection: @room.project.professionnals, label_method: :full_name, value_method: :id, label: 'Artisan', placeholder: "Monsieur propre", :label_html => { :class => 'label' } %>
           <div class="row">
             <div class="col-6">
               <%= f.input :start_date, as: :string, label: 'Début', placeholder: "1er Septembre 2022", required: false, input_html: { data: { controller: "flatpickr" } }, :label_html => { :class => 'label' }, data: {

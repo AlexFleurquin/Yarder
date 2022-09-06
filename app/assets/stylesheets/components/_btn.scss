@@ -113,6 +113,22 @@ body.dark .btn-show-room-back {
   }
 }
 
+.btn-delete {
+  background-color: transparent;
+  color: $red;
+  border: transparent;
+
+  &:hover {
+    background-color: $red;
+    border: transparent;
+    color: white;
+  }
+
+  &:visited {
+    border: transparent;
+  }
+}
+
 .btn-select {
   background-color: transparent;
 

@@ -11,9 +11,9 @@ User.destroy_all
 puts "Creating 5 users, 1 project, 2 rooms, 2 tasks, 3 photos for each room and 2 participations..."
 
 
-user1 = User.new(first_name: 'Romain', last_name: 'Paillard', email: 'romain@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true, specialty: "Electricien", bio:"Electricien depuis 20 ans et issu d'une lignée de plombier depuis 1830, je me tiens volontaire pour vous dépanner et pour disrupter le marché du BTP")
+user1 = User.new(first_name: 'Romain', last_name: 'Paillard', email: 'romain@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true, speciality: "Electricien", bio:"Electricien depuis 20 ans et issu d'une lignée de plombier depuis 1830, je me tiens volontaire pour vous dépanner et pour disrupter le marché du BTP")
 user2 = User.new(first_name: 'Boris', last_name: 'Paillard', email: 'boris@abc.com', password: 'azerty', phone_number: '0503050434')
-user3 = User.new(first_name: 'Paul', last_name: 'Portier', email: 'paul@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true, specialty: "Menuisier", bio: "Je travaille le bois depuis mes 6 ans")
+user3 = User.new(first_name: 'Paul', last_name: 'Portier', email: 'paul@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true, speciality: "Menuisier", bio: "Je travaille le bois depuis mes 6 ans")
 user4 = User.new(first_name: 'Diane', last_name: 'Roussillon', email: 'diane@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true, speciality: "Peintre", bio: "Je peins très bien et depuis longtemps")
 user5 = User.new(first_name: 'Paul', last_name: 'Lahana', email: 'paull@abc.com', password: 'azerty', phone_number: '0503050434', is_pro: true, speciality: "Plombier", bio: "Marre des étudiants qui me demandent de l'aide tout le temps je préfère me réorienter dans les tuyaux")
 

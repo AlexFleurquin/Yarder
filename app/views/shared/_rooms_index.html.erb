@@ -43,12 +43,12 @@
         <% @rooms.each do |room| %>
           <div class="container">
             <div class="row card-pieces">
-              <div class="col-3">
+              <div class="col-4">
                 <div class="cards-rooms">
                   <%= render "shared/room_card_small", project: @project, room: room %>
                 </div>
               </div>
-              <div class="col-9" style="padding: 20px 60px;">
+              <div class="col-8 container-tasks">
                 <h4><div class="row">Dernières taches ajoutées</div></h4>
                 <% room.tasks.each do |task| %>
                   <div class="d-flex justify-content-between card-task-row">

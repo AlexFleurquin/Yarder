@@ -115,9 +115,15 @@
   font-family: 'Heebo';
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
   color: $gray;
+  line-height: 16px !important;
+  padding: 4px !important;
+  font-size: 14px !important;
+  justify-content: center;
+}
+
+.form-control  .active {
+  background-color: white;
 }
 
 .col-form-label {

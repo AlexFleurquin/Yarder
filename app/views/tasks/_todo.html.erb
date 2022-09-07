@@ -115,9 +115,9 @@
           <%= f.input :description, label: 'Description', placeholder: "Peindre le plafond en blanc", required: false, autofocus: true, :label_html => { :class => 'label' } %>
           <%= f.association :user, collection: @room.project.professionnals, label_method: :full_name, value_method: :id, label: 'Artisan', placeholder: "Monsieur propre", :label_html => { :class => 'label' } %>
           <%= f.input :category, priority: [ "Peinture" ], collection: ['Peinture', 'Plomberie', 'Maçonnerie', 'Electricité', 'Menuisier'], label: 'Type', :label_html => { :class => 'label' } %>
-          <div class="row">
+          <div class="row" data-controller="flatpickr" >
             <div class="col-6">
-              <%= f.input :start_date, as: :string, label: 'Début', placeholder: "1er Septembre 2022", required: false, input_html: { data: { controller: "flatpickr" } }, :label_html => { :class => 'label' }, data: {
+              <%= f.input :start_date, as: :string, label: 'Début', placeholder: "1er Septembre 2022", required: false, input_html: { data: { flatpickr_target: 'startDateInput' } }, :label_html => { :class => 'label' }, data: {
                 controller: "flatpickr",
                 flatpickr_alt_format: t("date.formats.long"),
                 flatpickr_alt_input: true,
@@ -125,7 +125,7 @@
               } %>
             </div>
             <div class="col-6">
-              <%= f.input :end_date, as: :string, label: 'Fin', placeholder: "2 Septembre 2022", required: false, input_html: { data: { controller: "flatpickr" } }, :label_html => { :class => 'label' } %>
+              <%= f.input :end_date, as: :string, label: 'Fin', placeholder: "2 Septembre 2022", required: false, input_html: { data: { flatpickr_target: 'endDateInput' } }, :label_html => { :class => 'label' } %>
             </div>
           </div>
 

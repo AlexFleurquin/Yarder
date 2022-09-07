@@ -15,8 +15,8 @@
       <% end %>
     </div>
   <% else %>
-    <div class="d-flex row">
-      <div class="col-4">
+    <div class="d-flex chat-container row">
+      <div class="col-4 chat-left">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <% @chatrooms.each do |chatroom| %>
             <button class="btn-transparent <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<%= chatroom.id %>" type="button" role="tab" aria-controls="v-pills-<%= chatroom.id %>" aria-selected="true">
@@ -33,7 +33,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-8 chat-right">
         <div class="tab-content" id="v-pills-tabContent">
           <% @chatrooms.each do |chatroom| %>
             <div class="tab-pane fade show <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>" role="tabpanel" aria-labelledby="v-pills-<%= chatroom.id %>-tab" tabindex="0" data-controller="update-messages" data-update-messages-chatroom-id-value="<%= chatroom.id %>">

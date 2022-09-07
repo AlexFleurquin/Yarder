@@ -2,7 +2,7 @@
   <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>" >
     <small>
       <strong><%= message.user.first_name %></strong>
-      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      <i><%= I18n.l message.created_at, format: "%a %e %b à %l:%M" %></i>
     </small>
     <p><%= message.content %></p>
   </div>

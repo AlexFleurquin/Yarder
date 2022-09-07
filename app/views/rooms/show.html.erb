@@ -51,12 +51,12 @@
           </div>
         </div>
         <div class="row" style="height: 48%">
-          <div class="col-6" style="height: 100%">
+          <div class="col-6" style="height: 100%; margin-top: 12px">
             <% if @room.photos.fourth %>
               <%= cl_image_tag @room.photos.fourth.key, class: "photo-small" %>
             <% end %>
           </div>
-          <div class="col-6" style="height: 100%">
+          <div class="col-6" style="height: 100%; margin-top: 12px">
             <% if @room.photos.fifth %>
               <%= cl_image_tag @room.photos.fifth.key, class: "photo-small" %>
             <% end %>

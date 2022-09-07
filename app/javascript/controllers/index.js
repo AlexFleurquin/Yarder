@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ScrolldownConversationController from "./scrolldown_conversation_controller"
+application.register("scrolldown-conversation", ScrolldownConversationController)
+
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 

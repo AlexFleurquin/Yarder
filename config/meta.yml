@@ -1,0 +1,5 @@
+meta_product_name: "yarder"
+meta_title: "yarder | Suivez simplement et sereinement vos projets de rénovation"
+meta_description: "Vous avez des travaux à réaliser chez vous ? Gérer simplement votre projet de rénovation depuis yarder."
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@getyarder"   # required for Twitter Cards

@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def skip_projects?
     (controller_name == "sessions" && action_name == "new") || (controller_name == "registrations" && action_name == "new") || (action_name == "home") || (controller_name == "omniauth_callbacks") || (action_name == "self.from_omniauth")
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end

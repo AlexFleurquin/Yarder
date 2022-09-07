@@ -235,3 +235,14 @@ body.dark .task-badge {
   background-color: $project-blue;
   color: white;
 }
+
+.calendar-badge {
+  padding: 1px 4px;
+  background: #1C1C28;
+  border: 1px solid #393953;
+  border-radius: 8px;
+  color: white;
+  font-size: 8px;
+  align-items: center;
+  display: flex;
+}

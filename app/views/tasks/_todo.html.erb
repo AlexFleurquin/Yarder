@@ -40,22 +40,22 @@
               </div>
               <div class="modal-body">
                 <div class="d-flex justify-content-between">
-                  <div>
-                    <span class="label">Description</span>
-                    <p><%= task.description %></p>
-                  </div>
+                  <% if task.user %>
+                    <div>
+                      <span class="label"><i class="fa-regular fa-user"></i></i> Artisan</span>
+                      <p> <%= task.user.first_name %> <%= task.user.last_name %> </p>
+                    </div>
+                  <% end %>
                   <div>
                     <% if task.user %>
                       <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
                     <% end %>
                   </div>
                 </div>
-                <% if task.user %>
-                  <div>
-                    <span class="label"><i class="fa-regular fa-user"></i></i> Artisan</span>
-                    <p> <%= task.user.first_name %> <%= task.user.last_name %> </p>
-                  </div>
-                <% end %>
+                <div>
+                  <span class="label">Description</span>
+                  <p><%= task.description %></p>
+                </div>
                 <div>
                   <span class="label"><i class="fa-solid fa-list-check"></i> Statut</span>
                   <p> <%= task.status %></p>

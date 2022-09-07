@@ -44,10 +44,6 @@ gem "simple_calendar", "~> 2.4"
 gem 'omniauth-google-oauth2'
 
 
-# Facebook OAuth
-gem 'omniauth-facebook'
-gem 'omniauth-rails_csrf_protection', '~> 1.0'
-
 # Internationalization (I18n)
 gem 'rails-i18n'
 

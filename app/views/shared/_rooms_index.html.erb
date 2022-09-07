@@ -37,7 +37,7 @@
           <%= render :partial => 'svg/empty_room' %>
           <h5 class="mt-5">Commencer par ajouter une pièce</h5>
           <p class="mt-1">Ajouter facilement une pièce pour préparer sa rénovation</p>
-          <button type="button" class="btn btn-empty mt-4" data-bs-toggle="modal" data-bs-target="#addroom"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
+          <button type="button" class="btn btn-empty mt-4"><i class="fa-solid fa-plus"></i> Ajouter une pièce</button>
         </div>
       <% else %>
         <% @rooms.each do |room| %>
@@ -49,18 +49,32 @@
                 </div>
               </div>
               <div class="col-8 container-tasks">
-                <h4><div class="row">Dernières taches ajoutées</div></h4>
-                <% room.tasks.each do |task| %>
-                  <div class="d-flex justify-content-between card-task-row">
-                    <p class="task-title"><%= task.name %></p>
-                    <% if task.category %>
-                      <span class="task-badge"><%= task.category %></span>
+
+                <% if room.tasks.empty? %>
+                  <div class="d-flex flex-column align-items-center">
+                    <%= render :partial => 'svg/empty_doc' %>
+                    <h5 class="mt-3">Pas encore de tâches ?</h5>
+                    <p class="mt-1">Créer des tâches pour prévoir les futurs interventions de vos artisans.</p>
+                    <%= link_to project_room_path(@project, room) do  %>
+                      <button type="button" class="btn btn-empty mt-3"><i class="fa-solid fa-plus"></i> Créer une tâche</button>
                     <% end %>
                   </div>
+                <% else %>
+                  <h4><div class="row">Dernières taches ajoutées</div></h4>
+                  <% room.tasks.each do |task| %>
+                    <div class="d-flex justify-content-between card-task-row">
+                      <p class="task-title"><%= task.name %></p>
+                      <% if task.category %>
+                        <span class="task-badge"><%= task.category %></span>
+                      <% end %>
+                    </div>
+                  <% end %>
                 <% end %>
-                <div class="d-flex justify-content-end">
-                  <%= link_to "En savoir plus", project_room_path(room.project, room), class: "btn btn-primary", style: "width: 200px;" %>
-                </div>
+                <% if room.tasks.empty? == false %>
+                  <div class="d-flex justify-content-end">
+                    <%= link_to "En savoir plus", project_room_path(room.project, room), class: "btn btn-primary" %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@
   width: 900px;
   border-radius: 10px;
   background: white;
-  height: 600px;
+  height: 500px;
   position: relative;
 }
 
@@ -10,12 +10,19 @@ body.dark .container_form {
   background: $dark-card;
 }
 
+.create_project {
+  padding-left: 50px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 .row_progress_suivant {
   align-items: center;
   width: 90%;
   position: absolute;
   left: 60px;
-  bottom: -70px;
+  bottom: -35px;
+  margin-left: 1px;
 }
 
 .img_preview {
@@ -27,14 +34,14 @@ body.dark .container_form {
 
 .submit_form {
   position: absolute;
-  bottom: 160px;
+  bottom: 30px;
   width: 500px;
   margin-left: 320px;
 }
 
 .submit_form_new {
   position: absolute;
-  bottom: 160px;
+  bottom: 30px;
   width: 500px;
   margin-left: 310px;
 }

@@ -24,7 +24,13 @@ export default class extends Controller {
     const response = await fetch(`/chatrooms/${this.chatroomIdValue}/messages`, options)
     const data = await response.json()
 
-    this.listTarget.insertAdjacentHTML('beforeend', data.html)
+    this.#insertMessageAndScrollDown(data)
     this.contentTarget.value = ""
+
+  }
+
+  #insertMessageAndScrollDown(data) {
+    this.listTarget.insertAdjacentHTML('beforeend', data.html);
+    this.listTarget.scrollTo(0, this.listTarget.scrollHeight);
   }
 }

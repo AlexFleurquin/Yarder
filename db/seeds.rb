@@ -78,8 +78,8 @@ participation2.save!
 participation3.save!
 participation4.save!
 
-chatroom1 = Chatroom.new(client_id: user1.id, professional_id: user4.id, created_at: "2022-08-25 00:00:00 UTC", updated_at: "2022-08-28 00:00:00 UTC")
-chatroom2 = Chatroom.new(client_id: user1.id, professional_id: user2.id, created_at: "2022-09-01 00:00:00 UTC", updated_at: "2022-09-07 00:00:00 UTC")
+chatroom1 = Chatroom.new(client_id: user1.id, professional_id: user2.id, created_at: "2022-08-25 00:00:00 UTC", updated_at: "2022-08-28 00:00:00 UTC")
+chatroom2 = Chatroom.new(client_id: user1.id, professional_id: user4.id, created_at: "2022-09-01 00:00:00 UTC", updated_at: "2022-09-07 00:00:00 UTC")
 chatroom3 = Chatroom.new(client_id: user1.id, professional_id: user7.id, created_at: "2022-08-27 00:00:00 UTC", updated_at: "2022-08-31 00:00:00 UTC")
 chatroom4 = Chatroom.new(client_id: user1.id, professional_id: user5.id, created_at: "2022-08-15 00:00:00 UTC", updated_at: "2022-08-23 00:00:00 UTC")
 chatroom5 = Chatroom.new(client_id: user1.id, professional_id: user9.id, created_at: "2022-08-19 00:00:00 UTC", updated_at: "2022-08-22 00:00:00 UTC")

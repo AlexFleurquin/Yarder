@@ -218,3 +218,24 @@ body.dark .btn-pro {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 }
+
+.btn-google {
+  background: #F43F5E;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: white;
+  border: transparent;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #F43F5E;
+    border: transparent;
+    color: white;
+  }
+}
+
+
+hr {
+  border-top: 1px solid $medium-gray;
+  width: 35%;
+}

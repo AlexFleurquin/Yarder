@@ -9,14 +9,24 @@
                 item_wrapper_class: 'category-item',
                 input_html: {class: 'category-selector', data: { action: "change->rooms-photo#display" }},
                 :label_html => { :class => 'label' }, label: "Type de pièce :" %>
-      <div class="row mt-2" style="width: 1130px; padding-left: 8px;">
-        <% Room::ROOM_TYPES.each do |room| %>
-          <div class="col-3" style="display: flex; justify-content: center; padding: 0; width: ">
-            <%= f.simple_fields_for room.to_sym do |ff|  %>
-              <%= ff.input :photos, as: :file,
-                            input_html: { multiple: true, class: "d-none" },
-                            label_html: { id: room, class: 'upload_photo d-none', data: {rooms_photo_target: "hidden"}}, label: '📷 Ajouter des photos' %>
-            <% end %>
+      <div class="row mt-2" style="width: 1142px; padding-left: 26px;">
+        <% Room::ROOM_TYPES.each_with_index do |room, i| %>
+          <div class="col-3" data-controller="preview" data-preview-room-value="<%=i%>" style="display: flex; justify-content: center; padding: 0;">
+            <div class="container">
+              <div class="row">
+                <%= f.simple_fields_for room.to_sym do |ff|  %>
+                  <%= ff.input :photos, as: :file,
+                                input_html: { multiple: true, class: "d-none", data: { action: "change->preview#previewMultiple" }},
+                                label_html: { id: room, class: 'upload_photo d-none', data: {rooms_photo_target: "hidden"}}, label: '📷 Photos',
+                                required: false %>
+                <% end %>
+              </div>
+              <div class="row" style="position: relative; height: 100px">
+                <img id="output1<%=i%>" class="d-none small_img_preview" data-preview-target="output1" src="#" alt="your image" style="border-radius: 4px; position: absolute; left: 12px; top: -12px" />
+                <img id="output2<%=i%>" class="d-none small_img_preview" data-preview-target="output2" src="#" alt="your image" style="border-radius: 4px; position: absolute; left: 80px; top: 8px" />
+                <img id="output3<%=i%>" class="d-none small_img_preview" data-preview-target="output3" src="#" alt="your image" style="border-radius: 4px; position: absolute; left: 140px; top: 30px" />
+              </div>
+            </div>
           </div>
         <% end %>
       </div>

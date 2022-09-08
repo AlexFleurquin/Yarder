@@ -16,6 +16,18 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    this.map.scrollZoom.disable();
+    this.map.scrollZoom.setWheelZoomRate(0.02); // Default 1/450
+
+    this.map.on("wheel", event => {
+      if (event.originalEvent.ctrlKey) { // Check if CTRL key is pressed
+        event.originalEvent.preventDefault(); // Prevent chrome/firefox default behavior
+        if (!this.map.scrollZoom._enabled) this.map.scrollZoom.enable(); // Enable zoom only if it's disabled
+      } else {
+        if (this.map.scrollZoom._enabled) this.map.scrollZoom.disable(); // Disable zoom only if it's enabled
+      }
+    });
   }
 
   #addMarkersToMap() {

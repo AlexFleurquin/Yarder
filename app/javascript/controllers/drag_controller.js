@@ -38,7 +38,7 @@ export default class extends Controller {
     let data = new FormData()
     console.log(csrf)
     data.append("position", event.newIndex + 1)
-    console.log(event)
+    data.append("status", event.to.dataset.dragTarget)
 
     this.#fetchWithToken(url, {
       method: "PATCH",

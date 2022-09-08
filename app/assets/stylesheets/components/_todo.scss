@@ -26,4 +26,10 @@ body.dark .task-card {
 
 .colonne {
   min-height: 250px;
+  li {
+    cursor: grab;
+  }
+  li:active {
+    cursor: grabbing;
+  }
 }

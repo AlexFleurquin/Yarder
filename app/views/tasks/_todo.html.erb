@@ -9,7 +9,7 @@
     <div class="col-4">
       <p class="ms-5">A faire</p>
       <ul class="todo-section colonne" data-drag-target="todo" >
-      <% @tasks.order(position: :asc).each do |task| %>
+      <% @todo.order(position: :asc).each do |task| %>
         <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card">
           <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
             <div class="d-flex justify-content-between">
@@ -92,11 +92,53 @@
     </div>
     <div class="col-4">
       <p class="ms-5">En cours</p>
-      <ul data-drag-target="inProgress" class="colonne"></ul>
+      <ul data-drag-target="inProgress" class="colonne">
+        <% @inprogress.order(position: :asc).each do |task| %>
+          <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card">
+            <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
+              <div class="d-flex justify-content-between">
+                <h6><%= task.name %></h6>
+                <% if task.category %>
+                  <span class="task-badge"><%= task.category %></span>
+                <% end %>
+              </div>
+              <div class="d-flex justify-content-between align-items-end pt-3">
+                <% if task.start_date && task.end_date %>
+                  <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= I18n.l task.end_date, format: '%e %B' %></p>
+                <% end %>
+                <% if task.user %>
+                  <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                <% end %>
+              </div>
+            </a>
+          </li>
+        <% end %>
+      </ul>
     </div>
     <div class="col-4">
       <p class="ms-5">Complété</p>
-      <ul data-drag-target="done" class="colonne"></ul>
+      <ul data-drag-target="done" class="colonne">
+        <% @completed.order(position: :asc).each do |task| %>
+          <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card">
+            <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
+              <div class="d-flex justify-content-between">
+                <h6><%= task.name %></h6>
+                <% if task.category %>
+                  <span class="task-badge"><%= task.category %></span>
+                <% end %>
+              </div>
+              <div class="d-flex justify-content-between align-items-end pt-3">
+                <% if task.start_date && task.end_date %>
+                  <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= I18n.l task.end_date, format: '%e %B' %></p>
+                <% end %>
+                <% if task.user %>
+                  <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                <% end %>
+              </div>
+            </a>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

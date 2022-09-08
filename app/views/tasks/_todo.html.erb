@@ -77,7 +77,7 @@
 
 
                 <div class="d-flex justify-content-between">
-                  <%= link_to chatrooms_path do  %>
+                  <%= link_to chatrooms_path(query: task.user.first_name) do  %>
                     <button type="button" class="btn btn-primary">Contacter  <% if task.user %> <%= task.user.first_name %> <% end %> 💬</button>
                   <% end %>
                   <%= link_to room_task_path(@room, task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>

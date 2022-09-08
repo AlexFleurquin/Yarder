@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-OmniAuth.config.allowed_request_methods = [:get]
+OmniAuth.config.allowed_request_methods = %i[get]
 
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
@@ -274,7 +274,10 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
 
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {}
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {
+    scope: 'email profile',
+    "skip_jwt" => true
+  }
 
 
   # ==> Warden configuration

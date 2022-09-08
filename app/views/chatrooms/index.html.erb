@@ -31,6 +31,17 @@
               </div>
             </button>
           <% end %>
+            <button class="btn-transparent" type="button" aria-selected="true">
+              <%= link_to artisans_path, class:'text-decoration-none text-dark' do %>
+                <div class="d-flex flex-row justify-content-start align-items-center contact-item" data-action="click->scrolldown-conversation#scrolldown">
+                  <%= image_tag 'profile.jpeg', class: "avatar-blur me-4 " %>
+                  <div class="d-flex flex-column justify-content-end align-items-start">
+                    <h6 class="mb-0">Parler à quelqu'un d'autre</h6>
+                    <p style="text-align: left;">Trouver l'artisan de vos rêves</p>
+                  </div>
+                </div>
+              <% end %>
+            </button>
         </div>
       </div>
       <div class="col-8 chat-right">
@@ -38,11 +49,19 @@
           <% @chatrooms.each do |chatroom| %>
             <div class="tab-pane fade show <%= 'active' if chatroom.professional.first_name == params[:query] %>" id="v-pills-<%= chatroom.id %>" role="tabpanel" aria-labelledby="v-pills-<%= chatroom.id %>-tab" tabindex="0" data-controller="update-messages" data-update-messages-chatroom-id-value="<%= chatroom.id %>">
               <div class="messages" data-update-messages-target="list" data-scrolldown-conversation-target="conversation">
-                <% chatroom.messages.each do |message| %>
-                  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-                    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-                      <%= render "messages/message", message: message %>
+                <% if chatroom.messages != [] %>
+                  <% chatroom.messages.each do |message| %>
+                    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                        <%= render "messages/message", message: message %>
+                      </div>
                     </div>
+                  <% end %>
+                <% else %>
+                  <div class="d-flex flex-column align-items-center mt-5">
+                    <%= render :partial => 'svg/empty' %>
+                    <h5 class="mt-5">Ecrivez votre premier message</h5>
+                    <p class="mt-1">"Hello <%= chatroom.professional.first_name %> 💬"</p>
                   </div>
                 <% end %>
               </div>

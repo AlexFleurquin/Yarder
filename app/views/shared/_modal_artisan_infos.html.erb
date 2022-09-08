@@ -47,7 +47,7 @@
                 Déjà sur <%= project.name %>
               </li>
             <% else %>
-              <li style="width: 300px; padding-left: 12px" >
+              <li class="p-1">
                 <%= simple_form_for [project, @participation] do |f| %>
                 <div class="d-none">
                   <%= f.input :user_id, input_html: {value: artisan.id} %>

@@ -134,6 +134,8 @@ body.dark .contact-item {
   position: absolute;
   right: 0;
   height: calc(100vh - 255px);
+  background-color: white;
+  border-radius: 6px;
 }
 
 .messages {

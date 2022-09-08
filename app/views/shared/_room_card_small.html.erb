@@ -28,7 +28,7 @@
         <div class="d-flex">
           <% room.tasks.each do |task| %>
             <div style="margin-left: -14px;">
-              <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", style: "border: white solid;", alt: "avatar" %>
+              <%= image_tag (cl_image_path task.user.photo.key), class: "avatar-bordered", alt: "avatar" %>
             </div>
           <% end %>
         </div>

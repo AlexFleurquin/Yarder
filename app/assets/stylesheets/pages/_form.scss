@@ -207,10 +207,28 @@ body.dark .container_form {
 
 .form-select {
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
   border-radius: 4px;
+  line-height: 22px !important;
+  padding: 10px !important;
+  font-size: 14px !important;
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 400;
   color: #0E0000;
+}
+
+body.dark .form-select {
+  background-color: $dark-card;
+  color: white;
+}
+
+.form-control {
+  line-height: 22px !important;
+  padding: 10px !important;
+  font-size: 14px !important;
+  background-color: white;
+}
+
+body.dark .form-control {
+  background-color: $dark-card;
+  color: white;
 }

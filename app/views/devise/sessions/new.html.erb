@@ -31,7 +31,7 @@
           <% end %>
           <div class="hr mt-4"></div>
 
-          <%= render "devise/shared/links" %>
+          <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %>
 
 
           <div class="py-5">

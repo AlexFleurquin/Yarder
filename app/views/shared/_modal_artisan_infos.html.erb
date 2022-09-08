@@ -43,8 +43,8 @@
         <ul class="dropdown-menu">
           <% current_user.projects.each do |project| %>
             <% if project.assigned?(artisan) %>
-              <li class="btn btn-form disabled width: 300px">
-                Déjà sur <%= project.name %>
+              <li class="btn disabled">
+                <i class="fa-solid fa-circle-exclamation"></i> Déjà sur <%= project.name %>
               </li>
             <% else %>
               <li class="p-1">
@@ -52,7 +52,7 @@
                 <div class="d-none">
                   <%= f.input :user_id, input_html: {value: artisan.id} %>
                 </div>
-                  <%= f.submit "Ajouter à #{project.name}", class:'btn btn-primary' %>
+                  <%= f.submit "Ajouter à #{project.name}", class:'btn btn-transparent' %>
                 <% end %>
               </li>
             <% end %>

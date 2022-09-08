@@ -138,6 +138,10 @@ body.dark .contact-item {
   border-radius: 6px;
 }
 
+body.dark .chat-right {
+  background-color: $dark-card;
+}
+
 .messages {
   height: calc(100vh - 325px);
   position: relative;

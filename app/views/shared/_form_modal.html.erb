@@ -31,7 +31,9 @@
         <% end %>
       </div>
       <div class="d-flex justify-content-center">
-        <%= f.submit "Ajouter", class: "btn btn-primary submit_form"%>
+        <%= button_tag(type: 'submit', class: "btn btn-primary submit_form") do %>
+          <i class="fa-solid fa-plus"></i> Ajouter
+        <% end %>
       </div>
     <% end %>
   </div>

@@ -31,8 +31,9 @@ body.dark .card-params {
 .cards-rooms {
   display: grid;
   padding: 0px;
-  gap: 88px;
-  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .card-room {

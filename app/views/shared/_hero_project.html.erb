@@ -1,7 +1,7 @@
 
 <div class="d-flex justify-content-between">
   <h1>Bienvenue à la maison</h1>
-  <div class="dropdown">
+  <div class="dropdown bg-transparent">
 
     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <h6>
@@ -11,15 +11,15 @@
 
     <ul class="dropdown-menu">
       <%= link_to edit_project_path(@project), class: 'text-decoration-none' do %>
-        <li><p class="dropdown-item"><i class="fa-solid fa-pen pe-2"></i>Modifier</p></li>
+        <li><p class="dropdown-item mb-0"><i class="fa-solid fa-pen pe-2"></i>Modifier</p></li>
       <% end %>
       <%= link_to project_path(@project), class: 'text-decoration-none', data: {turbo_method: :delete, controller: "sweetalert", action: "click->sweetalert#projectDelete", sweetalert_path_value: project_path(@project) } do %>
-        <li><p class="dropdown-item"><i class="fa-solid fa-trash pe-2" id="sweet-alert-delete"></i>Supprimer</p></li>
+        <li><p class="dropdown-item mb-0"><i class="fa-solid fa-trash pe-2" id="sweet-alert-delete"></i>Supprimer</p></li>
       <% end %>
     </ul>
   </div>
 </div>
-<div class="row hero-project" style="padding-left: calc(var(--bs-gutter-x) * 1);">
+<div class="row hero-project" >
   <% if @project.photo.key %>
     <div class="col-7 d-flex img-hero" style="background-image: url('<%= cl_image_path @project.photo.key %>')">
       <div class="d-flex flex-direction-row align-items-end">
@@ -38,7 +38,7 @@
   <% end %>
 
 
-  <div class="col-5 card-params border-start border-dark border-2"
+  <div class="col-5 card-params"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

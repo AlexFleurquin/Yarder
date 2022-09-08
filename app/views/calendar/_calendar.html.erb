@@ -9,7 +9,7 @@
   <% tasks.each do |task| %>
     <div class="meeting-card">
       <a data-bs-toggle="modal" data-bs-target="#task-<%= task.id %>">
-        <p><h6><%= task.name %></h6></p>
+        <p class=""><%= task.name %></p>
         <div class="d-flex flex-row justify-content-between align-items-center">
           <% unless task.multi_days? %>
             <small><%= task.time  %></small>
@@ -17,7 +17,7 @@
             <small class="calendar-badge">Multi</small>
           <% end %>
           <% if task.user %>
-            <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+            <%= image_tag (cl_image_path task.user.photo.key), class: "avatar-task", alt: "avatar" %>
           <% end %>
         </div>
       </a>

@@ -20,10 +20,10 @@
             </div>
             <div class="d-flex justify-content-between align-items-end pt-3">
               <% if task.start_date && task.end_date %>
-                <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= I18n.l task.end_date, format: '%e %B' %></p>
+                <p class="task-status"><i class="fa-solid fa-clock-rotate-left"></i> <%= I18n.l task.end_date, format: '%e %B' %></p>
               <% end %>
               <% if task.user %>
-                <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                <%= image_tag (cl_image_path task.user.photo.key), class: "avatar-task", alt: "avatar" %>
               <% end %>
             </div>
           </a>
@@ -104,10 +104,10 @@
               </div>
               <div class="d-flex justify-content-between align-items-end pt-3">
                 <% if task.start_date && task.end_date %>
-                  <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= I18n.l task.end_date, format: '%e %B' %></p>
+                  <p class="task-status"><i class="fa-solid fa-clock-rotate-left"></i> <%= I18n.l task.end_date, format: '%e %B' %></p>
                 <% end %>
                 <% if task.user %>
-                  <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                  <%= image_tag (cl_image_path task.user.photo.key), class: "avatar-task", alt: "avatar" %>
                 <% end %>
               </div>
             </a>
@@ -128,11 +128,9 @@
                 <% end %>
               </div>
               <div class="d-flex justify-content-between align-items-end pt-3">
-                <% if task.start_date && task.end_date %>
-                  <p class=""><i class="fa-solid fa-clock-rotate-left"></i> <%= I18n.l task.end_date, format: '%e %B' %></p>
-                <% end %>
+                  <p class="task-status text-success"><i class="fa-solid fa-circle-check"></i> Terminé</p>
                 <% if task.user %>
-                  <%= image_tag (cl_image_path task.user.photo.key), class: "avatar", alt: "avatar" %>
+                  <%= image_tag (cl_image_path task.user.photo.key), class: "avatar-task", alt: "avatar" %>
                 <% end %>
               </div>
             </a>

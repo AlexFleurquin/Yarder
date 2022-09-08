@@ -24,11 +24,11 @@
       </div>
 
       <div class="d-flex justify-content-between flex-direction-row">
-        <p> <%= room.tasks.count %> tâches en cours</p>
+        <p class="task-status"><%= room.tasks.count %> tâches en cours</p>
         <div class="d-flex">
           <% room.tasks.each do |task| %>
             <div style="margin-left: -14px;">
-              <%= image_tag (cl_image_path task.user.photo.key), class: "avatar-bordered", alt: "avatar" %>
+              <%= image_tag (cl_image_path task.user.photo.key), class: "avatar-bordered-small", alt: "avatar" %>
             </div>
           <% end %>
         </div>

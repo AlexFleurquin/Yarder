@@ -197,7 +197,12 @@ body.dark .btn-pro {
 .btn-transparent {
   border: transparent;
   background-color: transparent;
+
+  &:hover {
+    color: $project-blue;
+  }
 }
+
 
 .btn:disabled, .btn.disabled, fieldset:disabled .btn {
   border-color: transparent;

@@ -11,26 +11,26 @@
       </div>
       <div class="modal-body">
         <% if artisan.speciality %>
-          <div>
-            <p class="label">Spécialité</p>
+          <div class="mb-4">
+            <p class="label mb-1">Spécialité</p>
             <%= artisan.speciality %>
           </div>
         <% end %>
         <% if artisan.bio %>
-          <div>
-            <p class="label">Bio</p>
+          <div class="mb-4">
+            <p class="label mb-1">Bio</p>
             <%= artisan.bio %>
           </div>
         <% end %>
         <% if artisan.email %>
-          <div>
-            <p class="label">Email</p>
+          <div class="mb-3">
+            <p class="label mb-1 mt-4">Email</p>
             <%= artisan.email %>
           </div>
         <% end %>
         <% if artisan.phone_number %>
           <div>
-            <p class="label">Numéro de téléphone</p>
+            <p class="label mb-1 mt-4">Numéro de téléphone</p>
             <%= artisan.phone_number %>
           </div>
         <% end %>

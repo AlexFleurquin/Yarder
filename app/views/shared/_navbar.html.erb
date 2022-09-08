@@ -4,7 +4,7 @@
       <%= image_tag "logo_with_text.svg", alt: "Yarder logo"%>
     <% end %>
   </ul>
-  <ul class="navbar-nav ms-5">
+  <ul class="navbar-nav">
     <% if current_user %>
       <li class="nav-item">
         <%= link_to dashboard_path, class: "nav-link mx-4 p-0"  do %>
@@ -39,8 +39,8 @@
         <% end %>
       </li>
     <% else %>
-      <li class="nav-item mx-4">Artisans</li>
-      <li class="nav-item">Particulier</li>
+      <li class="nav-item ms-2 me-4">Artisans</li>
+      <li class="nav-item ms-4">Particulier</li>
     <% end %>
   </ul>
   <ul class="navbar-nav d-flex align-items-baseline">

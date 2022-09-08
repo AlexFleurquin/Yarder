@@ -40,8 +40,6 @@ gem "geocoder"
 # Use simple calendar
 gem "simple_calendar", "~> 2.4"
 
-# Google OAuth
-gem 'omniauth-google-oauth2'
 
 
 # Internationalization (I18n)
@@ -69,6 +67,11 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "devise"
+# Google OAuth
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection", "~> 1.0
+"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"

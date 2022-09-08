@@ -16,6 +16,29 @@
 }
 
 .form-inputs input {
-    border-color: $purple-light;
-    border-radius: 4px;
+    border: transparent;
+    background-color: white;
+
+    &:hover {
+      border-color: 1px solid $purple-light;
+    }
+
+    &:focus {
+      border-color: $purple-light;
+      background-color: white;
+    }
   }
+
+body.dark .form-inputs input {
+  border: transparent;
+  background-color: $medium-gray;
+
+  &:hover {
+    border-color: 1px solid white;
+  }
+
+  &:focus {
+    border-color: white;
+    background-color: $medium-gray;
+  }
+}

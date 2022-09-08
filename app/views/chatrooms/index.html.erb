@@ -25,7 +25,7 @@
                 <div class="d-flex flex-column justify-content-end align-items-start">
                   <h6 class="mb-0"><%= chatroom.professional.first_name %> <%= chatroom.professional.last_name %></h6>
                   <% if chatroom.messages != [] %>
-                    <p style="text-align: left;"><%= chatroom.messages.last.content.first(50) %>...</p>
+                    <p style="text-align: left;"><%= chatroom.messages.last.content.first(80) %>...</p>
                   <% end %>
                 </div>
               </div>

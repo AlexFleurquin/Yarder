@@ -8,7 +8,7 @@ Room.destroy_all
 Project.destroy_all
 User.destroy_all
 
-puts "Creating 9 users (1 client, 8 pros), 1 project, 2 rooms, 3 photos for each room, 4 tasks, 4 participations and 6 chatrooms..."
+puts "Creating 9 users (1 client, 8 pros), 1 project, 2 rooms, 3 photos for each room, 4 tasks, 4 participations, 6 chatrooms and 13 messages (8 in the chatroom1 and 1 in the 5 others chatrooms) ..."
 
 
 user1 = User.new(first_name: 'Boris', last_name: 'Paillard', email: 'boris@abc.com', password: 'azerty', phone_number: '0503050434')
@@ -91,5 +91,33 @@ chatroom3.save!
 chatroom4.save!
 chatroom5.save!
 chatroom6.save!
+
+message1 = Message.new(chatroom_id: chatroom1.id, user_id: user1.id, content: "Bonjour Paul, un ami m'a dit que vous étiez l'homme idéal pour des travaux de maçonnerie. Pourriez-vous svp me faire parvenir un devis pour la cuisine de ce projet?")
+message2 = Message.new(chatroom_id: chatroom1.id, user_id: user2.id, content: "Bonjour Boris, oui bien sur, je vous envoie le devis sur votre espace personnel.")
+message3 = Message.new(chatroom_id: chatroom1.id, user_id: user1.id, content: "Merci beaucoup cela me convient très bien, on peut entamer les travaux.")
+message4 = Message.new(chatroom_id: chatroom1.id, user_id: user2.id, content: "Ca marche. Je commence les travaux bientot et vous notifie une fois que ce sera finit.")
+message5 = Message.new(chatroom_id: chatroom1.id, user_id: user1.id, content: "Merci!")
+message6 = Message.new(chatroom_id: chatroom1.id, user_id: user1.id, content: "Bonjour Paul, j'espère que tout va bien de ton côté, je me permets de vous contacter car j'ai un nouveau projet qui va commencer et sur lequel je voudrais travailler aussi avec vous, si cela vous convient?")
+message7 = Message.new(chatroom_id: chatroom1.id, user_id: user2.id, content: "Bonjour Boris. J'allais justement vous contacter car les travaux dans la cuisine au 16 villa Gaudelet sont terminés.")
+message8 = Message.new(chatroom_id: chatroom1.id, user_id: user2.id, content: "Bien sur pour le nouveau projet, je vous laisse me transmettre les details.")
+message9 = Message.new(chatroom_id: chatroom2.id, user_id: user4.id, content: "Parfait je vous envoie le devis dès que possible, normalement demain matin.")
+message10 = Message.new(chatroom_id: chatroom3.id, user_id: user7.id, content: "Pourriez-vous m'envoyer les photos de la salle de bain pour que je puisse estimer?")
+message11 = Message.new(chatroom_id: chatroom4.id, user_id: user5.id, content: "Je viens d'installer le disjoncteur pour ton info.")
+message12 = Message.new(chatroom_id: chatroom5.id, user_id: user9.id, content: "Hello Boris, ravi de faire ta connaissance aussi! J'espère que nous aurons l'occasion de travailler ensemble!")
+message13 = Message.new(chatroom_id: chatroom6.id, user_id: user3.id, content: "Désolé je ne peux pas, je verrai directement dans ton calendrier tes disponibilités.")
+
+message1.save!
+message2.save!
+message3.save!
+message4.save!
+message5.save!
+message6.save!
+message7.save!
+message8.save!
+message9.save!
+message10.save!
+message11.save!
+message12.save!
+message13.save!
 
 puts "Done!"

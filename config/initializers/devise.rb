@@ -275,6 +275,7 @@ Devise.setup do |config|
   # up on your models and hooks.
 
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {
+    scope: 'email profile',
     "skip_jwt" => true
   }
 

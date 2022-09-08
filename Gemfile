@@ -40,7 +40,7 @@ gem "geocoder"
 # Use simple calendar
 gem "simple_calendar", "~> 2.4"
 
-
+gem "pry-byebug"
 
 # Internationalization (I18n)
 gem 'rails-i18n'

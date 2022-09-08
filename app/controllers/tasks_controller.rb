@@ -15,6 +15,12 @@ class TasksController < ApplicationController
   def move
     @task = Task.find(params[:id])
     @task.insert_at(params[:position].to_i)
+    case params[:status]
+    when "done" then @task.status = "Faite"
+    when "inProgress" then @task.status = "En cours"
+    when "todo" then @task.status = "A faire"
+    end
+    @task.save!
     head :ok
   end
 

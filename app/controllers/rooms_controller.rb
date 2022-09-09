@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @task = Task.new
     @tasks = @room.tasks
-    @todo = @tasks.where(status: "A faire")
+    @todo = @tasks.where(status: "À faire")
     @inprogress = @tasks.where(status: "En cours")
     @completed = @tasks.where(status: "Faite")
   end

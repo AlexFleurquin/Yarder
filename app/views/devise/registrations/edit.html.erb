@@ -72,11 +72,11 @@
             <%= f.input :email, required: true, autofocus: true %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <p>En attente de conformation : <%= resource.unconfirmed_email %></p>
             <% end %>
 
             <%= f.input :password,
-                        hint: "leave it blank if you don't want to change it",
+                        hint: "Laissez cette partie vide si vous ne voulez pas changer",
                         required: false,
                         input_html: { autocomplete: "Nouveau mot de passe" } %>
             <%= f.input :password_confirmation,
@@ -96,7 +96,7 @@
         <h6>Supprimer mon compte ?</h6>
 
         <div class="d-flex align-items-center">
-          <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
+          <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Êtes vous sûr ?" }, method: :delete, class: "btn btn-link" %>
         </div>
 
       </div>

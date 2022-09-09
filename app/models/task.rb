@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  STATUS_TYPES = ['A faire', 'En cours', 'Faite']
+  STATUS_TYPES = ['À faire', 'En cours', 'Faite']
   belongs_to :room
   belongs_to :user, optional: true
 

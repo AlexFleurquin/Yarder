@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     @room = Room.find(params[:room_id])
     @task = Task.new(task_params)
     @task.room = @room
-    @task.status = "A faire"
+    @task.status = "À faire"
     @task.save
     redirect_to project_room_path(@room.project, @room)
   end
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     case params[:status]
     when "done" then @task.status = "Faite"
     when "inProgress" then @task.status = "En cours"
-    when "todo" then @task.status = "A faire"
+    when "todo" then @task.status = "À faire"
     end
     @task.save!
     head :ok

@@ -7,7 +7,7 @@
   </div>
   <div class="row me-5" data-controller="drag" data-drag-animation-value="150" data-drag-name-value="task">
     <div class="col-4">
-      <p class="ms-5">A faire</p>
+      <p class="ms-5">À faire</p>
       <ul class="todo-section colonne" data-drag-target="todo" >
       <% @todo.order(position: :asc).each do |task| %>
         <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card">
@@ -80,7 +80,7 @@
                   <%= link_to chatrooms_path(query: task.user.first_name) do  %>
                     <button type="button" class="btn btn-primary">Contacter  <% if task.user %> <%= task.user.first_name %> <% end %> 💬</button>
                   <% end %>
-                  <%= link_to room_task_path(@room, task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+                  <%= link_to room_task_path(@room, task), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?"} do  %>
                     <button type="button" class="btn btn-delete"><i class="fa-solid fa-xmark px-2"></i>Supprimer</button>
                   <% end %>
                 </div>
@@ -116,7 +116,7 @@
       </ul>
     </div>
     <div class="col-4">
-      <p class="ms-5">Complété</p>
+      <p class="ms-5">Complétée</p>
       <ul data-drag-target="done" class="colonne">
         <% @completed.order(position: :asc).each do |task| %>
           <li data-id="<%= task.id %>" data-move="<%= move_path(task) %>" class="task-card d-flex flex-column justify-content-between link-card">

@@ -58,7 +58,7 @@
                           <i><%= I18n.l message.created_at, format: "%a %e %b à %l:%M" %></i>
                         </small>
                         <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-                          <p><%= message.content %></p>
+                          <%= render "messages/message", message: message %>
                         </div>
                       </div>
                     </div>

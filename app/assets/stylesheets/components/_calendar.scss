@@ -35,9 +35,8 @@ body.dark .simple-calendar {
 
 
 .meeting-card {
-  color: white;
   padding: 4px 6px 4px 6px;
-  background: #0EA5E9;
+  background-color: white;
   border-radius: 4px;
   transition: background 0.3s ease;
   margin: 4px;
@@ -46,6 +45,7 @@ body.dark .simple-calendar {
 .meeting-card:hover {
   background: $project-blue;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
 }
 
 .day-date {
@@ -56,7 +56,15 @@ body.dark .simple-calendar {
 
 body.dark .meeting-card {
   background: $dark-card;
+
+  &:hover {
+    background: $project-blue;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: white;
+  }
 }
+
+
 
 .day {}
 
@@ -105,3 +113,18 @@ body.dark .btn-calendar {
 .current-month {}
 
 .has-events {}
+
+
+.meeting-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+  color: #1E293B;
+}
+
+body.dark .meeting-title {
+  color: white;
+}

@@ -244,3 +244,18 @@ hr {
   border-top: 1px solid $medium-gray;
   width: 35%;
 }
+
+
+.btn-message {
+  background: #6366F1;
+  box-shadow: 0px 1px 2px rgba(15, 23, 42, 0.08);
+  border-radius: 0px 4px 4px 0px;
+  color: white;
+  border: transparent;
+
+  &:hover {
+    background-color: #5A5CDB;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}

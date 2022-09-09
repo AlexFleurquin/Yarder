@@ -65,6 +65,11 @@
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
+body.dark .receiver-style {
+  background-color: #FBAB7E;
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
 .sender-style .message-row.d-flex.justify-content-end, .receiver-style .message-row.d-flex.justify-content-end {
   display: block !important;
   margin: unset;
@@ -157,4 +162,9 @@ body.dark .chat-right {
 .container-message {
   width: 70%;
   max-width: 400px;
+}
+
+
+#message_content {
+  border-radius: 4px 0px 0px 4px;
 }

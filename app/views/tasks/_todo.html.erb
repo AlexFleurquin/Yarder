@@ -153,8 +153,8 @@
         <%= simple_form_for [@room, @task] do |f| %>
           <%= f.input :name, label: 'Titre', placeholder: "Peindre le plafond", required: false, autofocus: true, :label_html => { :class => 'label' } %>
           <%= f.input :description, label: 'Description', placeholder: "Peindre le plafond en blanc", required: false, autofocus: true, :label_html => { :class => 'label' } %>
-          <%= f.association :user, collection: @room.project.professionnals, label_method: :full_name, value_method: :id, label: 'Artisan', placeholder: "Monsieur propre", :label_html => { :class => 'label' } %>
-          <%= f.input :category, priority: [ "Peinture" ], collection: ['Peinture', 'Plomberie', 'Maçonnerie', 'Electricité', 'Menuiserie'], label: 'Type', :label_html => { :class => 'label' } %>
+          <%= f.association :user, collection: @room.project.professionnals, label_method: :full_name, value_method: :id, label: 'Artisan', prompt: "Monsieur propre", :label_html => { :class => 'label' } %>
+          <%= f.input :category, priority: [ "Peinture" ], collection: ['Peinture', 'Plomberie', 'Maçonnerie', 'Electricité', 'Menuiserie'], prompt: "Choisir une spécialité", label: 'Type', :label_html => { :class => 'label' } %>
           <div class="row" data-controller="flatpickr" >
             <div class="col-6">
               <%= f.input :start_date, as: :string, label: 'Début', placeholder: "1er Septembre 2022", required: false, input_html: { data: { flatpickr_target: 'startDateInput' } }, :label_html => { :class => 'label' }, data: {

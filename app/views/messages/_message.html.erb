@@ -1,0 +1,5 @@
+<div class="d-flex justify-content-end">
+  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>" >
+    <p><%= message.content %></p>
+  </div>
+</div>
